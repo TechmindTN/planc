@@ -1,0 +1,38 @@
+# Referenced at /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/app/intermediates/merged_manifests/release/AndroidManifest.xml:43
+-keep class androidx.core.app.CoreComponentFactory { <init>(); }
+# Referenced at /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/app/intermediates/merged_manifests/release/AndroidManifest.xml:43
+-keep class androidx.multidex.MultiDexApplication { <init>(); }
+# Referenced at /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/app/intermediates/merged_manifests/release/AndroidManifest.xml:256
+-keep class com.google.android.datatransport.runtime.backends.TransportBackendDiscovery { <init>(); }
+# Referenced at /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/app/intermediates/merged_manifests/release/AndroidManifest.xml:282
+-keep class com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver { <init>(); }
+# Referenced at /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/app/intermediates/merged_manifests/release/AndroidManifest.xml:276
+-keep class com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService { <init>(); }
+# Referenced at /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/app/intermediates/merged_manifests/release/AndroidManifest.xml:267
+-keep class com.google.android.gms.common.api.GoogleApiActivity { <init>(); }
+# Referenced at /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/app/intermediates/merged_manifests/release/AndroidManifest.xml:238
+-keep class com.google.firebase.auth.api.fallback.service.FirebaseAuthFallbackService { <init>(); }
+# Referenced at /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/app/intermediates/merged_manifests/release/AndroidManifest.xml:201
+-keep class com.google.firebase.auth.internal.GenericIdpActivity { <init>(); }
+# Referenced at /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/app/intermediates/merged_manifests/release/AndroidManifest.xml:219
+-keep class com.google.firebase.auth.internal.RecaptchaActivity { <init>(); }
+# Referenced at /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/app/intermediates/merged_manifests/release/AndroidManifest.xml:95
+-keep class com.google.firebase.components.ComponentDiscoveryService { <init>(); }
+# Referenced at /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/app/intermediates/merged_manifests/release/AndroidManifest.xml:192
+-keep class com.google.firebase.iid.FirebaseInstanceIdReceiver { <init>(); }
+# Referenced at /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/app/intermediates/merged_manifests/release/AndroidManifest.xml:183
+-keep class com.google.firebase.messaging.FirebaseMessagingService { <init>(); }
+# Referenced at /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/app/intermediates/merged_manifests/release/AndroidManifest.xml:249
+-keep class com.google.firebase.provider.FirebaseInitProvider { <init>(); }
+# Referenced at /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/app/intermediates/merged_manifests/release/AndroidManifest.xml:53
+-keep class com.techmind.planc.MainActivity { <init>(); }
+# Referenced at /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/app/intermediates/merged_manifests/release/AndroidManifest.xml:137
+-keep class io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingBackgroundService { <init>(); }
+# Referenced at /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/app/intermediates/merged_manifests/release/AndroidManifest.xml:158
+-keep class io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingInitProvider { <init>(); }
+# Referenced at /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/app/intermediates/merged_manifests/release/AndroidManifest.xml:149
+-keep class io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingReceiver { <init>(); }
+# Referenced at /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/app/intermediates/merged_manifests/release/AndroidManifest.xml:141
+-keep class io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingService { <init>(); }
+# Referenced at /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/app/intermediates/merged_manifests/release/AndroidManifest.xml:163
+-keep class io.flutter.plugins.imagepicker.ImagePickerFileProvider { <init>(); }
