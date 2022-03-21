@@ -14,17 +14,17 @@ import '../../../routes/app_pages.dart';
 import 'booking_options_popup_menu_widget.dart';
 
 class BookingsListItemWidget extends StatelessWidget {
-   BookingsListItemWidget({
+  BookingsListItemWidget({
     Key key,
     @required Booking booking,
   })  : _booking = booking,
         super(key: key);
 
   final Booking _booking;
- GetStorage box;
+  GetStorage box;
   @override
   Widget build(BuildContext context) {
-    box=GetStorage();
+    box = GetStorage();
     return GestureDetector(
       onTap: () {
         print(box.read('currentUser'));
@@ -42,7 +42,9 @@ class BookingsListItemWidget extends StatelessWidget {
                 Hero(
                   tag: _booking.id,
                   child: ClipRRect(
-                    borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        topRight: Radius.circular(10)),
                     child: CachedNetworkImage(
                       height: 80,
                       width: 80,
@@ -54,7 +56,8 @@ class BookingsListItemWidget extends StatelessWidget {
                         width: double.infinity,
                         height: 80,
                       ),
-                      errorWidget: (context, url, error) => Icon(Icons.error_outline),
+                      errorWidget: (context, url, error) =>
+                          Icon(Icons.error_outline),
                     ),
                   ),
                 ),
@@ -65,7 +68,8 @@ class BookingsListItemWidget extends StatelessWidget {
                       Text(DateFormat('HH:mm').format(_booking.dateTime),
                           maxLines: 1,
                           style: Get.textTheme.bodyText2.merge(
-                            TextStyle(color: Get.theme.primaryColor, height: 1.4),
+                            TextStyle(
+                                color: Get.theme.primaryColor, height: 1.4),
                           ),
                           softWrap: false,
                           textAlign: TextAlign.center,
@@ -90,7 +94,9 @@ class BookingsListItemWidget extends StatelessWidget {
                   ),
                   decoration: BoxDecoration(
                     color: Get.theme.accentColor,
-                    borderRadius: BorderRadius.only(bottomRight: Radius.circular(10), bottomLeft: Radius.circular(10)),
+                    borderRadius: BorderRadius.only(
+                        bottomRight: Radius.circular(10),
+                        bottomLeft: Radius.circular(10)),
                   ),
                   padding: EdgeInsets.symmetric(horizontal: 5, vertical: 6),
                 ),
@@ -170,7 +176,10 @@ class BookingsListItemWidget extends StatelessWidget {
                       ),
                       Expanded(
                         flex: 1,
-                        child: Align(alignment: AlignmentDirectional.centerEnd, child: Ui.getPrice(_booking.total, style: Get.textTheme.headline6)),
+                        child: Align(
+                            alignment: AlignmentDirectional.centerEnd,
+                            child:
+                                Text("40 dt", style: Get.textTheme.headline6)),
                       ),
                     ],
                   ),

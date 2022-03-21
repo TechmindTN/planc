@@ -6,7 +6,6 @@ import 'package:home_services_provider/app/models/Category.dart';
 import 'package:home_services_provider/app/models/Provider.dart';
 import 'package:home_services_provider/app/models/User.dart';
 
-
 class ServiceProviderNetwork {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   CollectionReference providersRef =
@@ -14,8 +13,7 @@ class ServiceProviderNetwork {
   UserNetwork userServices = UserNetwork();
   CategoryNetwork categoryServices = CategoryNetwork();
   BranchNetwork branchServices = BranchNetwork();
-    // UserNetwork userServices = UserNetwork();
-
+  // UserNetwork userServices = UserNetwork();
 
   Future<List<ServiceProvider>> getProvidersList() async {
     int index = 0;
@@ -70,64 +68,57 @@ class ServiceProviderNetwork {
     return providers;
   }
 
+  addProvider(ServiceProvider serviceProvider) {
+    Map<String, dynamic> mapdata = serviceProvider.tofire();
+    print('our user is ' + UserNetwork.dr.id);
+    mapdata['user'] = UserNetwork.dr;
+    providersRef.add(mapdata).then((value) {
+      print('provider added');
+      branchServices.addBranch(serviceProvider.branches.first, value.id);
+    });
+  }
 
-addProvider(ServiceProvider serviceProvider){
-      Map<String,dynamic> mapdata=serviceProvider.tofire();
-      print('our user is '+UserNetwork.dr.id);
-      mapdata['user']=UserNetwork.dr;
-     providersRef.add(mapdata).then((value) {
-        print('provider added');
-      branchServices.addBranch(serviceProvider.branches.first,value.id);
-      });
-      
+  Future<ServiceProvider> getProviderByUser(User user) async {
+    try {
+      print('hello from network');
 
-    }
+      ServiceProvider serviceProvider;
+      DocumentReference userref = await userServices.getUserRef(user.id);
+      QuerySnapshot snapshot =
+          await providersRef.where('user', isEqualTo: userref).get();
+      print('hello from network 2');
+      // snapshot..docs.first;
+      // DocumentSnapshot snapshot = await providersRef.doc(id).get();
+      serviceProvider = ServiceProvider.fromFire(snapshot.docs.first.data());
+      serviceProvider.id = snapshot.docs.first.id;
 
-
-      
-Future<ServiceProvider> getProviderByUser(User user) async {
-  try{
-        print('hello from network');
-
-    ServiceProvider serviceProvider;
-    DocumentReference userref=await userServices.getUserRef(user.id);
-    QuerySnapshot snapshot = await providersRef.where('user',isEqualTo: userref).get();
-    print('hello from network 2');
-    // snapshot..docs.first;
-    // DocumentSnapshot snapshot = await providersRef.doc(id).get();
-    serviceProvider = ServiceProvider.fromFire(snapshot.docs.first.data());
-    serviceProvider.id = snapshot.docs.first.id;
-
-
-    //get Branches
+      //get Branches
       serviceProvider.branches =
           await branchServices.getBranchListByProvider(snapshot.docs.first.id);
-    print('branches done');
-    // get category
-    List<dynamic> drList = snapshot.docs.first['categories'];
-    List<Category> categories = [];
-    serviceProvider.categories = categories;
+      print('branches done');
+      // get category
+      List<dynamic> drList = snapshot.docs.first['categories'];
+      List<Category> categories = [];
+      serviceProvider.categories = categories;
 // print(drList.length);
-    drList.forEach((value) async {
-      List<Category> subCategories = [];
-      Category category = Category(name: '', parent: null, id: value.id);
-      subCategories =
-          await categoryServices.getCategoriesByProvider(category.id ?? '');
+      drList.forEach((value) async {
+        List<Category> subCategories = [];
+        Category category = Category(name: '', parent: null, id: value.id);
+        subCategories =
+            await categoryServices.getCategoriesByProvider(category.id ?? '');
 
-      serviceProvider.categories.addAll(subCategories);
-      print(serviceProvider.categories.length);
-    });
-    //  print(serviceProvider.categories!.length);
-    serviceProvider.categories.forEach((element) {
-      print(element.name);
-    });
-    return serviceProvider;
-  }
-  catch(e){
-    print('error in network '+e);
-  }
+        serviceProvider.categories.addAll(subCategories);
+        print(serviceProvider.categories.length);
+      });
+      //  print(serviceProvider.categories!.length);
+      serviceProvider.categories.forEach((element) {
+        print(element.name);
+      });
+      return serviceProvider;
+    } catch (e) {
+      print('error in network ' + e);
     }
-
+  }
 
   Future<ServiceProvider> getProviderById(String id) async {
     ServiceProvider serviceProvider;
@@ -154,17 +145,10 @@ Future<ServiceProvider> getProviderByUser(User user) async {
       print(element.name);
     });
 
-
-
-    
-
-
-
-    //get Branches 
+    //get Branches
     serviceProvider.branches =
-          await branchServices.getBranchListByProvider(serviceProvider.id);
+        await branchServices.getBranchListByProvider(serviceProvider.id);
 
-          
     //get user
     DocumentReference dr = snapshot['user'];
     User user = User(

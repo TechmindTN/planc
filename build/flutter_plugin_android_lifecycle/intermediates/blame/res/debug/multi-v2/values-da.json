@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/flutter_plugin_android_lifecycle/intermediates/res/merged/debug/values-da/values-da.xml",
+            "outputFile": "C:\\Users\\nejib\\Dropbox\\My PC (LAPTOP-PT4D1F2V)\\Desktop\\planc\\provider\\planc\\build\\flutter_plugin_android_lifecycle\\intermediates\\res\\merged\\debug\\values-da\\values-da.xml",
             "map": [
                 {
-                    "source": "/home/techmind/.gradle/caches/transforms-2/files-2.1/1a80fb13468423c131b97aad0d1e3add/core-1.6.0/res/values-da/values-da.xml",
+                    "source": "C:\\Users\\nejib\\.gradle\\caches\\transforms-2\\files-2.1\\1a80fb13468423c131b97aad0d1e3add\\core-1.6.0\\res\\values-da\\values-da.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -16,10 +16,10 @@
             ]
         },
         {
-            "outputFile": "/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/flutter_plugin_android_lifecycle/intermediates/incremental/mergeDebugResources/merged.dir/values-da/values-da.xml",
+            "outputFile": "C:\\Users\\nejib\\Dropbox\\My PC (LAPTOP-PT4D1F2V)\\Desktop\\planc\\provider\\planc\\build\\flutter_plugin_android_lifecycle\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-da\\values-da.xml",
             "map": [
                 {
-                    "source": "/home/techmind/.gradle/caches/transforms-2/files-2.1/1a80fb13468423c131b97aad0d1e3add/core-1.6.0/res/values-da/values-da.xml",
+                    "source": "C:\\Users\\nejib\\.gradle\\caches\\transforms-2\\files-2.1\\1a80fb13468423c131b97aad0d1e3add\\core-1.6.0\\res\\values-da\\values-da.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

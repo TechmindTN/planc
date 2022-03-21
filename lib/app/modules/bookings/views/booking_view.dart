@@ -30,9 +30,13 @@ class BookingView extends GetView<BookingController> {
             padding: EdgeInsets.symmetric(vertical: 10),
             decoration: BoxDecoration(
               color: Get.theme.primaryColor,
-              borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20), topRight: Radius.circular(20)),
               boxShadow: [
-                BoxShadow(color: Get.theme.focusColor.withOpacity(0.1), blurRadius: 10, offset: Offset(0, -5)),
+                BoxShadow(
+                    color: Get.theme.focusColor.withOpacity(0.1),
+                    blurRadius: 10,
+                    offset: Offset(0, -5)),
               ],
             ),
             child: Row(
@@ -45,9 +49,12 @@ class BookingView extends GetView<BookingController> {
                       //controller.saveProfileForm(_profileForm);
                     },
                     padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
                     color: Get.theme.accentColor,
-                    child: Text("Accept".tr, style: Get.textTheme.bodyText2.merge(TextStyle(color: Get.theme.primaryColor))),
+                    child: Text("Accept".tr,
+                        style: Get.textTheme.bodyText2
+                            .merge(TextStyle(color: Get.theme.primaryColor))),
                   ),
                 ),
                 SizedBox(width: 10),
@@ -58,7 +65,8 @@ class BookingView extends GetView<BookingController> {
                     // controller.resetProfileForm(_profileForm);
                   },
                   padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
                   color: Get.theme.hintColor.withOpacity(0.1),
                   child: Text("Decline".tr, style: Get.textTheme.bodyText2),
                 ),
@@ -83,21 +91,27 @@ class BookingView extends GetView<BookingController> {
                     centerTitle: true,
                     automaticallyImplyLeading: false,
                     leading: new IconButton(
-                      icon: new Icon(Icons.arrow_back_ios, color: Get.theme.hintColor),
+                      icon: new Icon(Icons.arrow_back_ios,
+                          color: Get.theme.hintColor),
                       onPressed: () => {Get.back()},
                     ),
                     actions: [
                       MaterialButton(
                         elevation: 0,
-                        onPressed: () => openMapsSheet(context, _booking.address, _booking.id),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                        onPressed: () => openMapsSheet(
+                            context, _booking.address, _booking.id),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)),
                         color: Get.theme.accentColor,
                         child: Wrap(
                           crossAxisAlignment: WrapCrossAlignment.center,
                           spacing: 5,
                           children: [
-                            Icon(Icons.map_outlined, color: Get.theme.primaryColor),
-                            Text("On Maps".tr, style: Get.textTheme.bodyText2.merge(TextStyle(color: Get.theme.primaryColor))),
+                            Icon(Icons.map_outlined,
+                                color: Get.theme.primaryColor),
+                            Text("On Maps".tr,
+                                style: Get.textTheme.bodyText2.merge(
+                                    TextStyle(color: Get.theme.primaryColor))),
                           ],
                         ),
                       ).paddingSymmetric(horizontal: 20, vertical: 8),
@@ -118,7 +132,8 @@ class BookingView extends GetView<BookingController> {
                           rotateGesturesEnabled: false,
                           liteModeEnabled: true,
                           mapType: MapType.normal,
-                          initialCameraPosition: CameraPosition(target: LatLng(0, 0)),
+                          initialCameraPosition:
+                              CameraPosition(target: LatLng(0, 0)),
                           markers: Set.from(controller.allMarkers),
                           onMapCreated: (GoogleMapController _con) {
                             controller.mapController = _con;
@@ -133,10 +148,14 @@ class BookingView extends GetView<BookingController> {
                       children: [
                         buildContactCustomer(_booking),
                         BookingTilWidget(
-                          title: Text("Booking Details".tr, style: Get.textTheme.subtitle2),
+                          title: Text("Booking Details".tr,
+                              style: Get.textTheme.subtitle2),
                           content: Column(
                             children: [
-                                                            BookingRowWidget(description: "Booking Ref".tr, value: "#" + _booking.id, hasDivider: true),
+                              BookingRowWidget(
+                                  description: "Booking Ref".tr,
+                                  value: "#" + _booking.id,
+                                  hasDivider: true),
 
                               // BookingRowWidget(description: "Booking Ref".tr, value: "#" + _booking.id.substring(15), hasDivider: true),
                               BookingRowWidget(
@@ -145,14 +164,21 @@ class BookingView extends GetView<BookingController> {
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
                                       Container(
-                                        padding: const EdgeInsets.only(right: 12, left: 12, top: 6, bottom: 6),
+                                        padding: const EdgeInsets.only(
+                                            right: 12,
+                                            left: 12,
+                                            top: 6,
+                                            bottom: 6),
                                         decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.all(Radius.circular(5)),
-                                          color: Get.theme.focusColor.withOpacity(0.1),
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(5)),
+                                          color: Get.theme.focusColor
+                                              .withOpacity(0.1),
                                         ),
                                         child: Text(
                                           _booking.progress,
-                                          style: TextStyle(color: Get.theme.hintColor),
+                                          style: TextStyle(
+                                              color: Get.theme.hintColor),
                                         ),
                                       ),
                                     ],
@@ -164,14 +190,21 @@ class BookingView extends GetView<BookingController> {
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
                                       Container(
-                                        padding: const EdgeInsets.only(right: 12, left: 12, top: 6, bottom: 6),
+                                        padding: const EdgeInsets.only(
+                                            right: 12,
+                                            left: 12,
+                                            top: 6,
+                                            bottom: 6),
                                         decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.all(Radius.circular(5)),
-                                          color: Get.theme.focusColor.withOpacity(0.1),
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(5)),
+                                          color: Get.theme.focusColor
+                                              .withOpacity(0.1),
                                         ),
                                         child: Text(
                                           _booking.paymentMethod.name,
-                                          style: TextStyle(color: Get.theme.hintColor),
+                                          style: TextStyle(
+                                              color: Get.theme.hintColor),
                                         ),
                                       ),
                                     ],
@@ -181,18 +214,22 @@ class BookingView extends GetView<BookingController> {
                                 description: "Tax Amount".tr,
                                 child: Align(
                                   alignment: Alignment.centerRight,
-                                  child: Ui.getPrice(_booking.tax, style: Get.textTheme.bodyText2),
+                                  child: Text("5 dt",
+                                      style: Get.textTheme.bodyText2),
                                 ),
                               ),
                               BookingRowWidget(
                                 description: "Total Amount".tr,
                                 child: Align(
                                   alignment: Alignment.centerRight,
-                                  child: Ui.getPrice(_booking.total, style: Get.textTheme.headline6),
+                                  child: Text("40 dt",
+                                      style: Get.textTheme.headline6),
                                 ),
                                 hasDivider: true,
                               ),
-                              BookingRowWidget(description: "Description".tr, value: _booking.description),
+                              BookingRowWidget(
+                                  description: "Description".tr,
+                                  value: _booking.description),
                             ],
                           ),
                         )
@@ -237,7 +274,10 @@ class BookingView extends GetView<BookingController> {
                     Icon(Icons.place_outlined, color: Get.theme.focusColor),
                     SizedBox(width: 8),
                     Expanded(
-                      child: Text(_booking.address.address, maxLines: 2, overflow: TextOverflow.ellipsis, style: Get.textTheme.bodyText1),
+                      child: Text(_booking.address.address,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: Get.textTheme.bodyText1),
                     ),
                   ],
                   // spacing: 8,
@@ -315,7 +355,8 @@ class BookingView extends GetView<BookingController> {
                 height: 44,
                 minWidth: 44,
                 padding: EdgeInsets.zero,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
                 color: Get.theme.accentColor.withOpacity(0.2),
                 child: Icon(
                   Icons.phone_android_outlined,
@@ -327,7 +368,8 @@ class BookingView extends GetView<BookingController> {
                 onPressed: () {
                   //controller.saveProfileForm(_profileForm);
                 },
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
                 color: Get.theme.accentColor.withOpacity(0.2),
                 padding: EdgeInsets.zero,
                 height: 44,
@@ -346,7 +388,8 @@ class BookingView extends GetView<BookingController> {
 
   openMapsSheet(context, Address address, String _title) async {
     try {
-      final coords = launcher.Coords(address.getLatLng().latitude, address.getLatLng().longitude);
+      final coords = launcher.Coords(
+          address.getLatLng().latitude, address.getLatLng().longitude);
       final title = _title ?? "";
       final availableMaps = await launcher.MapLauncher.installedMaps;
 
@@ -365,7 +408,8 @@ class BookingView extends GetView<BookingController> {
                           destinationTitle: title,
                           destination: coords,
                         ),
-                        title: Text(map.mapName, style: Get.textTheme.bodyText2),
+                        title:
+                            Text(map.mapName, style: Get.textTheme.bodyText2),
                         leading: SvgPicture.asset(
                           map.icon,
                           height: 30.0,

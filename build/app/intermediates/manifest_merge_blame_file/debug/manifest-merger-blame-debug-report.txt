@@ -12,70 +12,70 @@
 12         to allow setting breakpoints, to provide hot reload, etc.
 13    -->
 14    <uses-permission android:name="android.permission.INTERNET" />
-14-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:4:5-66
-14-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:4:22-64
+14-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:4:5-66
+14-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:4:22-64
 15    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-15-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:5:5-78
-15-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:5:22-76
+15-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:5:5-78
+15-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:5:22-76
 16    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-16-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:6:5-80
-16-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:6:22-78
+16-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:6:5-80
+16-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:6:22-78
 17    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-17-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:7:5-79
-17-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:7:22-76
+17-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:7:5-79
+17-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:7:22-76
 18    <uses-permission android:name="android.permission.WAKE_LOCK" />
-18-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:8:5-68
-18-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:8:22-65
+18-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-68
+18-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:8:22-65
 19
 20    <queries>
-20-->[:map_launcher] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-20:15
+20-->[:map_launcher] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\map_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-20:15
 21        <package android:name="com.google.android.apps.maps" />
-21-->[:map_launcher] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-64
-21-->[:map_launcher] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:18-61
+21-->[:map_launcher] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\map_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-64
+21-->[:map_launcher] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\map_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:18-61
 22        <package android:name="com.google.android.apps.mapslite" />
-22-->[:map_launcher] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-64
-22-->[:map_launcher] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:18-61
+22-->[:map_launcher] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\map_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-64
+22-->[:map_launcher] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\map_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:18-61
 23        <package android:name="com.autonavi.minimap" />
-23-->[:map_launcher] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-64
-23-->[:map_launcher] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:18-61
+23-->[:map_launcher] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\map_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-64
+23-->[:map_launcher] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\map_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:18-61
 24        <package android:name="com.baidu.BaiduMap" />
-24-->[:map_launcher] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-64
-24-->[:map_launcher] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:18-61
+24-->[:map_launcher] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\map_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-64
+24-->[:map_launcher] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\map_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:18-61
 25        <package android:name="com.waze" />
-25-->[:map_launcher] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-64
-25-->[:map_launcher] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:18-61
+25-->[:map_launcher] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\map_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-64
+25-->[:map_launcher] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\map_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:18-61
 26        <package android:name="ru.yandex.yandexnavi" />
-26-->[:map_launcher] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-64
-26-->[:map_launcher] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:18-61
+26-->[:map_launcher] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\map_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-64
+26-->[:map_launcher] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\map_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:18-61
 27        <package android:name="ru.yandex.yandexmaps" />
-27-->[:map_launcher] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-64
-27-->[:map_launcher] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:18-61
+27-->[:map_launcher] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\map_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-64
+27-->[:map_launcher] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\map_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:18-61
 28        <package android:name="com.citymapper.app.release" />
-28-->[:map_launcher] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-64
-28-->[:map_launcher] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:18-61
+28-->[:map_launcher] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\map_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-64
+28-->[:map_launcher] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\map_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:18-61
 29        <package android:name="com.mapswithme.maps.pro" />
-29-->[:map_launcher] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-64
-29-->[:map_launcher] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:18-61
+29-->[:map_launcher] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\map_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-64
+29-->[:map_launcher] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\map_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:18-61
 30        <package android:name="net.osmand" />
-30-->[:map_launcher] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-64
-30-->[:map_launcher] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:18-61
+30-->[:map_launcher] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\map_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-64
+30-->[:map_launcher] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\map_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:18-61
 31        <package android:name="ru.dublgis.dgismobile" />
-31-->[:map_launcher] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-64
-31-->[:map_launcher] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:18-61
+31-->[:map_launcher] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\map_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-64
+31-->[:map_launcher] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\map_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:18-61
 32        <package android:name="com.tencent.map" />
-32-->[:map_launcher] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-64
-32-->[:map_launcher] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/map_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:18-61
+32-->[:map_launcher] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\map_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-64
+32-->[:map_launcher] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\map_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:18-61
 33    </queries> <!-- Required by older versions of Google Play services to create IID tokens -->
 34    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-34-->[com.google.firebase:firebase-iid:21.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/4474fc8a0e20203ae8a62aa922795d62/firebase-iid-21.0.1/AndroidManifest.xml:26:5-82
-34-->[com.google.firebase:firebase-iid:21.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/4474fc8a0e20203ae8a62aa922795d62/firebase-iid-21.0.1/AndroidManifest.xml:26:22-79
+34-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\4474fc8a0e20203ae8a62aa922795d62\firebase-iid-21.0.1\AndroidManifest.xml:26:5-82
+34-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\4474fc8a0e20203ae8a62aa922795d62\firebase-iid-21.0.1\AndroidManifest.xml:26:22-79
 35
 36    <uses-feature
-36-->[com.google.android.gms:play-services-maps:17.0.0] /home/techmind/.gradle/caches/transforms-2/files-2.1/a6d7dd1338997a2f0fd9f9d82330c9aa/play-services-maps-17.0.0/AndroidManifest.xml:26:5-28:35
+36-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\a6d7dd1338997a2f0fd9f9d82330c9aa\play-services-maps-17.0.0\AndroidManifest.xml:26:5-28:35
 37        android:glEsVersion="0x00020000"
-37-->[com.google.android.gms:play-services-maps:17.0.0] /home/techmind/.gradle/caches/transforms-2/files-2.1/a6d7dd1338997a2f0fd9f9d82330c9aa/play-services-maps-17.0.0/AndroidManifest.xml:27:9-41
+37-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\a6d7dd1338997a2f0fd9f9d82330c9aa\play-services-maps-17.0.0\AndroidManifest.xml:27:9-41
 38        android:required="true" />
-38-->[com.google.android.gms:play-services-maps:17.0.0] /home/techmind/.gradle/caches/transforms-2/files-2.1/a6d7dd1338997a2f0fd9f9d82330c9aa/play-services-maps-17.0.0/AndroidManifest.xml:28:9-32
+38-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\a6d7dd1338997a2f0fd9f9d82330c9aa\play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
 39    <!--
 40 io.flutter.app.FlutterApplication is an android.app.Application that
 41         calls FlutterMain.startInitialization(this); in its onCreate method.
@@ -84,38 +84,38 @@
 44         FlutterApplication and put your custom class here.
 45    -->
 46    <application
-46-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:13:5-55:19
+46-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:13:5-55:19
 47        android:name="androidx.multidex.MultiDexApplication"
 48        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-48-->[androidx.core:core:1.6.0] /home/techmind/.gradle/caches/transforms-2/files-2.1/1a80fb13468423c131b97aad0d1e3add/core-1.6.0/AndroidManifest.xml:24:18-86
+48-->[androidx.core:core:1.6.0] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\1a80fb13468423c131b97aad0d1e3add\core-1.6.0\AndroidManifest.xml:24:18-86
 49        android:debuggable="true"
 50        android:icon="@mipmap/ic_launcher"
-50-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:15:9-43
+50-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:15:9-43
 51        android:label="Services Provider"
-51-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:14:9-42
+51-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:14:9-42
 52        android:usesCleartextTraffic="true" >
-52-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:16:9-44
+52-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:16:9-44
 53        <meta-data
-53-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:18:9-19:77
+53-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:18:9-19:77
 54            android:name="com.google.android.geo.API_KEY"
-54-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:18:20-65
+54-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:18:20-65
 55            android:value="AIzaSyC3YYz8jqvHY3Yup1lzIdlU51FsjHKH5yE" />
-55-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:19:20-75
+55-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:19:20-75
 56
 57        <activity
-57-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:21:9-49:20
+57-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:21:9-49:20
 58            android:name="com.techmind.planc.MainActivity"
-58-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:22:13-41
+58-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:22:13-41
 59            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-59-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:25:13-163
+59-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:25:13-163
 60            android:hardwareAccelerated="true"
-60-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:26:13-47
+60-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:26:13-47
 61            android:launchMode="singleTop"
-61-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:23:13-43
+61-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:23:13-43
 62            android:theme="@style/LaunchTheme"
-62-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:24:13-47
+62-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:24:13-47
 63            android:windowSoftInputMode="adjustResize" >
-63-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:27:13-55
+63-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:27:13-55
 64
 65            <!--
 66                 Specifies an Android theme to apply to this Activity as soon as
@@ -124,11 +124,11 @@
 69                 to determine the Window background behind the Flutter UI.
 70            -->
 71            <meta-data
-71-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:32:13-35:17
+71-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:32:13-35:17
 72                android:name="io.flutter.embedding.android.NormalTheme"
-72-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:33:15-70
+72-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:33:15-70
 73                android:resource="@style/NormalTheme" />
-73-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:34:15-52
+73-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:34:15-52
 74            <!--
 75                 Displays an Android View that continues showing the launch screen
 76                 Drawable until Flutter paints its first frame, then this splash
@@ -137,21 +137,21 @@
 79                 Flutter's first frame.
 80            -->
 81            <meta-data
-81-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:41:13-44:17
+81-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:41:13-44:17
 82                android:name="io.flutter.embedding.android.SplashScreenDrawable"
-82-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:42:15-79
+82-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:42:15-79
 83                android:resource="@drawable/launch_background" />
-83-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:43:15-61
+83-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:43:15-61
 84
 85            <intent-filter>
-85-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:45:13-48:29
+85-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:45:13-48:29
 86                <action android:name="android.intent.action.MAIN" />
-86-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:46:17-68
-86-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:46:25-66
+86-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:46:17-68
+86-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:46:25-66
 87
 88                <category android:name="android.intent.category.LAUNCHER" />
-88-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:47:17-76
-88-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:47:27-74
+88-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:47:17-76
+88-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:47:27-74
 89            </intent-filter>
 90        </activity>
 91        <!--
@@ -159,361 +159,373 @@
 93             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
 94        -->
 95        <meta-data
-95-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:52:9-54:33
+95-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:52:9-54:33
 96            android:name="flutterEmbedding"
-96-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:53:13-44
+96-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:53:13-44
 97            android:value="2" />
-97-->/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/android/app/src/main/AndroidManifest.xml:54:13-30
+97-->C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\android\app\src\main\AndroidManifest.xml:54:13-30
 98
 99        <service
-99-->[:cloud_firestore] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-12:19
+99-->[:cloud_firestore] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-12:19
 100            android:name="com.google.firebase.components.ComponentDiscoveryService"
-100-->[:cloud_firestore] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:8:18-89
+100-->[:cloud_firestore] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:8:18-89
 101            android:directBootAware="true"
-101-->[com.google.firebase:firebase-common:19.5.0] /home/techmind/.gradle/caches/transforms-2/files-2.1/3a50040261412d9e3c4d6b2371a62e9e/jetified-firebase-common-19.5.0/AndroidManifest.xml:35:13-43
+101-->[com.google.firebase:firebase-common:19.5.0] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\de06b170215361be7b5efb86fd3d8da0\jetified-firebase-common-19.5.0\AndroidManifest.xml:35:13-43
 102            android:exported="false" >
-102-->[com.google.firebase:firebase-messaging:21.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/eebed9e0f37c45027fa4e864848a4ac1/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:38:13-37
+102-->[com.google.firebase:firebase-messaging:21.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\83434956397bf180505b9575f53616e2\jetified-firebase-messaging-21.0.1\AndroidManifest.xml:38:13-37
 103            <meta-data
-103-->[:cloud_firestore] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
+103-->[:cloud_firestore] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-11:85
 104                android:name="com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar"
-104-->[:cloud_firestore] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-134
+104-->[:cloud_firestore] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-134
 105                android:value="com.google.firebase.components.ComponentRegistrar" />
-105-->[:cloud_firestore] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
+105-->[:cloud_firestore] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
 106            <meta-data
-106-->[:firebase_auth] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
+106-->[:firebase_auth] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-11:85
 107                android:name="com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar"
-107-->[:firebase_auth] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-124
+107-->[:firebase_auth] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-124
 108                android:value="com.google.firebase.components.ComponentRegistrar" />
-108-->[:firebase_auth] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
+108-->[:firebase_auth] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
 109            <meta-data
-109-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:34:13-36:85
-110                android:name="com.google.firebase.components:io.flutter.plugins.firebase.messaging.FlutterFirebaseAppRegistrar"
-110-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:35:17-128
+109-->[:firebase_storage] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_storage\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-11:85
+110                android:name="com.google.firebase.components:io.flutter.plugins.firebase.storage.FlutterFirebaseAppRegistrar"
+110-->[:firebase_storage] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_storage\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-126
 111                android:value="com.google.firebase.components.ComponentRegistrar" />
-111-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:36:17-82
+111-->[:firebase_storage] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_storage\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
 112            <meta-data
-112-->[:firebase_core] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
-113                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
-113-->[:firebase_core] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-124
+112-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:34:13-36:85
+113                android:name="com.google.firebase.components:io.flutter.plugins.firebase.messaging.FlutterFirebaseAppRegistrar"
+113-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:35:17-128
 114                android:value="com.google.firebase.components.ComponentRegistrar" />
-114-->[:firebase_core] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
+114-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:36:17-82
 115            <meta-data
-115-->[com.google.firebase:firebase-messaging:21.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/eebed9e0f37c45027fa4e864848a4ac1/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:39:13-41:85
-116                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
-116-->[com.google.firebase:firebase-messaging:21.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/eebed9e0f37c45027fa4e864848a4ac1/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:40:17-119
+115-->[:firebase_core] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-11:85
+116                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
+116-->[:firebase_core] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-124
 117                android:value="com.google.firebase.components.ComponentRegistrar" />
-117-->[com.google.firebase:firebase-messaging:21.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/eebed9e0f37c45027fa4e864848a4ac1/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:41:17-82
+117-->[:firebase_core] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
 118            <meta-data
-118-->[com.google.firebase:firebase-datatransport:17.0.10] /home/techmind/.gradle/caches/transforms-2/files-2.1/f0e9d0a8330048c961e275f6391c5cab/firebase-datatransport-17.0.10/AndroidManifest.xml:28:13-30:85
-119                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
-119-->[com.google.firebase:firebase-datatransport:17.0.10] /home/techmind/.gradle/caches/transforms-2/files-2.1/f0e9d0a8330048c961e275f6391c5cab/firebase-datatransport-17.0.10/AndroidManifest.xml:29:17-115
+118-->[com.google.firebase:firebase-messaging:21.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\83434956397bf180505b9575f53616e2\jetified-firebase-messaging-21.0.1\AndroidManifest.xml:39:13-41:85
+119                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+119-->[com.google.firebase:firebase-messaging:21.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\83434956397bf180505b9575f53616e2\jetified-firebase-messaging-21.0.1\AndroidManifest.xml:40:17-119
 120                android:value="com.google.firebase.components.ComponentRegistrar" />
-120-->[com.google.firebase:firebase-datatransport:17.0.10] /home/techmind/.gradle/caches/transforms-2/files-2.1/f0e9d0a8330048c961e275f6391c5cab/firebase-datatransport-17.0.10/AndroidManifest.xml:30:17-82
+120-->[com.google.firebase:firebase-messaging:21.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\83434956397bf180505b9575f53616e2\jetified-firebase-messaging-21.0.1\AndroidManifest.xml:41:17-82
 121            <meta-data
-121-->[com.google.firebase:firebase-iid:21.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/4474fc8a0e20203ae8a62aa922795d62/firebase-iid-21.0.1/AndroidManifest.xml:32:13-34:85
-122                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
-122-->[com.google.firebase:firebase-iid:21.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/4474fc8a0e20203ae8a62aa922795d62/firebase-iid-21.0.1/AndroidManifest.xml:33:17-96
+121-->[com.google.firebase:firebase-datatransport:17.0.10] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\f0e9d0a8330048c961e275f6391c5cab\firebase-datatransport-17.0.10\AndroidManifest.xml:28:13-30:85
+122                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+122-->[com.google.firebase:firebase-datatransport:17.0.10] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\f0e9d0a8330048c961e275f6391c5cab\firebase-datatransport-17.0.10\AndroidManifest.xml:29:17-115
 123                android:value="com.google.firebase.components.ComponentRegistrar" />
-123-->[com.google.firebase:firebase-iid:21.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/4474fc8a0e20203ae8a62aa922795d62/firebase-iid-21.0.1/AndroidManifest.xml:34:17-82
+123-->[com.google.firebase:firebase-datatransport:17.0.10] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\f0e9d0a8330048c961e275f6391c5cab\firebase-datatransport-17.0.10\AndroidManifest.xml:30:17-82
 124            <meta-data
-124-->[com.google.firebase:firebase-installations:16.3.5] /home/techmind/.gradle/caches/transforms-2/files-2.1/ebe775c1f7b44c105c1038bb7f177f71/firebase-installations-16.3.5/AndroidManifest.xml:18:13-20:85
-125                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
-125-->[com.google.firebase:firebase-installations:16.3.5] /home/techmind/.gradle/caches/transforms-2/files-2.1/ebe775c1f7b44c105c1038bb7f177f71/firebase-installations-16.3.5/AndroidManifest.xml:19:17-127
+124-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\4474fc8a0e20203ae8a62aa922795d62\firebase-iid-21.0.1\AndroidManifest.xml:32:13-34:85
+125                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+125-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\4474fc8a0e20203ae8a62aa922795d62\firebase-iid-21.0.1\AndroidManifest.xml:33:17-96
 126                android:value="com.google.firebase.components.ComponentRegistrar" />
-126-->[com.google.firebase:firebase-installations:16.3.5] /home/techmind/.gradle/caches/transforms-2/files-2.1/ebe775c1f7b44c105c1038bb7f177f71/firebase-installations-16.3.5/AndroidManifest.xml:20:17-82
+126-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\4474fc8a0e20203ae8a62aa922795d62\firebase-iid-21.0.1\AndroidManifest.xml:34:17-82
 127            <meta-data
-127-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:77:13-79:85
-128                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
-128-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:78:17-109
+127-->[com.google.firebase:firebase-installations:16.3.5] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\ebe775c1f7b44c105c1038bb7f177f71\firebase-installations-16.3.5\AndroidManifest.xml:18:13-20:85
+128                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+128-->[com.google.firebase:firebase-installations:16.3.5] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\ebe775c1f7b44c105c1038bb7f177f71\firebase-installations-16.3.5\AndroidManifest.xml:19:17-127
 129                android:value="com.google.firebase.components.ComponentRegistrar" />
-129-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:79:17-82
+129-->[com.google.firebase:firebase-installations:16.3.5] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\ebe775c1f7b44c105c1038bb7f177f71\firebase-installations-16.3.5\AndroidManifest.xml:20:17-82
 130            <meta-data
-130-->[com.google.firebase:firebase-firestore:22.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/2bd6b9f69ae2a76a3e1efb75e621e25a/jetified-firebase-firestore-22.0.1/AndroidManifest.xml:20:13-22:85
-131                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
-131-->[com.google.firebase:firebase-firestore:22.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/2bd6b9f69ae2a76a3e1efb75e621e25a/jetified-firebase-firestore-22.0.1/AndroidManifest.xml:21:17-111
+130-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:77:13-79:85
+131                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+131-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:78:17-109
 132                android:value="com.google.firebase.components.ComponentRegistrar" />
-132-->[com.google.firebase:firebase-firestore:22.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/2bd6b9f69ae2a76a3e1efb75e621e25a/jetified-firebase-firestore-22.0.1/AndroidManifest.xml:22:17-82
-133            <!--
-134                This registrar is not defined in the dynamic-module-support sdk itself to allow non-firebase
-135                clients to use it as well, by defining this registrar in their own core/common library.
-136            -->
-137            <meta-data
-137-->[com.google.firebase:firebase-common:19.5.0] /home/techmind/.gradle/caches/transforms-2/files-2.1/3a50040261412d9e3c4d6b2371a62e9e/jetified-firebase-common-19.5.0/AndroidManifest.xml:43:13-45:85
-138                android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar"
-138-->[com.google.firebase:firebase-common:19.5.0] /home/techmind/.gradle/caches/transforms-2/files-2.1/3a50040261412d9e3c4d6b2371a62e9e/jetified-firebase-common-19.5.0/AndroidManifest.xml:44:17-121
-139                android:value="com.google.firebase.components.ComponentRegistrar" />
-139-->[com.google.firebase:firebase-common:19.5.0] /home/techmind/.gradle/caches/transforms-2/files-2.1/3a50040261412d9e3c4d6b2371a62e9e/jetified-firebase-common-19.5.0/AndroidManifest.xml:45:17-82
-140        </service>
-141        <service
-141-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:12:9-15:72
-142            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingBackgroundService"
-142-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:13:13-107
-143            android:exported="false"
-143-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:14:13-37
-144            android:permission="android.permission.BIND_JOB_SERVICE" />
-144-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:15:13-69
-145        <service
-145-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:16:9-22:19
-146            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingService"
-146-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:17:13-97
-147            android:exported="false" >
-147-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:18:13-37
-148            <intent-filter>
-148-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:19:13-21:29
-149                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-149-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:20:17-78
-149-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:20:25-75
-150            </intent-filter>
-151        </service>
-152
-153        <receiver
-153-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:24:9-31:20
-154            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingReceiver"
-154-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:25:13-98
-155            android:exported="true"
-155-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:26:13-36
-156            android:permission="com.google.android.c2dm.permission.SEND" >
-156-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:27:13-73
-157            <intent-filter>
-157-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:28:13-30:29
-158                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-158-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:29:17-81
-158-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:29:25-78
-159            </intent-filter>
-160        </receiver>
-161
-162        <provider
-162-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:39:9-43:38
-163            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingInitProvider"
-163-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:40:13-102
-164            android:authorities="com.techmind.planc.flutterfirebasemessaginginitprovider"
-164-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:41:13-88
-165            android:exported="false"
-165-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:42:13-37
-166            android:initOrder="99" />
-166-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:43:13-35
-167        <provider
-167-->[:image_picker] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-16:20
-168            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
-168-->[:image_picker] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-82
-169            android:authorities="com.techmind.planc.flutter.image_provider"
-169-->[:image_picker] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:10:13-74
-170            android:exported="false"
-170-->[:image_picker] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:11:13-37
-171            android:grantUriPermissions="true" >
-171-->[:image_picker] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:12:13-47
-172            <meta-data
-172-->[:image_picker] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:13:13-15:75
-173                android:name="android.support.FILE_PROVIDER_PATHS"
-173-->[:image_picker] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:14:17-67
-174                android:resource="@xml/flutter_image_picker_file_paths" />
-174-->[:image_picker] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:15:17-72
-175        </provider>
-176
-177        <uses-library
-177-->[androidx.window:window:1.0.0-beta04] /home/techmind/.gradle/caches/transforms-2/files-2.1/5a91ab9eec75c7ef982a4d3233391851/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
-178            android:name="androidx.window.extensions"
-178-->[androidx.window:window:1.0.0-beta04] /home/techmind/.gradle/caches/transforms-2/files-2.1/5a91ab9eec75c7ef982a4d3233391851/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
-179            android:required="false" />
-179-->[androidx.window:window:1.0.0-beta04] /home/techmind/.gradle/caches/transforms-2/files-2.1/5a91ab9eec75c7ef982a4d3233391851/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
-180        <uses-library
-180-->[androidx.window:window:1.0.0-beta04] /home/techmind/.gradle/caches/transforms-2/files-2.1/5a91ab9eec75c7ef982a4d3233391851/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
-181            android:name="androidx.window.sidecar"
-181-->[androidx.window:window:1.0.0-beta04] /home/techmind/.gradle/caches/transforms-2/files-2.1/5a91ab9eec75c7ef982a4d3233391851/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
-182            android:required="false" />
-182-->[androidx.window:window:1.0.0-beta04] /home/techmind/.gradle/caches/transforms-2/files-2.1/5a91ab9eec75c7ef982a4d3233391851/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
-183        <!--
-184             FirebaseMessagingService performs security checks at runtime,
-185             but set to not exported to explicitly avoid allowing another app to call it.
-186        -->
-187        <service
-187-->[com.google.firebase:firebase-messaging:21.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/eebed9e0f37c45027fa4e864848a4ac1/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:28:9-35:19
-188            android:name="com.google.firebase.messaging.FirebaseMessagingService"
-188-->[com.google.firebase:firebase-messaging:21.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/eebed9e0f37c45027fa4e864848a4ac1/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:29:13-82
-189            android:directBootAware="true"
-189-->[com.google.firebase:firebase-messaging:21.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/eebed9e0f37c45027fa4e864848a4ac1/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:30:13-43
-190            android:exported="false" >
-190-->[com.google.firebase:firebase-messaging:21.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/eebed9e0f37c45027fa4e864848a4ac1/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:31:13-37
-191            <intent-filter android:priority="-500" >
-191-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:19:13-21:29
-192                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-192-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:20:17-78
-192-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:20:25-75
-193            </intent-filter>
-194        </service>
-195
-196        <receiver
-196-->[com.google.firebase:firebase-iid:21.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/4474fc8a0e20203ae8a62aa922795d62/firebase-iid-21.0.1/AndroidManifest.xml:37:9-44:20
-197            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
-197-->[com.google.firebase:firebase-iid:21.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/4474fc8a0e20203ae8a62aa922795d62/firebase-iid-21.0.1/AndroidManifest.xml:38:13-78
-198            android:exported="true"
-198-->[com.google.firebase:firebase-iid:21.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/4474fc8a0e20203ae8a62aa922795d62/firebase-iid-21.0.1/AndroidManifest.xml:39:13-36
-199            android:permission="com.google.android.c2dm.permission.SEND" >
-199-->[com.google.firebase:firebase-iid:21.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/4474fc8a0e20203ae8a62aa922795d62/firebase-iid-21.0.1/AndroidManifest.xml:40:13-73
-200            <intent-filter>
-200-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:28:13-30:29
-201                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-201-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:29:17-81
-201-->[:firebase_messaging] /home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:29:25-78
-202            </intent-filter>
-203        </receiver>
-204
-205        <activity
-205-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:27:9-44:20
-206            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
-206-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:28:13-80
-207            android:excludeFromRecents="true"
-207-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:29:13-46
-208            android:exported="true"
-208-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:30:13-36
-209            android:launchMode="singleTask"
-209-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:31:13-44
-210            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-210-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:32:13-72
-211            <intent-filter>
-211-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:33:13-43:29
-212                <action android:name="android.intent.action.VIEW" />
-212-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:34:17-69
-212-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:34:25-66
-213
-214                <category android:name="android.intent.category.DEFAULT" />
-214-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:36:17-76
-214-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:36:27-73
-215                <category android:name="android.intent.category.BROWSABLE" />
-215-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:37:17-78
-215-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:37:27-75
-216
-217                <data
-217-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:39:17-42:51
-218                    android:host="firebase.auth"
-218-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:40:21-49
-219                    android:path="/"
-219-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:41:21-37
-220                    android:scheme="genericidp" />
-220-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:42:21-48
-221            </intent-filter>
-222        </activity>
-223        <activity
-223-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:45:9-62:20
-224            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
-224-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:46:13-79
-225            android:excludeFromRecents="true"
-225-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:47:13-46
-226            android:exported="true"
-226-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:48:13-36
-227            android:launchMode="singleTask"
-227-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:49:13-44
-228            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-228-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:50:13-72
-229            <intent-filter>
-229-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:51:13-61:29
-230                <action android:name="android.intent.action.VIEW" />
-230-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:34:17-69
-230-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:34:25-66
-231
-232                <category android:name="android.intent.category.DEFAULT" />
-232-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:36:17-76
-232-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:36:27-73
-233                <category android:name="android.intent.category.BROWSABLE" />
-233-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:37:17-78
-233-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:37:27-75
-234
-235                <data
-235-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:39:17-42:51
-236                    android:host="firebase.auth"
-236-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:40:21-49
-237                    android:path="/"
-237-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:41:21-37
-238                    android:scheme="recaptcha" />
-238-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:42:21-48
-239            </intent-filter>
-240        </activity>
-241
-242        <service
-242-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:64:9-73:19
-243            android:name="com.google.firebase.auth.api.fallback.service.FirebaseAuthFallbackService"
-243-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:65:13-101
-244            android:enabled="true"
-244-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:66:13-35
-245            android:exported="false" >
-245-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:67:13-37
-246            <intent-filter>
-246-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:68:13-72:29
-247                <action android:name="com.google.firebase.auth.api.gms.service.START" />
-247-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:69:17-89
-247-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:69:25-86
-248
-249                <category android:name="android.intent.category.DEFAULT" />
-249-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:36:17-76
-249-->[com.google.firebase:firebase-auth:20.0.1] /home/techmind/.gradle/caches/transforms-2/files-2.1/a785d7957e7e5647202f37be0d4babfc/jetified-firebase-auth-20.0.1/AndroidManifest.xml:36:27-73
-250            </intent-filter>
-251        </service>
-252
-253        <provider
-253-->[com.google.firebase:firebase-common:19.5.0] /home/techmind/.gradle/caches/transforms-2/files-2.1/3a50040261412d9e3c4d6b2371a62e9e/jetified-firebase-common-19.5.0/AndroidManifest.xml:26:9-31:39
-254            android:name="com.google.firebase.provider.FirebaseInitProvider"
-254-->[com.google.firebase:firebase-common:19.5.0] /home/techmind/.gradle/caches/transforms-2/files-2.1/3a50040261412d9e3c4d6b2371a62e9e/jetified-firebase-common-19.5.0/AndroidManifest.xml:27:13-77
-255            android:authorities="com.techmind.planc.firebaseinitprovider"
-255-->[com.google.firebase:firebase-common:19.5.0] /home/techmind/.gradle/caches/transforms-2/files-2.1/3a50040261412d9e3c4d6b2371a62e9e/jetified-firebase-common-19.5.0/AndroidManifest.xml:28:13-72
-256            android:directBootAware="true"
-256-->[com.google.firebase:firebase-common:19.5.0] /home/techmind/.gradle/caches/transforms-2/files-2.1/3a50040261412d9e3c4d6b2371a62e9e/jetified-firebase-common-19.5.0/AndroidManifest.xml:29:13-43
-257            android:exported="false"
-257-->[com.google.firebase:firebase-common:19.5.0] /home/techmind/.gradle/caches/transforms-2/files-2.1/3a50040261412d9e3c4d6b2371a62e9e/jetified-firebase-common-19.5.0/AndroidManifest.xml:30:13-37
-258            android:initOrder="100" />
-258-->[com.google.firebase:firebase-common:19.5.0] /home/techmind/.gradle/caches/transforms-2/files-2.1/3a50040261412d9e3c4d6b2371a62e9e/jetified-firebase-common-19.5.0/AndroidManifest.xml:31:13-36
-259
-260        <service
-260-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/techmind/.gradle/caches/transforms-2/files-2.1/26d1cab0e462b8682ef6d7503de8ce93/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:29:9-35:19
-261            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
-261-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/techmind/.gradle/caches/transforms-2/files-2.1/26d1cab0e462b8682ef6d7503de8ce93/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:30:13-103
-262            android:exported="false" >
-262-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/techmind/.gradle/caches/transforms-2/files-2.1/26d1cab0e462b8682ef6d7503de8ce93/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:31:13-37
-263            <meta-data
-263-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/techmind/.gradle/caches/transforms-2/files-2.1/26d1cab0e462b8682ef6d7503de8ce93/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:32:13-34:39
-264                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
-264-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/techmind/.gradle/caches/transforms-2/files-2.1/26d1cab0e462b8682ef6d7503de8ce93/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:33:17-94
-265                android:value="cct" />
-265-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /home/techmind/.gradle/caches/transforms-2/files-2.1/26d1cab0e462b8682ef6d7503de8ce93/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:34:17-36
-266        </service> <!-- Needs to be explicitly declared on P+ -->
-267        <uses-library
-267-->[com.google.android.gms:play-services-maps:17.0.0] /home/techmind/.gradle/caches/transforms-2/files-2.1/a6d7dd1338997a2f0fd9f9d82330c9aa/play-services-maps-17.0.0/AndroidManifest.xml:33:9-35:40
-268            android:name="org.apache.http.legacy"
-268-->[com.google.android.gms:play-services-maps:17.0.0] /home/techmind/.gradle/caches/transforms-2/files-2.1/a6d7dd1338997a2f0fd9f9d82330c9aa/play-services-maps-17.0.0/AndroidManifest.xml:34:13-50
-269            android:required="false" />
-269-->[com.google.android.gms:play-services-maps:17.0.0] /home/techmind/.gradle/caches/transforms-2/files-2.1/a6d7dd1338997a2f0fd9f9d82330c9aa/play-services-maps-17.0.0/AndroidManifest.xml:35:13-37
-270
-271        <activity
-271-->[com.google.android.gms:play-services-base:17.1.0] /home/techmind/.gradle/caches/transforms-2/files-2.1/eee96744faa13961681d07c19d8e9792/play-services-base-17.1.0/AndroidManifest.xml:23:9-26:75
-272            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-272-->[com.google.android.gms:play-services-base:17.1.0] /home/techmind/.gradle/caches/transforms-2/files-2.1/eee96744faa13961681d07c19d8e9792/play-services-base-17.1.0/AndroidManifest.xml:24:13-79
-273            android:exported="false"
-273-->[com.google.android.gms:play-services-base:17.1.0] /home/techmind/.gradle/caches/transforms-2/files-2.1/eee96744faa13961681d07c19d8e9792/play-services-base-17.1.0/AndroidManifest.xml:25:13-37
-274            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-274-->[com.google.android.gms:play-services-base:17.1.0] /home/techmind/.gradle/caches/transforms-2/files-2.1/eee96744faa13961681d07c19d8e9792/play-services-base-17.1.0/AndroidManifest.xml:26:13-72
-275
-276        <meta-data
-276-->[com.google.android.gms:play-services-basement:17.1.0] /home/techmind/.gradle/caches/transforms-2/files-2.1/26a6c51c9b70ef89d40b1720cca753cb/jetified-play-services-basement-17.1.0/AndroidManifest.xml:23:9-25:69
-277            android:name="com.google.android.gms.version"
-277-->[com.google.android.gms:play-services-basement:17.1.0] /home/techmind/.gradle/caches/transforms-2/files-2.1/26a6c51c9b70ef89d40b1720cca753cb/jetified-play-services-basement-17.1.0/AndroidManifest.xml:24:13-58
-278            android:value="@integer/google_play_services_version" />
-278-->[com.google.android.gms:play-services-basement:17.1.0] /home/techmind/.gradle/caches/transforms-2/files-2.1/26a6c51c9b70ef89d40b1720cca753cb/jetified-play-services-basement-17.1.0/AndroidManifest.xml:25:13-66
-279
-280        <service
-280-->[com.google.android.datatransport:transport-runtime:2.2.5] /home/techmind/.gradle/caches/transforms-2/files-2.1/a247a2abbe4ecf9e09fdb70a7bf34d1d/jetified-transport-runtime-2.2.5/AndroidManifest.xml:26:9-30:19
-281            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
-281-->[com.google.android.datatransport:transport-runtime:2.2.5] /home/techmind/.gradle/caches/transforms-2/files-2.1/a247a2abbe4ecf9e09fdb70a7bf34d1d/jetified-transport-runtime-2.2.5/AndroidManifest.xml:27:13-117
-282            android:exported="false"
-282-->[com.google.android.datatransport:transport-runtime:2.2.5] /home/techmind/.gradle/caches/transforms-2/files-2.1/a247a2abbe4ecf9e09fdb70a7bf34d1d/jetified-transport-runtime-2.2.5/AndroidManifest.xml:28:13-37
-283            android:permission="android.permission.BIND_JOB_SERVICE" >
-283-->[com.google.android.datatransport:transport-runtime:2.2.5] /home/techmind/.gradle/caches/transforms-2/files-2.1/a247a2abbe4ecf9e09fdb70a7bf34d1d/jetified-transport-runtime-2.2.5/AndroidManifest.xml:29:13-69
-284        </service>
+132-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:79:17-82
+133            <meta-data
+133-->[com.google.firebase:firebase-firestore:22.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\af8027e1c30f7eee47dfac90a35e77f7\jetified-firebase-firestore-22.0.1\AndroidManifest.xml:20:13-22:85
+134                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+134-->[com.google.firebase:firebase-firestore:22.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\af8027e1c30f7eee47dfac90a35e77f7\jetified-firebase-firestore-22.0.1\AndroidManifest.xml:21:17-111
+135                android:value="com.google.firebase.components.ComponentRegistrar" />
+135-->[com.google.firebase:firebase-firestore:22.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\af8027e1c30f7eee47dfac90a35e77f7\jetified-firebase-firestore-22.0.1\AndroidManifest.xml:22:17-82
+136            <meta-data
+136-->[com.google.firebase:firebase-storage:19.2.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\dd1eaea0bcf3fd26df8a715629a5215b\firebase-storage-19.2.1\AndroidManifest.xml:33:13-35:85
+137                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
+137-->[com.google.firebase:firebase-storage:19.2.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\dd1eaea0bcf3fd26df8a715629a5215b\firebase-storage-19.2.1\AndroidManifest.xml:34:17-107
+138                android:value="com.google.firebase.components.ComponentRegistrar" />
+138-->[com.google.firebase:firebase-storage:19.2.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\dd1eaea0bcf3fd26df8a715629a5215b\firebase-storage-19.2.1\AndroidManifest.xml:35:17-82
+139            <!--
+140                This registrar is not defined in the dynamic-module-support sdk itself to allow non-firebase
+141                clients to use it as well, by defining this registrar in their own core/common library.
+142            -->
+143            <meta-data
+143-->[com.google.firebase:firebase-common:19.5.0] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\de06b170215361be7b5efb86fd3d8da0\jetified-firebase-common-19.5.0\AndroidManifest.xml:43:13-45:85
+144                android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar"
+144-->[com.google.firebase:firebase-common:19.5.0] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\de06b170215361be7b5efb86fd3d8da0\jetified-firebase-common-19.5.0\AndroidManifest.xml:44:17-121
+145                android:value="com.google.firebase.components.ComponentRegistrar" />
+145-->[com.google.firebase:firebase-common:19.5.0] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\de06b170215361be7b5efb86fd3d8da0\jetified-firebase-common-19.5.0\AndroidManifest.xml:45:17-82
+146        </service>
+147        <service
+147-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-15:72
+148            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingBackgroundService"
+148-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-107
+149            android:exported="false"
+149-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-37
+150            android:permission="android.permission.BIND_JOB_SERVICE" />
+150-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-69
+151        <service
+151-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:16:9-22:19
+152            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingService"
+152-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-97
+153            android:exported="false" >
+153-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:18:13-37
+154            <intent-filter>
+154-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:19:13-21:29
+155                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+155-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:20:17-78
+155-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:20:25-75
+156            </intent-filter>
+157        </service>
+158
+159        <receiver
+159-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:24:9-31:20
+160            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingReceiver"
+160-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:25:13-98
+161            android:exported="true"
+161-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:26:13-36
+162            android:permission="com.google.android.c2dm.permission.SEND" >
+162-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:27:13-73
+163            <intent-filter>
+163-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:28:13-30:29
+164                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+164-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:29:17-81
+164-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:29:25-78
+165            </intent-filter>
+166        </receiver>
+167
+168        <provider
+168-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:39:9-43:38
+169            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingInitProvider"
+169-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:40:13-102
+170            android:authorities="com.techmind.planc.flutterfirebasemessaginginitprovider"
+170-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:41:13-88
+171            android:exported="false"
+171-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:42:13-37
+172            android:initOrder="99" />
+172-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:43:13-35
+173        <provider
+173-->[:image_picker] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-16:20
+174            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
+174-->[:image_picker] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-82
+175            android:authorities="com.techmind.planc.flutter.image_provider"
+175-->[:image_picker] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-74
+176            android:exported="false"
+176-->[:image_picker] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-37
+177            android:grantUriPermissions="true" >
+177-->[:image_picker] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-47
+178            <meta-data
+178-->[:image_picker] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-15:75
+179                android:name="android.support.FILE_PROVIDER_PATHS"
+179-->[:image_picker] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:14:17-67
+180                android:resource="@xml/flutter_image_picker_file_paths" />
+180-->[:image_picker] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:15:17-72
+181        </provider>
+182
+183        <uses-library
+183-->[androidx.window:window:1.0.0-beta04] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\4286a288dbc1d9125da52de20ccee726\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+184            android:name="androidx.window.extensions"
+184-->[androidx.window:window:1.0.0-beta04] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\4286a288dbc1d9125da52de20ccee726\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+185            android:required="false" />
+185-->[androidx.window:window:1.0.0-beta04] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\4286a288dbc1d9125da52de20ccee726\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+186        <uses-library
+186-->[androidx.window:window:1.0.0-beta04] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\4286a288dbc1d9125da52de20ccee726\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+187            android:name="androidx.window.sidecar"
+187-->[androidx.window:window:1.0.0-beta04] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\4286a288dbc1d9125da52de20ccee726\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+188            android:required="false" />
+188-->[androidx.window:window:1.0.0-beta04] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\4286a288dbc1d9125da52de20ccee726\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+189        <!--
+190             FirebaseMessagingService performs security checks at runtime,
+191             but set to not exported to explicitly avoid allowing another app to call it.
+192        -->
+193        <service
+193-->[com.google.firebase:firebase-messaging:21.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\83434956397bf180505b9575f53616e2\jetified-firebase-messaging-21.0.1\AndroidManifest.xml:28:9-35:19
+194            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+194-->[com.google.firebase:firebase-messaging:21.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\83434956397bf180505b9575f53616e2\jetified-firebase-messaging-21.0.1\AndroidManifest.xml:29:13-82
+195            android:directBootAware="true"
+195-->[com.google.firebase:firebase-messaging:21.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\83434956397bf180505b9575f53616e2\jetified-firebase-messaging-21.0.1\AndroidManifest.xml:30:13-43
+196            android:exported="false" >
+196-->[com.google.firebase:firebase-messaging:21.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\83434956397bf180505b9575f53616e2\jetified-firebase-messaging-21.0.1\AndroidManifest.xml:31:13-37
+197            <intent-filter android:priority="-500" >
+197-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:19:13-21:29
+198                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+198-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:20:17-78
+198-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:20:25-75
+199            </intent-filter>
+200        </service>
+201
+202        <receiver
+202-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\4474fc8a0e20203ae8a62aa922795d62\firebase-iid-21.0.1\AndroidManifest.xml:37:9-44:20
+203            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+203-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\4474fc8a0e20203ae8a62aa922795d62\firebase-iid-21.0.1\AndroidManifest.xml:38:13-78
+204            android:exported="true"
+204-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\4474fc8a0e20203ae8a62aa922795d62\firebase-iid-21.0.1\AndroidManifest.xml:39:13-36
+205            android:permission="com.google.android.c2dm.permission.SEND" >
+205-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\4474fc8a0e20203ae8a62aa922795d62\firebase-iid-21.0.1\AndroidManifest.xml:40:13-73
+206            <intent-filter>
+206-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:28:13-30:29
+207                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+207-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:29:17-81
+207-->[:firebase_messaging] C:\Users\nejib\Dropbox\My PC (LAPTOP-PT4D1F2V)\Desktop\planc\provider\planc\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:29:25-78
+208            </intent-filter>
+209        </receiver>
+210
+211        <activity
+211-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:27:9-44:20
+212            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
+212-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:28:13-80
+213            android:excludeFromRecents="true"
+213-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:29:13-46
+214            android:exported="true"
+214-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:30:13-36
+215            android:launchMode="singleTask"
+215-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:31:13-44
+216            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+216-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:32:13-72
+217            <intent-filter>
+217-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:33:13-43:29
+218                <action android:name="android.intent.action.VIEW" />
+218-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:34:17-69
+218-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:34:25-66
+219
+220                <category android:name="android.intent.category.DEFAULT" />
+220-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:36:17-76
+220-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:36:27-73
+221                <category android:name="android.intent.category.BROWSABLE" />
+221-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:37:17-78
+221-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:37:27-75
+222
+223                <data
+223-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:39:17-42:51
+224                    android:host="firebase.auth"
+224-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:40:21-49
+225                    android:path="/"
+225-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:41:21-37
+226                    android:scheme="genericidp" />
+226-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:42:21-48
+227            </intent-filter>
+228        </activity>
+229        <activity
+229-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:45:9-62:20
+230            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
+230-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:46:13-79
+231            android:excludeFromRecents="true"
+231-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:47:13-46
+232            android:exported="true"
+232-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:48:13-36
+233            android:launchMode="singleTask"
+233-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:49:13-44
+234            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+234-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:50:13-72
+235            <intent-filter>
+235-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:51:13-61:29
+236                <action android:name="android.intent.action.VIEW" />
+236-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:34:17-69
+236-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:34:25-66
+237
+238                <category android:name="android.intent.category.DEFAULT" />
+238-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:36:17-76
+238-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:36:27-73
+239                <category android:name="android.intent.category.BROWSABLE" />
+239-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:37:17-78
+239-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:37:27-75
+240
+241                <data
+241-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:39:17-42:51
+242                    android:host="firebase.auth"
+242-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:40:21-49
+243                    android:path="/"
+243-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:41:21-37
+244                    android:scheme="recaptcha" />
+244-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:42:21-48
+245            </intent-filter>
+246        </activity>
+247
+248        <service
+248-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:64:9-73:19
+249            android:name="com.google.firebase.auth.api.fallback.service.FirebaseAuthFallbackService"
+249-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:65:13-101
+250            android:enabled="true"
+250-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:66:13-35
+251            android:exported="false" >
+251-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:67:13-37
+252            <intent-filter>
+252-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:68:13-72:29
+253                <action android:name="com.google.firebase.auth.api.gms.service.START" />
+253-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:69:17-89
+253-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:69:25-86
+254
+255                <category android:name="android.intent.category.DEFAULT" />
+255-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:36:17-76
+255-->[com.google.firebase:firebase-auth:20.0.1] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\c4b23d707ea235d029181b1d28bb4c2c\jetified-firebase-auth-20.0.1\AndroidManifest.xml:36:27-73
+256            </intent-filter>
+257        </service>
+258
+259        <provider
+259-->[com.google.firebase:firebase-common:19.5.0] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\de06b170215361be7b5efb86fd3d8da0\jetified-firebase-common-19.5.0\AndroidManifest.xml:26:9-31:39
+260            android:name="com.google.firebase.provider.FirebaseInitProvider"
+260-->[com.google.firebase:firebase-common:19.5.0] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\de06b170215361be7b5efb86fd3d8da0\jetified-firebase-common-19.5.0\AndroidManifest.xml:27:13-77
+261            android:authorities="com.techmind.planc.firebaseinitprovider"
+261-->[com.google.firebase:firebase-common:19.5.0] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\de06b170215361be7b5efb86fd3d8da0\jetified-firebase-common-19.5.0\AndroidManifest.xml:28:13-72
+262            android:directBootAware="true"
+262-->[com.google.firebase:firebase-common:19.5.0] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\de06b170215361be7b5efb86fd3d8da0\jetified-firebase-common-19.5.0\AndroidManifest.xml:29:13-43
+263            android:exported="false"
+263-->[com.google.firebase:firebase-common:19.5.0] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\de06b170215361be7b5efb86fd3d8da0\jetified-firebase-common-19.5.0\AndroidManifest.xml:30:13-37
+264            android:initOrder="100" />
+264-->[com.google.firebase:firebase-common:19.5.0] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\de06b170215361be7b5efb86fd3d8da0\jetified-firebase-common-19.5.0\AndroidManifest.xml:31:13-36
+265
+266        <service
+266-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\72a81e671db29574b55da035ae6c69a6\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:29:9-35:19
+267            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+267-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\72a81e671db29574b55da035ae6c69a6\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:30:13-103
+268            android:exported="false" >
+268-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\72a81e671db29574b55da035ae6c69a6\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:31:13-37
+269            <meta-data
+269-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\72a81e671db29574b55da035ae6c69a6\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:32:13-34:39
+270                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+270-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\72a81e671db29574b55da035ae6c69a6\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:33:17-94
+271                android:value="cct" />
+271-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\72a81e671db29574b55da035ae6c69a6\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:34:17-36
+272        </service> <!-- Needs to be explicitly declared on P+ -->
+273        <uses-library
+273-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\a6d7dd1338997a2f0fd9f9d82330c9aa\play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
+274            android:name="org.apache.http.legacy"
+274-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\a6d7dd1338997a2f0fd9f9d82330c9aa\play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
+275            android:required="false" />
+275-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\a6d7dd1338997a2f0fd9f9d82330c9aa\play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
+276
+277        <activity
+277-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\eee96744faa13961681d07c19d8e9792\play-services-base-17.1.0\AndroidManifest.xml:23:9-26:75
+278            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+278-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\eee96744faa13961681d07c19d8e9792\play-services-base-17.1.0\AndroidManifest.xml:24:13-79
+279            android:exported="false"
+279-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\eee96744faa13961681d07c19d8e9792\play-services-base-17.1.0\AndroidManifest.xml:25:13-37
+280            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+280-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\eee96744faa13961681d07c19d8e9792\play-services-base-17.1.0\AndroidManifest.xml:26:13-72
+281
+282        <meta-data
+282-->[com.google.android.gms:play-services-basement:17.1.0] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\e8371915c6e147c8c6c5f0361a44f36e\jetified-play-services-basement-17.1.0\AndroidManifest.xml:23:9-25:69
+283            android:name="com.google.android.gms.version"
+283-->[com.google.android.gms:play-services-basement:17.1.0] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\e8371915c6e147c8c6c5f0361a44f36e\jetified-play-services-basement-17.1.0\AndroidManifest.xml:24:13-58
+284            android:value="@integer/google_play_services_version" />
+284-->[com.google.android.gms:play-services-basement:17.1.0] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\e8371915c6e147c8c6c5f0361a44f36e\jetified-play-services-basement-17.1.0\AndroidManifest.xml:25:13-66
 285
-286        <receiver
-286-->[com.google.android.datatransport:transport-runtime:2.2.5] /home/techmind/.gradle/caches/transforms-2/files-2.1/a247a2abbe4ecf9e09fdb70a7bf34d1d/jetified-transport-runtime-2.2.5/AndroidManifest.xml:32:9-34:40
-287            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
-287-->[com.google.android.datatransport:transport-runtime:2.2.5] /home/techmind/.gradle/caches/transforms-2/files-2.1/a247a2abbe4ecf9e09fdb70a7bf34d1d/jetified-transport-runtime-2.2.5/AndroidManifest.xml:33:13-132
-288            android:exported="false" />
-288-->[com.google.android.datatransport:transport-runtime:2.2.5] /home/techmind/.gradle/caches/transforms-2/files-2.1/a247a2abbe4ecf9e09fdb70a7bf34d1d/jetified-transport-runtime-2.2.5/AndroidManifest.xml:34:13-37
-289    </application>
-290
-291</manifest>
+286        <service
+286-->[com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\bc314dba12b91af5d33f9ca5ef77ecc2\jetified-transport-runtime-2.2.5\AndroidManifest.xml:26:9-30:19
+287            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+287-->[com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\bc314dba12b91af5d33f9ca5ef77ecc2\jetified-transport-runtime-2.2.5\AndroidManifest.xml:27:13-117
+288            android:exported="false"
+288-->[com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\bc314dba12b91af5d33f9ca5ef77ecc2\jetified-transport-runtime-2.2.5\AndroidManifest.xml:28:13-37
+289            android:permission="android.permission.BIND_JOB_SERVICE" >
+289-->[com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\bc314dba12b91af5d33f9ca5ef77ecc2\jetified-transport-runtime-2.2.5\AndroidManifest.xml:29:13-69
+290        </service>
+291
+292        <receiver
+292-->[com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\bc314dba12b91af5d33f9ca5ef77ecc2\jetified-transport-runtime-2.2.5\AndroidManifest.xml:32:9-34:40
+293            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+293-->[com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\bc314dba12b91af5d33f9ca5ef77ecc2\jetified-transport-runtime-2.2.5\AndroidManifest.xml:33:13-132
+294            android:exported="false" />
+294-->[com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\nejib\.gradle\caches\transforms-2\files-2.1\bc314dba12b91af5d33f9ca5ef77ecc2\jetified-transport-runtime-2.2.5\AndroidManifest.xml:34:13-37
+295    </application>
+296
+297</manifest>

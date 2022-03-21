@@ -15,70 +15,53 @@ import 'package:home_services_provider/app/modules/e_services/controllers/e_serv
 import 'package:home_services_provider/app/modules/profile/controllers/profile_controller.dart';
 import 'package:home_services_provider/app/their_models/role_enum.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:path/path.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 class AuthController extends GetxController {
   File file;
- Image im;
-  Rx<User> currentUser=User().obs;
+  Image im;
+  Rx<User> currentUser = User().obs;
   UserNetwork userServices = UserNetwork();
   RoleNetwork roleServices = RoleNetwork();
   ServiceProviderNetwork serviceProviderServices = ServiceProviderNetwork();
+  FirebaseStorage storage = FirebaseStorage.instance;
 
   RxString selected = RoleEnum.Entreprise.name.obs;
   final hidePassword = true.obs;
   List<Role> roles = List();
-  List<User> users=List();
-  List<String> emails=List();
+  List<User> users = List();
+  List<String> emails = List();
   GetStorage box;
 
   Future<void> onInit() async {
-    file=File('');
-    im=Image.file(file);
+    file = File('');
+    im = Image.file(file);
     // Get.put(AuthController());
-     box = GetStorage();
+    box = GetStorage();
     await getRoles();
 
     super.onInit();
   }
-
-
-
-// Future<String> uploadFile() async {
-//       final filename=basename(file.path);
-//       final destination = "/stores_main/$filename";
-//       // FirebaseStorage storage = FirebaseStorage.instance;
-//       // Reference refimage = storage.ref().child("/stores_main/$filename");
-//       final ref = firebase_storage.FirebaseStorage.instance.ref(destination);
-//       UploadTask uploadtask =ref.putFile(file);
-//       // TaskSnapshot dowurl = await (await uploadtask.whenComplete(() {}));
-//       final snapshot= await uploadtask.whenComplete(() {});
-//       final urlDownload=await snapshot.ref.getDownloadURL();
-//       //var url = dowurl.toString();
-//       print(urlDownload);
-//       return urlDownload;
-// }
 
   updateRole(String value) {
     selected.value = value;
     update();
   }
 
-
   getProvider() async {
-        try{
-          Get.put(ProfileController());
-          var profileController=Get.find<ProfileController>();
-          profileController.serviceProvider.value=await serviceProviderServices.getProviderByUser(currentUser.value);
-        print('provider is '+profileController.serviceProvider.value.description);
-                print('provider is '+profileController.serviceProvider.value.branches.first.city);
-
-        
-        }
-        
-        catch(e){
-          print('this is error '+e);
-        }
-
+    try {
+      Get.put(ProfileController());
+      var profileController = Get.find<ProfileController>();
+      profileController.serviceProvider.value =
+          await serviceProviderServices.getProviderByUser(currentUser.value);
+      print(
+          'provider is ' + profileController.serviceProvider.value.description);
+      print('provider is ' +
+          profileController.serviceProvider.value.branches.first.city);
+    } catch (e) {
+      print('this is error ' + e);
+    }
   }
 
   getRoles() async {
@@ -90,119 +73,111 @@ class AuthController extends GetxController {
     });
   }
 
-  RegisterUser(User user,password2,context) async {
-    try{
-      bool ok=await isNewEmail(user.email);
-
-    if(regFormValid(user.email,user.password,password2,context)){
-       Role role;
-    roles.forEach((element) {
-      if (element.name == user.role.name) {
-        role = element;
+  RegisterUser(User user, password2, context) async {
+    try {
+      bool ok = await isNewEmail(user.email);
+      print('registring');
+      if (regFormValid(user.email, user.password, password2, context)) {
+        Role role;
+        roles.forEach((element) {
+          if (element.name == user.role.name) {
+            role = element;
+          }
+        });
+        DocumentReference roleref = roleServices.getRoleRef(role.id);
+        Map<String, dynamic> mapdata = user.tofire();
+        mapdata['role'] = roleref;
+        if (ok) {
+          DocumentReference val = await userServices.addUser(mapdata);
+          //  print(userServices.id);
+          // role.id=roleref.id;
+          //     user.id=userServices.id;
+          //      currentUser.value=user;
+          //      print(userServices.id);
+          //      currentUser.value.id=userServices.id;
+        } else {
+          SnackBar snackBar = SnackBar(
+            backgroundColor: Colors.red,
+            content: Text('Email is required'),
+          );
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        }
       }
-    });
-    DocumentReference roleref = roleServices.getRoleRef(role.id);
-    Map<String, dynamic> mapdata = user.tofire();
-    mapdata['role'] = roleref;
-    if(ok){
-     DocumentReference val =await userServices.addUser(mapdata);
-    //  print(userServices.id);
-    // role.id=roleref.id;
-    //     user.id=userServices.id;
-    //      currentUser.value=user;
-    //      print(userServices.id);
-    //      currentUser.value.id=userServices.id;
-    }
-    else{
-      SnackBar snackBar = SnackBar(
-        backgroundColor: Colors.red,
-  content: Text('Email is required'),
-);
-ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    }
-    }
-    print('object');
-
-    }
-    catch(e){
+      print('object');
+    } catch (e) {
       // printError();
-      SnackBar snackBar=SnackBar(content: Text('Something is wrong please try again'),
+      SnackBar snackBar = SnackBar(
+        content: Text('Something is wrong please try again'),
         backgroundColor: Colors.red,
-        );
-        ScaffoldMessenger.of(context).showSnackBar(snackBar);
-        print(e);
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      print('error: ' + e);
     }
-   
   }
 
+  changeImage() async {
+    final ImagePicker _picker = ImagePicker();
 
+    final XFile pickedimage =
+        await _picker.pickImage(source: ImageSource.gallery);
+    file = File(pickedimage.path);
+    im = Image.file(file);
 
+    print("this");
+    print(im);
 
-    changeImage() async {
-              final ImagePicker _picker = ImagePicker();
-
-              final XFile pickedimage = await _picker.pickImage(source: ImageSource.gallery);
-                file=File(pickedimage.path);
-               im=Image.file(file);
-              
-              print("this");
-              print(im);
-              
-              update();
-        //       storeimage=Container(
-        //         height: 150,
-        //         child: Image(
-        //   image: FileImage(im,
-          
-        //   ),
-        // ),
-        //       );
-              //print(storeimage);
-  }
-
-
-   login(String email,String password,context) async {
-     try{
-       print('a');
-       if(formIsValid( email, password,context)){
-         print('b');
-          currentUser.value=await userServices.getUserByEmailPassword(email,password);
-    currentUser.value.printUser();
-    box.write('currentUser', "dhia");
     update();
-       }
-   
-    
-      }catch(e){
-        print('User doesn\'t exist');
-        SnackBar snackBar=SnackBar(content: Text('Email or password is wrong'),
-        backgroundColor: Colors.red,
-        );
-        ScaffoldMessenger.of(context).showSnackBar(snackBar);
-      }
+    //       storeimage=Container(
+    //         height: 150,
+    //         child: Image(
+    //   image: FileImage(im,
 
-      try{
-        await getProvider();
-
-      }catch(e){
-print(e);
-      }
+    //   ),
+    // ),
+    //       );
+    //print(storeimage);
   }
 
-getAllUsers() async {
-  users=await userServices.getUsersList();
-  users.forEach((element) { 
-    emails.add(element.email);
-  });
+  login(String email, String password, context) async {
+    try {
+      print('a');
+      if (formIsValid(email, password, context)) {
+        print('b');
+        currentUser.value =
+            await userServices.getUserByEmailPassword(email, password);
+        currentUser.value.printUser();
+        box.write('currentUser', "dhia");
+        update();
+      }
+    } catch (e) {
+      print('User doesn\'t exist');
+      SnackBar snackBar = SnackBar(
+        content: Text('Email or password is wrong'),
+        backgroundColor: Colors.red,
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    }
 
-}
+    try {
+      await getProvider();
+    } catch (e) {
+      print(e);
+    }
+  }
 
-isNewEmail(email) async {
-  // List<User> users=await userServices.getUsersList();
-print(users.length);
-  // users.forEach((element) {if(element.email==email){
-  //   return false;
-  // }});
+  getAllUsers() async {
+    users = await userServices.getUsersList();
+    users.forEach((element) {
+      emails.add(element.email);
+    });
+  }
+
+  isNewEmail(email) async {
+    // List<User> users=await userServices.getUsersList();
+    print(users.length);
+    // users.forEach((element) {if(element.email==email){
+    //   return false;
+    // }});
 // for(int i=0;i<users.length;i++){
 //   if(users[i].email==email){
 //     return false;
@@ -210,99 +185,97 @@ print(users.length);
 // }
 
 //   return true;
-if(emails.contains(email)){
-  return false;
-}
-else{
-  return true;
-}
-}
+    if (emails.contains(email)) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 
-  formIsValid(String email,String password,context){
-SnackBar snackBar;
-    if(email==null||email.isEmpty){
+  formIsValid(String email, String password, context) {
+    SnackBar snackBar;
+    if (email == null || email.isEmpty) {
       snackBar = SnackBar(
         backgroundColor: Colors.red,
-  content: Text('Email is required'),
-);
-ScaffoldMessenger.of(context).showSnackBar(snackBar);
-return false;
+        content: Text('Email is required'),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      return false;
     }
-     if(password==null||password.isEmpty){
+    if (password == null || password.isEmpty) {
       snackBar = SnackBar(
         backgroundColor: Colors.red,
-  content: Text('Password is required'),
-);
-ScaffoldMessenger.of(context).showSnackBar(snackBar);
-return false;
+        content: Text('Password is required'),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      return false;
     }
-    if(!email.isEmail){
+    if (!email.isEmail) {
       snackBar = SnackBar(
         backgroundColor: Colors.red,
-  content: Text('Please provide a valid email'),
-);
-ScaffoldMessenger.of(context).showSnackBar(snackBar);
-return false;
+        content: Text('Please provide a valid email'),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      return false;
     }
 
     return true;
   }
 
-  regFormValid(String email,String password,String password2,context){
-SnackBar snackBar;
-    if(email==null||email.isEmpty){
+  regFormValid(String email, String password, String password2, context) {
+    SnackBar snackBar;
+    if (email == null || email.isEmpty) {
       snackBar = SnackBar(
         backgroundColor: Colors.red,
-  content: Text('Email is required'),
-);
-ScaffoldMessenger.of(context).showSnackBar(snackBar);
-return false;
+        content: Text('Email is required'),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      return false;
     }
-     if(password==null||password.isEmpty){
+    if (password == null || password.isEmpty) {
       snackBar = SnackBar(
         backgroundColor: Colors.red,
-  content: Text('Password is required'),
-);
-ScaffoldMessenger.of(context).showSnackBar(snackBar);
-return false;
+        content: Text('Password is required'),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      return false;
     }
-    if(password.length<8){
-       snackBar = SnackBar(
+    if (password.length < 8) {
+      snackBar = SnackBar(
         backgroundColor: Colors.red,
-  content: Text('Password length must be more than 8 characters'),
-);
-ScaffoldMessenger.of(context).showSnackBar(snackBar);
-return false;
+        content: Text('Password length must be more than 8 characters'),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      return false;
     }
 
-if(!password.contains(RegExp(r'[A-Z]'))&&!password.contains(RegExp(r'[a-z]'))){
-       snackBar = SnackBar(
-        backgroundColor: Colors.red,
-  content: Text('Password must contain at least 1 character'),
-);
-ScaffoldMessenger.of(context).showSnackBar(snackBar);
-return false;
-    }
-    if(password!=password2){
-       snackBar = SnackBar(
-        backgroundColor: Colors.red,
-  content: Text('Password confirm doesn\'t match the password'),
-);
-ScaffoldMessenger.of(context).showSnackBar(snackBar);
-return false;
-    }
-
-    
-    if(!email.isEmail){
+    if (!password.contains(RegExp(r'[A-Z]')) &&
+        !password.contains(RegExp(r'[a-z]'))) {
       snackBar = SnackBar(
         backgroundColor: Colors.red,
-  content: Text('Please provide a valid email'),
-);
-ScaffoldMessenger.of(context).showSnackBar(snackBar);
-return false;
+        content: Text('Password must contain at least 1 character'),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      return false;
+    }
+    if (password != password2) {
+      snackBar = SnackBar(
+        backgroundColor: Colors.red,
+        content: Text('Password confirm doesn\'t match the password'),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      return false;
+    }
+
+    if (!email.isEmail) {
+      snackBar = SnackBar(
+        backgroundColor: Colors.red,
+        content: Text('Please provide a valid email'),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      return false;
     }
 
     return true;
   }
-
 }

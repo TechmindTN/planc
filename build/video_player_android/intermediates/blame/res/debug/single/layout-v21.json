@@ -1,18 +1,18 @@
 [
     {
-        "merged": "/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/video_player_android/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
-        "source": "/home/techmind/.gradle/caches/transforms-2/files-2.1/1a80fb13468423c131b97aad0d1e3add/core-1.6.0/res/layout-v21/notification_action_tombstone.xml"
+        "merged": "C:\\Users\\nejib\\Dropbox\\My PC (LAPTOP-PT4D1F2V)\\Desktop\\planc\\provider\\planc\\build\\video_player_android\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\nejib\\.gradle\\caches\\transforms-2\\files-2.1\\1a80fb13468423c131b97aad0d1e3add\\core-1.6.0\\res\\layout-v21\\notification_template_custom_big.xml"
     },
     {
-        "merged": "/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/video_player_android/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
-        "source": "/home/techmind/.gradle/caches/transforms-2/files-2.1/1a80fb13468423c131b97aad0d1e3add/core-1.6.0/res/layout-v21/notification_template_icon_group.xml"
+        "merged": "C:\\Users\\nejib\\Dropbox\\My PC (LAPTOP-PT4D1F2V)\\Desktop\\planc\\provider\\planc\\build\\video_player_android\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\nejib\\.gradle\\caches\\transforms-2\\files-2.1\\1a80fb13468423c131b97aad0d1e3add\\core-1.6.0\\res\\layout-v21\\notification_template_icon_group.xml"
     },
     {
-        "merged": "/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/video_player_android/intermediates/res/merged/debug/layout-v21/notification_action.xml",
-        "source": "/home/techmind/.gradle/caches/transforms-2/files-2.1/1a80fb13468423c131b97aad0d1e3add/core-1.6.0/res/layout-v21/notification_action.xml"
+        "merged": "C:\\Users\\nejib\\Dropbox\\My PC (LAPTOP-PT4D1F2V)\\Desktop\\planc\\provider\\planc\\build\\video_player_android\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\nejib\\.gradle\\caches\\transforms-2\\files-2.1\\1a80fb13468423c131b97aad0d1e3add\\core-1.6.0\\res\\layout-v21\\notification_action_tombstone.xml"
     },
     {
-        "merged": "/home/techmind/Downloads/codecanyon-lzCFHKUS-ondemand-home-services-business-listing-booking-flutter-ui-template/flutter_provider_app_ui_kit/build/video_player_android/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
-        "source": "/home/techmind/.gradle/caches/transforms-2/files-2.1/1a80fb13468423c131b97aad0d1e3add/core-1.6.0/res/layout-v21/notification_template_custom_big.xml"
+        "merged": "C:\\Users\\nejib\\Dropbox\\My PC (LAPTOP-PT4D1F2V)\\Desktop\\planc\\provider\\planc\\build\\video_player_android\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action.xml",
+        "source": "C:\\Users\\nejib\\.gradle\\caches\\transforms-2\\files-2.1\\1a80fb13468423c131b97aad0d1e3add\\core-1.6.0\\res\\layout-v21\\notification_action.xml"
     }
 ]
