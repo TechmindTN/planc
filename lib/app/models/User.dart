@@ -11,11 +11,11 @@ class User {
   Role role;
 
   User(
-      { this.password,
-       this.username,
-       this.email,
-       this.creation_date,
-       this.last_login,
+      {this.password,
+      this.username,
+      this.email,
+      this.creation_date,
+      this.last_login,
       this.role,
       this.id});
 
@@ -43,6 +43,5 @@ class User {
         'password': password,
         'creation_date': creation_date,
         'last_login': last_login,
-        
       };
 }

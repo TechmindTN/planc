@@ -173,6 +173,7 @@ class ProfileView extends GetView<ProfileController> {
                       controller.saveProviderForm(_profileForm, tempProvider);
                     } else {
                       controller.edit();
+                      controller.update();
                     }
                   },
                   padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
