@@ -40,6 +40,7 @@ class AuthController extends GetxController {
   Future<void> onInit() async {
     file = File('');
     im = Image.file(file);
+    // iml = [];
     // Get.put(AuthController());
     box = GetStorage();
     await getRoles();
@@ -108,6 +109,8 @@ class AuthController extends GetxController {
         mapdata['role'] = roleref;
         if (ok) {
           DocumentReference val = await userServices.addUser(mapdata);
+          currentUser.value = user;
+          currentUser.value.id = val.id;
           //  print(userServices.id);
           // role.id=roleref.id;
           //     user.id=userServices.id;

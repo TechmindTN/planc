@@ -85,6 +85,7 @@ class ProfileController extends GetxController {
       // TaskSnapshot dowurl = await (await uploadtask.whenComplete(() {}));
       final snapshot = await uploadtask.whenComplete(() {});
       final urlDownload = await snapshot.ref.getDownloadURL();
+
       //var url = dowurl.toString();
       print(urlDownload);
       med.add(urlDownload);
@@ -92,36 +93,78 @@ class ProfileController extends GetxController {
     return med;
   }
 
+  // edit(GlobalKey<FormState> profileForm) async {
+  //   List<String> med = [];
+  //   med = await uploadMedia();
+  //   try {
+  //     if (profileForm.currentState.validate()) {
+  //       print('uploading');
+  //       List<String> data = await uploadMedia();
+  //       print('uploaded');
+  //       print('updating');
+  //       Future.delayed(
+  //           Duration(
+  //             seconds: 10,
+  //           ), () {
+  //         print(data);
+  //         Get.find<AuthController>()
+  //             .serviceProviderServices
+  //             .updateProvider(data, serviceProvider.value.id);
+  //       });
+  //       serviceProvider.value.media = med;
+  //       update();
+
+  //       print(data);
+  //       print(serviceProvider.value.id);
+  //       // Get.find<AuthController>()
+  //       //     .serviceProviderServices
+  //       //     .updateProvider(data, serviceProvider.value.id);
+  //       print('updated');
+  //     } else {
+  //       Get.showSnackbar(Ui.ErrorSnackBar(
+  //           message:
+  //               "There are errors in some fields please correct them!".tr));
+  //     }
+  //   } catch (e) {
+  //     print("problem");
+  //   }
+  // }
+
   edit() async {
+    // List<String> med = [];
+    // med = await uploadMedia();
     try {
       print('uploading');
-      List<String> data = await uploadMedia();
-      print('uploaded');
-      print('updating');
+      List<String> med = await uploadMedia();
+      print('uploaded pp');
+      print('updating pp');
       Future.delayed(
           Duration(
             seconds: 10,
           ), () {
-        print(data);
+        print(serviceProvider.value.id);
+        print("object");
         Get.find<AuthController>()
             .serviceProviderServices
-            .updateProvider(data, serviceProvider.value.id);
+            .updateProvider(med, serviceProvider.value.id);
       });
-      print(data);
-      print(serviceProvider.value.id);
+      update();
+
+      // print(data);
+      // print(serviceProvider.value.id);
       // Get.find<AuthController>()
       //     .serviceProviderServices
       //     .updateProvider(data, serviceProvider.value.id);
-      print('updated');
+      print('updated edit pp');
     } catch (e) {
-      print("problem");
+      print("problem editpp");
     }
   }
 
   Future<void> saveProviderForm(
       GlobalKey<FormState> profileForm, tempProvider) async {
     print('uploading');
-    // String url = await uploadFile();
+    String url = await uploadFile();
     List<String> med = [];
     med = await uploadMedia();
     print('uploaded');
@@ -132,7 +175,7 @@ class ProfileController extends GetxController {
       if (profileForm.currentState.validate()) {
         serviceProvider.value = tempProvider;
         print(serviceProvider.value.branches.first.branch_name);
-        // serviceProvider.value.profile_photo = url;
+        serviceProvider.value.profile_photo = url;
         serviceProvider.value.media = med;
         providerNetwork.addProvider(serviceProvider.value);
         Get.toNamed(
@@ -148,6 +191,40 @@ class ProfileController extends GetxController {
       Get.showSnackbar(Ui.ErrorSnackBar(message: "Something was wrong".tr));
     }
   }
+
+  // Future<void> updateProviderForm(
+  //     GlobalKey<FormState> profileForm, tempProvider) async {
+  //   print('updating branch');
+
+  //   // mapdata['profile_photo'] = url;
+  //   // serviceProvider.value.profile_photo = url;
+  //   try {
+  //     if (profileForm.currentState.validate()) {
+  //       Future.delayed(
+  //           Duration(
+  //             seconds: 5,
+  //           ), () {
+  //         print(tempProvider);
+  //         Get.find<AuthController>()
+  //             .serviceProviderServices
+  //             .updateProvider(tempProvider, serviceProvider.value.id);
+  //       });
+  //       print("object")
+  //       update();
+
+  //       Get.toNamed(
+  //         Routes.ROOT,
+  //       );
+  //     } else {
+  //       Get.showSnackbar(Ui.ErrorSnackBar(
+  //           message:
+  //               "There are errors in some fields please correct them!".tr));
+  //     }
+  //   } catch (e) {
+  //     print(e);
+  //     Get.showSnackbar(Ui.ErrorSnackBar(message: "Something was wrong".tr));
+  //   }
+  // }
 
   void saveProfileForm(GlobalKey<FormState> profileForm) {
     if (profileForm.currentState.validate()) {
