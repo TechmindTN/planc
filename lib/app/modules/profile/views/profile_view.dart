@@ -335,13 +335,13 @@ class ProfileView extends GetView<ProfileController> {
               ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
-                  itemCount: 5,
+                  itemCount: eServicesController.categories.length,
                   itemBuilder: ((context, index) {
                     return Container(
                       padding: EdgeInsets.only(
                           top: 20, bottom: 14, left: 20, right: 20),
                       margin: EdgeInsets.only(
-                          left: 20, right: 20, top: 0, bottom: 0),
+                          left: 20, right: 20, top: 0, bottom: 10),
                       decoration: BoxDecoration(
                           color: Get.theme.primaryColor,
                           borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -368,7 +368,8 @@ class ProfileView extends GetView<ProfileController> {
                                       newValue;
                                   eServicesController.update();
                                   controller.update();
-                                  print(index);
+                                  print(
+                                      eServicesController.categories[index].id);
                                   print(eServicesController.chosencats[index]);
                                   // });
                                 },

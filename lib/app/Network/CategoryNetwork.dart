@@ -47,17 +47,21 @@ class CategoryNetwork {
 
   // return category;
   Future<List<Category>> getCategoryList() async {
-    List<Category> categories=List();
+    List<Category> categories = List();
     Category category;
     QuerySnapshot snapshot = await categoryRef.get();
     snapshot.docs.forEach((element) {
       category = Category.fromFire(element.data());
-    category.id = element.id;
-    categories.add(category);
-     });
-    
+      category.id = element.id;
+      categories.add(category);
+    });
 
     return categories;
+  }
+
+  getCategoryRef(String id) {
+    DocumentReference ref = firestore.doc('Category/' + id);
+    return ref;
   }
 
   Future<Category> getCategoryById(String id) async {

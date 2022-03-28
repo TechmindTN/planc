@@ -1,10 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:home_services_provider/app/Network/CategoryNetwork.dart';
 import 'package:home_services_provider/app/Network/ServiceProviderNetwork.dart';
 import 'package:home_services_provider/app/models/Branch.dart';
 import 'package:home_services_provider/app/models/Provider.dart';
 import 'package:home_services_provider/app/models/User.dart';
 import 'package:home_services_provider/app/modules/auth/controllers/auth_controller.dart';
+import 'package:home_services_provider/app/modules/e_services/controllers/e_service_controller.dart';
 import 'package:home_services_provider/app/routes/app_pages.dart';
 
 import 'package:path/path.dart';
@@ -14,15 +17,21 @@ import '../../auth/controllers/auth_controller.dart';
 import '../../../../common/ui.dart';
 // import '../../../their_models/user_model.dart';
 import '../../../services/auth_service.dart';
+import '../../e_services/controllers/e_services_controller.dart';
 
 class ProfileController extends GetxController {
   // var user = new User().obs;
   Rx<User> user = User().obs;
+  List<DocumentReference> cat = [];
+  CategoryNetwork categoryNetwork = CategoryNetwork();
   Rx<ServiceProvider> serviceProvider = ServiceProvider().obs;
   final hidePassword = true.obs;
+  EServicesController eServicesController;
   ServiceProviderNetwork providerNetwork = ServiceProviderNetwork();
   @override
   void onInit() {
+    Get.put(EServiceController());
+
     // user.value = Get.find<AuthService>().user.value;
     // if(serviceProvider.value.)
     if (serviceProvider.value.name != '') {
@@ -161,6 +170,17 @@ class ProfileController extends GetxController {
     }
   }
 
+  prepareCategories() {
+    int index = 0;
+    Get.find<EServicesController>().categories.forEach((element) {
+      if (Get.find<EServicesController>().chosencats[index]) {
+        DocumentReference categ = categoryNetwork.getCategoryRef(element.id);
+        cat.add(categ);
+      }
+      index++;
+    });
+  }
+
   Future<void> saveProviderForm(
       GlobalKey<FormState> profileForm, tempProvider) async {
     print('uploading');
@@ -173,11 +193,13 @@ class ProfileController extends GetxController {
     // serviceProvider.value.profile_photo = url;
     try {
       if (profileForm.currentState.validate()) {
+        prepareCategories();
         serviceProvider.value = tempProvider;
         print(serviceProvider.value.branches.first.branch_name);
         serviceProvider.value.profile_photo = url;
         serviceProvider.value.media = med;
-        providerNetwork.addProvider(serviceProvider.value);
+        // serviceProvider.value.categories = cat;
+        providerNetwork.addProvider(serviceProvider.value, cat);
         Get.toNamed(
           Routes.ROOT,
         );
