@@ -15,7 +15,7 @@ class BookingsListWidget extends GetView<HomeController> {
       if (controller.bookings.isEmpty) {
         return CircularLoadingWidget(height: 300);
       } else {
-        int nbr=0;
+        int nbr = 0;
         return ListView.builder(
           padding: EdgeInsets.only(bottom: 10, top: 10),
           primary: false,
@@ -37,16 +37,15 @@ class BookingsListWidget extends GetView<HomeController> {
             } else {
               nbr++;
               var _booking = controller.bookings.elementAt(index);
-              if(nbr%2==0){
+              if (nbr % 2 == 0) {
                 return BookingsListItemWidget(booking: _booking);
-              }
-              else{
+              } else {
                 return Column(
                   children: [
                     BookingsListItemWidget(booking: _booking),
                     Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Image.asset('assets/img/banner.jpg'),
+                      padding: const EdgeInsets.all(5.0),
+                      child: Image.asset('assets/img/banner.png'),
                     )
                   ],
                 );
