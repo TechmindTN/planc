@@ -45,6 +45,10 @@ class CategoryNetwork {
     }
   }
 
+  // getCategoriesListByProvider(){
+
+  // }
+
   // return category;
   Future<List<Category>> getCategoryList() async {
     List<Category> categories = List();
