@@ -70,6 +70,7 @@ class ServiceProviderNetwork {
 
   addProvider(ServiceProvider serviceProvider, List<DocumentReference> cat) {
     Map<String, dynamic> mapdata = serviceProvider.tofire();
+    mapdata.addAll(serviceProvider.branches.first.tofire());
     print('our user is ' + UserNetwork.dr.id);
     mapdata['user'] = UserNetwork.dr;
     mapdata['categories'] = cat;
