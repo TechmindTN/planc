@@ -335,13 +335,13 @@ class ProfileView extends GetView<ProfileController> {
               ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
-                  itemCount: 5,
+                  itemCount: eServicesController.categories.length,
                   itemBuilder: ((context, index) {
                     return Container(
                       padding: EdgeInsets.only(
                           top: 20, bottom: 14, left: 20, right: 20),
                       margin: EdgeInsets.only(
-                          left: 20, right: 20, top: 0, bottom: 0),
+                          left: 20, right: 20, top: 0, bottom: 10),
                       decoration: BoxDecoration(
                           color: Get.theme.primaryColor,
                           borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -368,7 +368,8 @@ class ProfileView extends GetView<ProfileController> {
                                       newValue;
                                   eServicesController.update();
                                   controller.update();
-                                  print(index);
+                                  print(
+                                      eServicesController.categories[index].id);
                                   print(eServicesController.chosencats[index]);
                                   // });
                                 },
@@ -436,116 +437,121 @@ class ProfileView extends GetView<ProfileController> {
   }
 
   Widget getImageHeaderWidget(AuthController control) {
-    return Container(
-      height: 380,
-      padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-      width: double.maxFinite,
-      decoration: BoxDecoration(
-        color: Colors.blue,
-        gradient: new LinearGradient(
-            colors: [
-              const Color(0xFF3366FF).withOpacity(0.1),
-              const Color(0xFF3366FF).withOpacity(0.09),
-            ],
-            begin: const FractionalOffset(0.0, 0.0),
-            end: const FractionalOffset(0.0, 1.0),
-            stops: [0.0, 1.0],
-            tileMode: TileMode.clamp),
-      ),
-      child: Column(children: [
-        Container(
-            constraints: BoxConstraints(maxHeight: 250), child: control.im),
-        //
-        //         Container(
-        //         height: 150,
-        //         child: Image(
-        //   image: NetworkImage(store.image,
+    return GetBuilder<AuthController>(
+        init: AuthController(), // intialize with the Controller
+        builder: (value) => Container(
+              height: 380,
+              padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+              width: double.maxFinite,
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                gradient: new LinearGradient(
+                    colors: [
+                      const Color(0xFF3366FF).withOpacity(0.1),
+                      const Color(0xFF3366FF).withOpacity(0.09),
+                    ],
+                    begin: const FractionalOffset(0.0, 0.0),
+                    end: const FractionalOffset(0.0, 1.0),
+                    stops: [0.0, 1.0],
+                    tileMode: TileMode.clamp),
+              ),
+              child: Column(children: [
+                Container(
+                    constraints: BoxConstraints(maxHeight: 250),
+                    child: control.im),
+                //
+                //         Container(
+                //         height: 150,
+                //         child: Image(
+                //   image: NetworkImage(store.image,
 
-        //   ),
-        // ),
-        //       ),
-        SizedBox(height: 20),
-        FloatingActionButton(
-            onPressed: () async {
-              control.changeImage();
-              control.update();
-              // storeimage.printInfo();
-              //     final ImagePicker _picker = ImagePicker();
+                //   ),
+                // ),
+                //       ),
+                SizedBox(height: 20),
+                FloatingActionButton(
+                    onPressed: () async {
+                      control.changeImage();
+                      control.update();
+                      // storeimage.printInfo();
+                      //     final ImagePicker _picker = ImagePicker();
 
-              //     final XFile image = await _picker.pickImage(source: ImageSource.gallery);
-              //     File im=File(image.path);
-              //     storeimage=Image.file(im);
-              //       storeimage=Container(
-              //         height: 150,
-              //         child: Image(
-              //   image: FileImage(im,
+                      //     final XFile image = await _picker.pickImage(source: ImageSource.gallery);
+                      //     File im=File(image.path);
+                      //     storeimage=Image.file(im);
+                      //       storeimage=Container(
+                      //         height: 150,
+                      //         child: Image(
+                      //   image: FileImage(im,
 
-              //   ),
-              // ),
-              //       );
-              //    print(storeimage);
-              //   storecontrol.update();
-            },
-            child: Icon(Icons.camera))
-      ]),
-    );
+                      //   ),
+                      // ),
+                      //       );
+                      //    print(storeimage);
+                      //   storecontrol.update();
+                    },
+                    child: Icon(Icons.camera))
+              ]),
+            ));
   }
 
   Widget addImageHeaderWidget(AuthController control) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-      width: double.maxFinite,
-      decoration: BoxDecoration(
-        color: Colors.blue,
-        gradient: new LinearGradient(
-            colors: [
-              const Color(0xFF3366FF).withOpacity(0.1),
-              const Color(0xFF3366FF).withOpacity(0.09),
-            ],
-            begin: const FractionalOffset(0.0, 0.0),
-            end: const FractionalOffset(0.0, 1.0),
-            stops: [0.0, 1.0],
-            tileMode: TileMode.clamp),
-      ),
-      child: Column(children: [
-        Column(
-          children: [
-            for (var img in control.iml) img,
-          ],
-        ),
-        //
-        //         Container(
-        //         height: 150,
-        //         child: Image(
-        //   image: NetworkImage(store.image,
+    return GetBuilder<AuthController>(
+        init: AuthController(), // intialize with the Controller
+        builder: (value) => Container(
+              padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+              width: double.maxFinite,
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                gradient: new LinearGradient(
+                    colors: [
+                      const Color(0xFF3366FF).withOpacity(0.1),
+                      const Color(0xFF3366FF).withOpacity(0.09),
+                    ],
+                    begin: const FractionalOffset(0.0, 0.0),
+                    end: const FractionalOffset(0.0, 1.0),
+                    stops: [0.0, 1.0],
+                    tileMode: TileMode.clamp),
+              ),
+              child: Column(children: [
+                Column(
+                  children: [
+                    for (var img in control.iml) img,
+                  ],
+                ),
+                //
+                //         Container(
+                //         height: 150,
+                //         child: Image(
+                //   image: NetworkImage(store.image,
 
-        //   ),
-        // ),
-        //       ),
-        SizedBox(height: 20),
-        FloatingActionButton(
-            onPressed: () async {
-              control.addImage();
-              control.update();
-              // storeimage.printInfo();
-              //     final ImagePicker _picker = ImagePicker();
+                //   ),
+                // ),
+                //       ),
+                SizedBox(height: 20),
+                FloatingActionButton(
+                    onPressed: () async {
+                      control.addImage();
+                      control.update();
+                      // storeimage.printInfo();
+                      //     final ImagePicker _picker = ImagePicker();
 
-              //     final XFile image = await _picker.pickImage(source: ImageSource.gallery);
-              //     File im=File(image.path);
-              //     storeimage=Image.file(im);
-              //       storeimage=Container(
-              //         height: 150,
-              //         child: Image(
-              //   image: FileImage(im,
+                      //     final XFile image = await _picker.pickImage(source: ImageSource.gallery);
+                      //     File im=File(image.path);
+                      //     storeimage=Image.file(im);
+                      //       storeimage=Container(
+                      //         height: 150,
+                      //         child: Image(
+                      //   image: FileImage(im,
 
-              //   ),
-              // ),
-              //       );
-              //    print(storeimage);
-              //   storecontrol.update();
-            },
-            child: Icon(Icons.camera))
-      ]),
-    );
+                      //   ),
+                      // ),
+                      //       );
+                      //    print(storeimage);
+                      //   storecontrol.update();
+                    },
+                    child: Icon(Icons.camera))
+              ]),
+            ));
   }
 }
