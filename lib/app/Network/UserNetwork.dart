@@ -22,10 +22,10 @@ class UserNetwork {
       user.id = element.id;
 
       //get user role
-      DocumentReference dr = element['role'];
-      Role role = Role(name: '', id: dr.id);
-      role = await roleServices.getRoleById(role.id ?? '');
-      user.role = role;
+      // DocumentReference dr = element['role'];
+      // Role role = Role(name: '', id: dr.id);
+      // role = await roleServices.getRoleById(role.id ?? '');
+      // user.role = role;
 
       users.add(user);
     });

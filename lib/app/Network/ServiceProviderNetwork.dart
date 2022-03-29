@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:home_services_provider/app/Network/BranchNetwork.dart';
 import 'package:home_services_provider/app/Network/CategoryNetwork.dart';
+import 'package:home_services_provider/app/Network/MediaNetwork.dart';
 import 'package:home_services_provider/app/Network/UserNetwork.dart';
 import 'package:home_services_provider/app/models/Category.dart';
 import 'package:home_services_provider/app/models/Provider.dart';
@@ -11,6 +12,8 @@ class ServiceProviderNetwork {
   CollectionReference providersRef =
       FirebaseFirestore.instance.collection('Provider');
   UserNetwork userServices = UserNetwork();
+    MediaNetwork mediaServices = MediaNetwork();
+
   CategoryNetwork categoryServices = CategoryNetwork();
   BranchNetwork branchServices = BranchNetwork();
   // UserNetwork userServices = UserNetwork();
@@ -69,16 +72,32 @@ class ServiceProviderNetwork {
   }
 
   addProvider(ServiceProvider serviceProvider) {
+    
     Map<String, dynamic> mapdata = serviceProvider.tofire();
     print('our user is ' + UserNetwork.dr.id);
     mapdata['user'] = UserNetwork.dr;
     providersRef.add(mapdata).then((value) {
       print('provider added');
       branchServices.addBranch(serviceProvider.branches.first, value.id);
+
     });
   }
 
-  updateProvider(data, id) {
+  updateProvider(List<dynamic>data, id) {
+    List<Map<String, dynamic>> mediaMapList=[];
+    data.forEach((element) {
+      mediaMapList.add({"url":element,
+      "type":"image"
+      });
+     });
+
+    // serviceProvider.media.forEach((element) {
+    //       Map<String, dynamic> mediamap =element.tofire();
+    //       mediaMapList.add(mediamap);
+    //  });
+    //       mediaServices.addMedia(mediaMapList, value.id);
+    //   print('media list length '+mediaMapList.length.toString());
+
     Map<String, dynamic> mapdata = {'media': data};
     providersRef
         .doc(id)
@@ -87,6 +106,7 @@ class ServiceProviderNetwork {
         .catchError((error) {
       print('Can not update provider');
     });
+    mediaServices.addMedia(mediaMapList, id);
   }
 
   Future<ServiceProvider> getProviderByUser(User user) async {
