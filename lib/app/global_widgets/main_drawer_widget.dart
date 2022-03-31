@@ -4,6 +4,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+// import 'package:home_services_provider/app/global_widgets/Restartwidget.dart';
+import 'package:home_services_provider/app/modules/auth/controllers/auth_controller.dart';
+import 'package:home_services_provider/app/modules/profile/controllers/profile_controller.dart';
+import 'package:home_services_provider/main.dart';
 
 import '../modules/root/controllers/root_controller.dart' show RootController;
 import '../routes/app_pages.dart';
@@ -28,9 +32,12 @@ class MainDrawerWidget extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Welcome".tr, style: Get.textTheme.headline5.merge(TextStyle(color: Get.theme.accentColor))),
+                  Text("Welcome".tr,
+                      style: Get.textTheme.headline5
+                          .merge(TextStyle(color: Get.theme.accentColor))),
                   SizedBox(height: 5),
-                  Text("Login account or create new one for free".tr, style: Get.textTheme.bodyText1),
+                  Text("Login account or create new one for free".tr,
+                      style: Get.textTheme.bodyText1),
                   SizedBox(height: 15),
                   Wrap(
                     spacing: 10,
@@ -38,45 +45,54 @@ class MainDrawerWidget extends StatelessWidget {
                       MaterialButton(
                         elevation: 0,
                         onPressed: () {
+                          Get.find<ProfileController>().onInit();
+                          Get.find<AuthController>().onInit();
+                          Get.find<AuthController>().currentUser.value = null;
+                          // // context.findAncestorStateOfType<_RestartWidgetState>().restartApp();
+                          initServices();
+                          // RestartWidget.restartApp(context);
                           Get.offAndToNamed(Routes.LOGIN);
                         },
                         color: Get.theme.accentColor,
                         height: 40,
+                        minWidth: 250,
                         child: Wrap(
                           runAlignment: WrapAlignment.center,
                           crossAxisAlignment: WrapCrossAlignment.center,
                           spacing: 9,
                           children: [
-                            Icon(Icons.exit_to_app_outlined, color: Get.theme.primaryColor, size: 24),
+                            Icon(Icons.exit_to_app_outlined,
+                                color: Get.theme.primaryColor, size: 24),
                             Text(
-                              "Login".tr,
-                              style: Get.textTheme.subtitle1.merge(TextStyle(color: Get.theme.primaryColor)),
+                              "Logout".tr,
+                              style: Get.textTheme.subtitle1.merge(
+                                  TextStyle(color: Get.theme.primaryColor)),
                             ),
                           ],
                         ),
                         shape: StadiumBorder(),
                       ),
-                      MaterialButton(
-                        elevation: 0,
-                        color: Get.theme.focusColor.withOpacity(0.2),
-                        height: 40,
-                        onPressed: () {
-                          Get.offAllNamed(Routes.REGISTER);
-                        },
-                        child: Wrap(
-                          runAlignment: WrapAlignment.center,
-                          crossAxisAlignment: WrapCrossAlignment.center,
-                          spacing: 9,
-                          children: [
-                            Icon(Icons.person_add_outlined, color: Get.theme.hintColor, size: 24),
-                            Text(
-                              "Register".tr,
-                              style: Get.textTheme.subtitle1.merge(TextStyle(color: Get.theme.hintColor)),
-                            ),
-                          ],
-                        ),
-                        shape: StadiumBorder(),
-                      ),
+                      //   MaterialButton(
+                      //     elevation: 0,
+                      //     color: Get.theme.focusColor.withOpacity(0.2),
+                      //     height: 40,
+                      //     onPressed: () {
+                      //       Get.offAllNamed(Routes.REGISTER);
+                      //     },
+                      //     child: Wrap(
+                      //       runAlignment: WrapAlignment.center,
+                      //       crossAxisAlignment: WrapCrossAlignment.center,
+                      //       spacing: 9,
+                      //       children: [
+                      //         Icon(Icons.person_add_outlined, color: Get.theme.hintColor, size: 24),
+                      //         Text(
+                      //           "Register".tr,
+                      //           style: Get.textTheme.subtitle1.merge(TextStyle(color: Get.theme.hintColor)),
+                      //         ),
+                      //       ],
+                      //     ),
+                      //     shape: StadiumBorder(),
+                      //   ),
                     ],
                   ),
                 ],
@@ -197,7 +213,9 @@ class MainDrawerWidget extends StatelessWidget {
             ListTile(
               dense: true,
               title: Text(
-                "Version".tr + " " + Get.find<SettingsService>().setting.value.appVersion,
+                "Version".tr +
+                    " " +
+                    Get.find<SettingsService>().setting.value.appVersion,
                 style: Get.textTheme.caption,
               ),
               trailing: Icon(
