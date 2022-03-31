@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -91,7 +92,6 @@ class ProfileView extends GetView<ProfileController> {
 
   @override
   Widget build(BuildContext context) {
-
 // eServicesController.getAllCategories().then((value){
 // eServicesController.categories.forEach((element){
 //       // chosencats..add(false);
@@ -99,15 +99,17 @@ class ProfileView extends GetView<ProfileController> {
 //     });
 //      });
 
-    if(profileController.serviceProvider!=null&&!profileController.serviceProvider.isBlank){
-      print("many cats "+Get.find<EServicesController>().categories.length.toString());
-      int index=0;
-      Get.find<EServicesController>().categories.forEach((element) { 
+    if (profileController.serviceProvider != null &&
+        !profileController.serviceProvider.isBlank) {
+      print("many cats " +
+          Get.find<EServicesController>().categories.length.toString());
+      int index = 0;
+      Get.find<EServicesController>().categories.forEach((element) {
         bool a;
-        
-        profileController.serviceProvider.value.categories.forEach((value){
-          if(element.name==value.name){
-            eServicesController.chosencats[index]=true;
+
+        profileController.serviceProvider.value.categories.forEach((value) {
+          if (element.name == value.name) {
+            eServicesController.chosencats[index] = true;
           }
         });
         index++;
@@ -116,11 +118,11 @@ class ProfileView extends GetView<ProfileController> {
         //         print(profileController.serviceProvider.value.categories[1].name);
 
         // if(a=profileController.serviceProvider.value.categories.contains(element)){
-          
+
         //   int index=profileController.serviceProvider.value.categories.indexOf(element);
         //   Get.find<EServicesController>().chosencats[index]=true;
         // }
-        print("condition "+a.toString());
+        print("condition " + a.toString());
       });
     }
     // print(controller.serviceProvider.value.categories.first.name);
@@ -462,7 +464,29 @@ class ProfileView extends GetView<ProfileController> {
               if (Get.find<ProfileController>().serviceProvider.value.name !=
                       '' &&
                   Get.find<ProfileController>().serviceProvider != null)
-                addImageHeaderWidget(authController)
+                addImageHeaderWidget(authController),
+              FloatingActionButton(
+                  onPressed: () async {
+                    authController.addImage();
+                    authController.update();
+                    // storeimage.printInfo();
+                    //     final ImagePicker _picker = ImagePicker();
+
+                    //     final XFile image = await _picker.pickImage(source: ImageSource.gallery);
+                    //     File im=File(image.path);
+                    //     storeimage=Image.file(im);
+                    //       storeimage=Container(
+                    //         height: 150,
+                    //         child: Image(
+                    //   image: FileImage(im,
+
+                    //   ),
+                    // ),
+                    //       );
+                    //    print(storeimage);
+                    //   storecontrol.update();
+                  },
+                  child: Icon(Icons.camera))
             ],
           ),
         ));
@@ -531,59 +555,114 @@ class ProfileView extends GetView<ProfileController> {
     return GetBuilder<AuthController>(
         init: AuthController(), // intialize with the Controller
         builder: (value) => Container(
-              padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-              width: double.maxFinite,
-              decoration: BoxDecoration(
-                color: Colors.blue,
-                gradient: new LinearGradient(
-                    colors: [
-                      const Color(0xFF3366FF).withOpacity(0.1),
-                      const Color(0xFF3366FF).withOpacity(0.09),
-                    ],
-                    begin: const FractionalOffset(0.0, 0.0),
-                    end: const FractionalOffset(0.0, 1.0),
-                    stops: [0.0, 1.0],
-                    tileMode: TileMode.clamp),
-              ),
-              child: Column(children: [
-                Column(
-                  children: [
-                    for (var img in control.iml) img,
+            padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+            width: 500,
+            height: 300,
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              gradient: new LinearGradient(
+                  colors: [
+                    const Color(0xFF3366FF).withOpacity(0.1),
+                    const Color(0xFF3366FF).withOpacity(0.09),
                   ],
-                ),
-                //
-                //         Container(
-                //         height: 150,
-                //         child: Image(
-                //   image: NetworkImage(store.image,
-
-                //   ),
-                // ),
-                //       ),
-                SizedBox(height: 20),
-                FloatingActionButton(
-                    onPressed: () async {
-                      control.addImage();
-                      control.update();
-                      // storeimage.printInfo();
-                      //     final ImagePicker _picker = ImagePicker();
-
-                      //     final XFile image = await _picker.pickImage(source: ImageSource.gallery);
-                      //     File im=File(image.path);
-                      //     storeimage=Image.file(im);
-                      //       storeimage=Container(
-                      //         height: 150,
-                      //         child: Image(
-                      //   image: FileImage(im,
-
-                      //   ),
-                      // ),
-                      //       );
-                      //    print(storeimage);
-                      //   storecontrol.update();
+                  begin: const FractionalOffset(0.0, 0.0),
+                  end: const FractionalOffset(0.0, 1.0),
+                  stops: [0.0, 1.0],
+                  tileMode: TileMode.clamp),
+            ),
+            child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: control.iml.length,
+                itemBuilder: (context, index) {
+                  var _media = control.iml.elementAt(index);
+                  return InkWell(
+                    onTap: () {
+                      showDialog(
+                          context: context,
+                          builder: (context) {
+                            return Dialog(
+                                insetPadding: EdgeInsets.all(0),
+                                backgroundColor: Colors.transparent,
+                                child: Container(
+                                  color: Colors.transparent.withOpacity(0.3),
+                                  width: MediaQuery.of(context).size.width,
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.7,
+                                  child: _media,
+                                ));
+                          });
+                      //Get.toNamed(Routes.CATEGORY, arguments: _category);
+                      //Get.toNamed(Routes.CATEGORY, arguments: _category);
                     },
-                    child: Icon(Icons.camera))
-              ]),
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      margin: EdgeInsetsDirectional.only(
+                          end: 20,
+                          start: index == 0 ? 20 : 0,
+                          top: 10,
+                          bottom: 10),
+                      child: Stack(
+                        alignment: AlignmentDirectional.topStart,
+                        children: [
+                          ClipRRect(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                              child: _media),
+                          // Padding(
+                          //   padding:
+                          //       const EdgeInsetsDirectional.only(start: 12, top: 8),
+                          //   child: Text(
+                          //     _media.name ?? '',
+                          //     maxLines: 2,
+                          //     style: Get.textTheme.bodyText2
+                          //         .merge(TextStyle(color: Get.theme.primaryColor)),
+                          //   ),
+                          // ),
+                        ],
+                      ),
+                    ),
+                  );
+                })
+            // child: Column(children: [
+            //   Column(
+            //     children: [
+            //       for (var img in control.iml) img,
+            //     ],
+            //   ),
+            //   //
+            //   //         Container(
+            //   //         height: 150,
+            //   //         child: Image(
+            //   //   image: NetworkImage(store.image,
+
+            //   //   ),
+            //   // ),
+            //   //       ),
+            //   SizedBox(height: 20),
+            //   FloatingActionButton(
+            //       onPressed: () async {
+            //         control.addImage();
+            //         control.update();
+            //         // storeimage.printInfo();
+            //         //     final ImagePicker _picker = ImagePicker();
+
+            //         //     final XFile image = await _picker.pickImage(source: ImageSource.gallery);
+            //         //     File im=File(image.path);
+            //         //     storeimage=Image.file(im);
+            //         //       storeimage=Container(
+            //         //         height: 150,
+            //         //         child: Image(
+            //         //   image: FileImage(im,
+
+            //         //   ),
+            //         // ),
+            //         //       );
+            //         //    print(storeimage);
+            //         //   storecontrol.update();
+            //       },
+            //       child: Icon(Icons.camera))
+            // ]),
             ));
   }
 }
