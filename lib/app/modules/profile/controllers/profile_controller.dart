@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:home_services_provider/app/Network/CategoryNetwork.dart';
 import 'package:home_services_provider/app/Network/ServiceProviderNetwork.dart';
 import 'package:home_services_provider/app/models/Branch.dart';
+import 'package:home_services_provider/app/models/Media.dart';
 import 'package:home_services_provider/app/models/Provider.dart';
 import 'package:home_services_provider/app/models/User.dart';
 import 'package:home_services_provider/app/modules/auth/controllers/auth_controller.dart';
@@ -61,7 +62,6 @@ class ProfileController extends GetxController {
           ]);
     }
 
-    
     user.value = Get.find<AuthController>().currentUser.value;
 
     super.onInit();
@@ -83,9 +83,9 @@ class ProfileController extends GetxController {
     return urlDownload;
   }
 
-  Future<List<String>> uploadMedia() async {
+  Future<List<Media>> uploadMedia() async {
     AuthController authController = Get.find<AuthController>();
-    List<String> med = [];
+    List<Media> med = [];
     authController.filel.forEach((element) async {
       final filename = basename(element.path);
       final destination = "/User/Provider/Media/$filename";
@@ -99,8 +99,13 @@ class ProfileController extends GetxController {
 
       //var url = dowurl.toString();
       print(urlDownload);
-      med.add(urlDownload);
+      med.add(Media(url: urlDownload, type: 'image'));
     });
+    for (var e in authController.boolimg) {
+      if (!e) {
+        e = true;
+      }
+    }
     return med;
   }
 
@@ -141,13 +146,12 @@ class ProfileController extends GetxController {
   //   }
   // }
 
-  edit(BuildContext 
-  context) async {
+  edit(BuildContext context) async {
     // List<String> med = [];
     // med = await uploadMedia();
     try {
       print('uploading');
-      List<String> med = await uploadMedia();
+      List<Media> med = await uploadMedia();
       print('uploaded pp');
       print('updating pp');
       Future.delayed(
@@ -158,7 +162,7 @@ class ProfileController extends GetxController {
         print("object");
         Get.find<AuthController>()
             .serviceProviderServices
-            .updateProvider(med, serviceProvider.value.id,context);
+            .updateProvider(med, serviceProvider.value.id, context);
       });
       update();
 
@@ -188,7 +192,7 @@ class ProfileController extends GetxController {
       GlobalKey<FormState> profileForm, tempProvider) async {
     print('uploading');
     String url = await uploadFile();
-    List<String> med = [];
+    List<Media> med = [];
     med = await uploadMedia();
     print('uploaded');
 

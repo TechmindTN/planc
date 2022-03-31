@@ -14,7 +14,7 @@ class ServiceProviderNetwork {
   CollectionReference providersRef =
       FirebaseFirestore.instance.collection('Provider');
   UserNetwork userServices = UserNetwork();
-    MediaNetwork mediaServices = MediaNetwork();
+  MediaNetwork mediaServices = MediaNetwork();
 
   CategoryNetwork categoryServices = CategoryNetwork();
   BranchNetwork branchServices = BranchNetwork();
@@ -82,17 +82,14 @@ class ServiceProviderNetwork {
     providersRef.add(mapdata).then((value) {
       print('provider added');
       branchServices.addBranch(serviceProvider.branches.first, value.id);
-
     });
   }
 
-  updateProvider(List<dynamic>data, id,BuildContext context) {
-    List<Map<String, dynamic>> mediaMapList=[];
+  updateProvider(List<dynamic> data, id, BuildContext context) {
+    List<Map<String, dynamic>> mediaMapList = [];
     data.forEach((element) {
-      mediaMapList.add({"url":element,
-      "type":"image"
-      });
-     });
+      mediaMapList.add({"url": element, "type": "image"});
+    });
 
     // serviceProvider.media.forEach((element) {
     //       Map<String, dynamic> mediamap =element.tofire();
@@ -102,19 +99,19 @@ class ServiceProviderNetwork {
     //   print('media list length '+mediaMapList.length.toString());
 
     Map<String, dynamic> mapdata = {'media': data};
-    providersRef
-        .doc(id)
-        .update(mapdata)
-        .then((value) { print('provider updated');
-        SnackBar snack=SnackBar(content: Text("Profile Successfully updated".tr),
-        backgroundColor: Colors.green,);
-                  ScaffoldMessenger.of(context).showSnackBar(snack);
-
-        })
-        .catchError((error) {
-          SnackBar snack=SnackBar(content: Text("There is a problem".tr),
-          backgroundColor: Colors.red,);
-                  ScaffoldMessenger.of(context).showSnackBar(snack);
+    providersRef.doc(id).update(mapdata).then((value) {
+      print('provider updated');
+      SnackBar snack = SnackBar(
+        content: Text("Profile Successfully updated".tr),
+        backgroundColor: Colors.green,
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snack);
+    }).catchError((error) {
+      SnackBar snack = SnackBar(
+        content: Text("There is a problem".tr),
+        backgroundColor: Colors.red,
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snack);
       print('Can not update provider');
     });
     mediaServices.addMedia(mediaMapList, id);
@@ -128,29 +125,37 @@ class ServiceProviderNetwork {
       DocumentReference userref = await userServices.getUserRef(user.id);
       QuerySnapshot snapshot =
           await providersRef.where('user', isEqualTo: userref).get();
-      print('hello from network 2');
       // snapshot..docs.first;
       // DocumentSnapshot snapshot = await providersRef.doc(id).get();
+      print('hello from network 2');
+
       serviceProvider = ServiceProvider.fromFire(snapshot.docs.first.data());
+      print('hello from network 3');
+
       serviceProvider.id = snapshot.docs.first.id;
+      print('hello from network 4');
+
+      //get media
+      serviceProvider.media =
+          await mediaServices.getMediaListByProvider(serviceProvider.id);
+      print('hello from network 5');
 
       //get Branches
       serviceProvider.branches =
           await branchServices.getBranchListByProvider(snapshot.docs.first.id);
       print('branches done');
       // get category
-      
 
       // getMyCategories();
 
-List<Category> categories=[];
+      List<Category> categories = [];
       List<dynamic> drList = snapshot.docs.first['categories'];
       drList.forEach((element) async {
-        Category category =await categoryServices.getCategoryById(element.id);
+        Category category = await categoryServices.getCategoryById(element.id);
         categories.add(category);
-       });
-serviceProvider.categories=categories;
-       
+      });
+      serviceProvider.categories = categories;
+
 //       // // print('branches done 1');
 //       List<Category> categories = [];
 // //       serviceProvider.categories = categories;
