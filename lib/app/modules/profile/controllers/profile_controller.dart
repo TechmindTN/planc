@@ -60,6 +60,8 @@ class ProfileController extends GetxController {
                 zip_code: 0)
           ]);
     }
+
+    
     user.value = Get.find<AuthController>().currentUser.value;
 
     super.onInit();
@@ -139,7 +141,8 @@ class ProfileController extends GetxController {
   //   }
   // }
 
-  edit() async {
+  edit(BuildContext 
+  context) async {
     // List<String> med = [];
     // med = await uploadMedia();
     try {
@@ -155,7 +158,7 @@ class ProfileController extends GetxController {
         print("object");
         Get.find<AuthController>()
             .serviceProviderServices
-            .updateProvider(med, serviceProvider.value.id);
+            .updateProvider(med, serviceProvider.value.id,context);
       });
       update();
 

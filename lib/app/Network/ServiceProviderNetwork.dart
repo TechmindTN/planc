@@ -1,6 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:home_services_provider/app/Network/BranchNetwork.dart';
 import 'package:home_services_provider/app/Network/CategoryNetwork.dart';
+import 'package:home_services_provider/app/Network/MediaNetwork.dart';
 import 'package:home_services_provider/app/Network/UserNetwork.dart';
 import 'package:home_services_provider/app/models/Category.dart';
 import 'package:home_services_provider/app/models/Provider.dart';
@@ -11,6 +14,8 @@ class ServiceProviderNetwork {
   CollectionReference providersRef =
       FirebaseFirestore.instance.collection('Provider');
   UserNetwork userServices = UserNetwork();
+    MediaNetwork mediaServices = MediaNetwork();
+
   CategoryNetwork categoryServices = CategoryNetwork();
   BranchNetwork branchServices = BranchNetwork();
   // UserNetwork userServices = UserNetwork();
@@ -77,18 +82,42 @@ class ServiceProviderNetwork {
     providersRef.add(mapdata).then((value) {
       print('provider added');
       branchServices.addBranch(serviceProvider.branches.first, value.id);
+
     });
   }
 
-  updateProvider(data, id) {
+  updateProvider(List<dynamic>data, id,BuildContext context) {
+    List<Map<String, dynamic>> mediaMapList=[];
+    data.forEach((element) {
+      mediaMapList.add({"url":element,
+      "type":"image"
+      });
+     });
+
+    // serviceProvider.media.forEach((element) {
+    //       Map<String, dynamic> mediamap =element.tofire();
+    //       mediaMapList.add(mediamap);
+    //  });
+    //       mediaServices.addMedia(mediaMapList, value.id);
+    //   print('media list length '+mediaMapList.length.toString());
+
     Map<String, dynamic> mapdata = {'media': data};
     providersRef
         .doc(id)
         .update(mapdata)
-        .then((value) => print('provider updated'))
+        .then((value) { print('provider updated');
+        SnackBar snack=SnackBar(content: Text("Profile Successfully updated".tr),
+        backgroundColor: Colors.green,);
+                  ScaffoldMessenger.of(context).showSnackBar(snack);
+
+        })
         .catchError((error) {
+          SnackBar snack=SnackBar(content: Text("There is a problem".tr),
+          backgroundColor: Colors.red,);
+                  ScaffoldMessenger.of(context).showSnackBar(snack);
       print('Can not update provider');
     });
+    mediaServices.addMedia(mediaMapList, id);
   }
 
   Future<ServiceProvider> getProviderByUser(User user) async {
@@ -110,26 +139,48 @@ class ServiceProviderNetwork {
           await branchServices.getBranchListByProvider(snapshot.docs.first.id);
       print('branches done');
       // get category
+      
 
-      // List<dynamic> drList = snapshot.docs.first['categories'];
-      // // print('branches done 1');
-      // List<Category> categories = [];
-      // serviceProvider.categories = categories;
-// print(drList.length);
-      // drList.forEach((value) async {
-      //   List<Category> subCategories = [];
+      // getMyCategories();
 
-      //   Category category = Category(name: '', parent: null, id: value.id);
+List<Category> categories=[];
+      List<dynamic> drList = snapshot.docs.first['categories'];
+      drList.forEach((element) async {
+        Category category =await categoryServices.getCategoryById(element.id);
+        categories.add(category);
+       });
+serviceProvider.categories=categories;
+       
+//       // // print('branches done 1');
+//       List<Category> categories = [];
+// //       serviceProvider.categories = categories;
+// // // print(drList.length);
+//       drList.forEach((value) async {
+// //       //   List<Category> subCategories = [];
 
-      //   subCategories =
-      //       await categoryServices.getCategoriesByProvider(category.id ?? '');
-      //   serviceProvider.categories.addAll(subCategories);
-      //   print(serviceProvider.categories.length);
-      // });
+// //         // Category category = Category(name: '', parent: null, id: value.id);
+// // Category category=Category.fromFire(value);
+// // print("category name "+category.name);
+// // // print(object)
+// // serviceProvider.categories.add(category);
+// //       });
+//         categories =
+//             await categoryServices.getCategoriesByProvider(value.id ?? '');
+//       //   serviceProvider.categories.addAll(subCategories);
+//         print("cat length "+categories.length.toString());
+//         Future.delayed(Duration(seconds: 10),(){
+//                   print("cat length "+categories.length.toString());
+
+//         });
+//       });
+//       serviceProvider.categories=categories;
+//               print("cat length "+categories.length.toString());
+
       //  print(serviceProvider.categories!.length);
       // serviceProvider.categories.forEach((element) {
       //   print(element.name);
       // });
+      // print("my name is "+serviceProvider.categories.first.name);
       return serviceProvider;
     } catch (e) {
       print('error in network ' + e);

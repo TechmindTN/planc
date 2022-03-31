@@ -61,6 +61,11 @@ class AuthController extends GetxController {
 
       profileController.serviceProvider.value =
           await serviceProviderServices.getProviderByUser(currentUser.value);
+
+
+          Future.delayed(Duration(seconds: 2),(){
+            print("my category is "+profileController.serviceProvider.value.categories.length.toString());
+          });
       print('getting provider');
       print(
           'provider is ' + profileController.serviceProvider.value.description);

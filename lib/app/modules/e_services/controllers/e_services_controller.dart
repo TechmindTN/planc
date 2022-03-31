@@ -48,6 +48,8 @@ categories.forEach((element){
       chosencats.add(false);
     });
      });
+
+     
     
     await refreshEServices();
     super.onInit();

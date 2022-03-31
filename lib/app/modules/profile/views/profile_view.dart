@@ -92,7 +92,40 @@ class ProfileView extends GetView<ProfileController> {
 
   @override
   Widget build(BuildContext context) {
-    print(controller.serviceProvider.value.description);
+// eServicesController.getAllCategories().then((value){
+// eServicesController.categories.forEach((element){
+//       // chosencats..add(false);
+//       eServicesController.chosencats.add(false);
+//     });
+//      });
+
+    if (profileController.serviceProvider != null &&
+        !profileController.serviceProvider.isBlank) {
+      print("many cats " +
+          Get.find<EServicesController>().categories.length.toString());
+      int index = 0;
+      Get.find<EServicesController>().categories.forEach((element) {
+        bool a;
+
+        profileController.serviceProvider.value.categories.forEach((value) {
+          if (element.name == value.name) {
+            eServicesController.chosencats[index] = true;
+          }
+        });
+        index++;
+        // print(element.name);
+        // print(profileController.serviceProvider.value.categories[0].name);
+        //         print(profileController.serviceProvider.value.categories[1].name);
+
+        // if(a=profileController.serviceProvider.value.categories.contains(element)){
+
+        //   int index=profileController.serviceProvider.value.categories.indexOf(element);
+        //   Get.find<EServicesController>().chosencats[index]=true;
+        // }
+        print("condition " + a.toString());
+      });
+    }
+    // print(controller.serviceProvider.value.categories.first.name);
     // namecontrol.text=controller.serviceProvider.value.name
     eServicesController.getAllCategories();
     print(controller.serviceProvider.value.name);
@@ -173,7 +206,7 @@ class ProfileView extends GetView<ProfileController> {
                       print(authController.currentUser.value.id);
                       controller.saveProviderForm(_profileForm, tempProvider);
                     } else {
-                      controller.edit();
+                      controller.edit(context);
                       controller.update();
                     }
                   },
