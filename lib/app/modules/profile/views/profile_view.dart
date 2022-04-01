@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:home_services_provider/app/global_widgets/map_select_widget.dart';
 import 'package:home_services_provider/app/models/Branch.dart';
 import 'package:home_services_provider/app/models/Provider.dart';
 import 'package:home_services_provider/app/modules/auth/controllers/auth_controller.dart';
@@ -185,7 +186,7 @@ class ProfileView extends GetView<ProfileController> {
                           // user: authController.userServices.getUserRef(authController.currentUser.value.id),
                           branches: [
                             Branch(
-                              address: desccontrol.text,
+                              address: addresscontrol.text,
                               branch_name: '',
                               city: citycontrol.text,
                               country: countrycontrol.text,
@@ -289,62 +290,69 @@ class ProfileView extends GetView<ProfileController> {
                 initialValue: controller
                     .serviceProvider.value.branches.first.phone
                     .toString(),
-                hintText: "+1 565 6899 659",
+                hintText: "+216 56 689 659",
                 labelText: "Phone number".tr,
                 iconData: Icons.phone_android_outlined,
               ),
-              TextFieldWidget(
-                control: countrycontrol,
-                onSaved: (input) => controller
-                    .serviceProvider.value.branches.first.country = input,
-                validator: (input) => input.length < 3
-                    ? "Should be more than 3 letters".tr
-                    : null,
-                initialValue:
-                    controller.serviceProvider.value.branches.first.country,
-                hintText: "Tunisia".tr,
-                labelText: "Country".tr,
-                iconData: Icons.map_outlined,
+
+
+              GetBuilder<ProfileController>(
+                builder: (profileController) {
+                  return MapSelect(context,profileController,addresscontrol);
+                }
               ),
-              TextFieldWidget(
-                control: statecontrol,
-                onSaved: (input) => controller
-                    .serviceProvider.value.branches.first.state = input,
-                validator: (input) => input.length < 3
-                    ? "Should be more than 3 letters".tr
-                    : null,
-                initialValue:
-                    controller.serviceProvider.value.branches.first.state,
-                hintText: "Tunis".tr,
-                labelText: "State".tr,
-                iconData: Icons.map_outlined,
-              ),
-              TextFieldWidget(
-                control: citycontrol,
-                onSaved: (input) => controller
-                    .serviceProvider.value.branches.first.city = input,
-                validator: (input) => input.length < 3
-                    ? "Should be more than 3 letters".tr
-                    : null,
-                initialValue:
-                    controller.serviceProvider.value.branches.first.city,
-                hintText: "Centre Urbain Nord".tr,
-                labelText: "City".tr,
-                iconData: Icons.map_outlined,
-              ),
-              TextFieldWidget(
-                control: addresscontrol,
-                onSaved: (input) => controller
-                    .serviceProvider.value.branches.first.address = input,
-                validator: (input) => input.length < 3
-                    ? "Should be more than 3 letters".tr
-                    : null,
-                initialValue:
-                    controller.serviceProvider.value.branches.first.address,
-                hintText: "123 Street, City 136, State, Country".tr,
-                labelText: "Address".tr,
-                iconData: Icons.map_outlined,
-              ),
+              // TextFieldWidget(
+              //   control: countrycontrol,
+              //   onSaved: (input) => controller
+              //       .serviceProvider.value.branches.first.country = input,
+              //   validator: (input) => input.length < 3
+              //       ? "Should be more than 3 letters".tr
+              //       : null,
+              //   initialValue:
+              //       controller.serviceProvider.value.branches.first.country,
+              //   hintText: "Tunisia".tr,
+              //   labelText: "Country".tr,
+              //   iconData: Icons.map_outlined,
+              // ),
+              // TextFieldWidget(
+              //   control: statecontrol,
+              //   onSaved: (input) => controller
+              //       .serviceProvider.value.branches.first.state = input,
+              //   validator: (input) => input.length < 3
+              //       ? "Should be more than 3 letters".tr
+              //       : null,
+              //   initialValue:
+              //       controller.serviceProvider.value.branches.first.state,
+              //   hintText: "Tunis".tr,
+              //   labelText: "State".tr,
+              //   iconData: Icons.map_outlined,
+              // ),
+              // TextFieldWidget(
+              //   control: citycontrol,
+              //   onSaved: (input) => controller
+              //       .serviceProvider.value.branches.first.city = input,
+              //   validator: (input) => input.length < 3
+              //       ? "Should be more than 3 letters".tr
+              //       : null,
+              //   initialValue:
+              //       controller.serviceProvider.value.branches.first.city,
+              //   hintText: "Centre Urbain Nord".tr,
+              //   labelText: "City".tr,
+              //   iconData: Icons.map_outlined,
+              // ),
+              // TextFieldWidget(
+              //   control: addresscontrol,
+              //   onSaved: (input) => controller
+              //       .serviceProvider.value.branches.first.address = input,
+              //   validator: (input) => input.length < 3
+              //       ? "Should be more than 3 letters".tr
+              //       : null,
+              //   initialValue:
+              //       controller.serviceProvider.value.branches.first.address,
+              //   hintText: "123 Street, City 136, State, Country".tr,
+              //   labelText: "Address".tr,
+              //   iconData: Icons.map_outlined,
+              // ),
               TextFieldWidget(
                 control: websitecontrol,
                 onSaved: (input) =>
