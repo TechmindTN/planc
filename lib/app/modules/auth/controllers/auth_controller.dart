@@ -4,9 +4,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:home_services_provider/app/Network/MediaNetwork.dart';
 import 'package:home_services_provider/app/Network/RoleNetwork.dart';
 import 'package:home_services_provider/app/Network/ServiceProviderNetwork.dart';
 import 'package:home_services_provider/app/Network/UserNetwork.dart';
+import 'package:home_services_provider/app/models/Media.dart';
 import 'package:home_services_provider/app/models/Provider.dart';
 import 'package:home_services_provider/app/models/Role.dart';
 import 'package:home_services_provider/app/models/User.dart';
@@ -24,9 +26,12 @@ class AuthController extends GetxController {
   Image im;
   List<File> filel = [];
   List<Image> iml = [];
+  List<bool> boolimg = [];
   Rx<User> currentUser = User().obs;
   UserNetwork userServices = UserNetwork();
   RoleNetwork roleServices = RoleNetwork();
+  MediaNetwork mediaServices = MediaNetwork();
+
   ServiceProviderNetwork serviceProviderServices = ServiceProviderNetwork();
   FirebaseStorage storage = FirebaseStorage.instance;
 
@@ -61,11 +66,13 @@ class AuthController extends GetxController {
 
       profileController.serviceProvider.value =
           await serviceProviderServices.getProviderByUser(currentUser.value);
+      print(profileController.serviceProvider.value.media.first.url);
 
-
-          Future.delayed(Duration(seconds: 2),(){
-            print("my category is "+profileController.serviceProvider.value.categories.length.toString());
-          });
+      Future.delayed(Duration(seconds: 2), () {
+        print("my category is " +
+            profileController.serviceProvider.value.categories.length
+                .toString());
+      });
       print('getting provider');
       print(
           'provider is ' + profileController.serviceProvider.value.description);
@@ -81,7 +88,7 @@ class AuthController extends GetxController {
       if (profileController.serviceProvider.value.media != null &&
           profileController.serviceProvider.value.media.length > 0) {
         profileController.serviceProvider.value.media.forEach((element) {
-          iml.add(Image.network(element));
+          iml.add(Image.network(element.url));
         });
       }
     } catch (e) {
@@ -173,10 +180,18 @@ class AuthController extends GetxController {
       filel.add(File(element.path));
       // fileLL = File(element.path);
       iml.add(Image.file(filel.last));
+      boolimg.add(false);
     });
 
     print("this");
     print(iml);
+
+    update();
+  }
+
+  deleteImage(Media m) async {
+    mediaServices.deleteMedia(
+        m.id, Get.find<ProfileController>().serviceProvider.value.id);
 
     update();
   }
