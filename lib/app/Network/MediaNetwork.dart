@@ -1,40 +1,63 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 
 import '../models/Media.dart';
+import 'package:path/path.dart';
 
-class MediaNetwork{
-
-   FirebaseFirestore firestore = FirebaseFirestore.instance;
- CollectionReference providersRef =
+class MediaNetwork {
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+  CollectionReference providersRef =
       FirebaseFirestore.instance.collection('Provider');
 
-  // Future<List<Media>> getMaterialList() async {
-  //   List<Media> medias = [];
+  Future<List<Media>> getMediaListByProvider(String id) async {
+    try {
+      print('media here');
 
-  //   QuerySnapshot snapshot = await mediaRef.get();
-  //   var list = snapshot.docs.map((e) => e.data()).toList();
-  //   snapshot.docs.forEach((element) async {
-  //     Media media = Media.fromFire(element);
+      // List<Image> iml = [];
+      // List<File> filel = [];
+      List<Media> mediaList = [];
+      print('media here');
+      QuerySnapshot snapshot =
+          await providersRef.doc(id).collection('Media').get();
+      // var list = snapshot.docs.map((e) => e.data()).tofire().toList();
+      print('media here');
+      snapshot.docs.forEach((element) {
+        Media med = Media.fromFire(element);
+        med.id = element.id;
+        mediaList.add(med);
+        print(element);
+      });
+      // snapshot.docs.forEach((element) async {
+      //   filel.add(File(element.path));
+      //   iml.add(filel.last);
+      // });
+      return mediaList;
+    } catch (e) {
+      print("media test");
+      print(e);
+    }
+  }
 
-  //     media.id = element.id;
-  //     medias.add(media);
-  //     // print(media.name);
-  //   });
-  //   return medias;
-  // }
+  deleteMedia(String id, String providerId) {
+    try {
+      providersRef.doc(providerId).collection("Media").doc(id).delete();
+    } catch (e) {
+      print("error delete media" + e);
+    }
+  }
 
-  //  Future<Media> getMaterialById(String id) async {
-  //   Media media;
-  //   DocumentSnapshot snapshot = await mediaRef.doc(id).get();
-  //   media = Media.fromFire(snapshot.data());
-  //   media.id = snapshot.id;
-  //   return media;
-  // }
-
-  addMedia( List<Map<String,dynamic>> data,id){
+  addMedia(List<Map<String, dynamic>> data, id) {
     data.forEach((element) {
-          providersRef.doc(id).collection('Media').add(element).then((value) => print('Media Added')).catchError((e){print('can not add media');}   );
-
+      providersRef
+          .doc(id)
+          .collection('Media')
+          .add(element)
+          .then((value) => print('Media Added'))
+          .catchError((e) {
+        print('can not add media');
+      });
     });
   }
 }

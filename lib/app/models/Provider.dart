@@ -1,5 +1,6 @@
 import 'package:home_services_provider/app/models/Branch.dart';
 import 'package:home_services_provider/app/models/Category.dart';
+import 'package:home_services_provider/app/models/Media.dart';
 import 'package:home_services_provider/app/models/User.dart';
 
 class ServiceProvider {
@@ -7,7 +8,7 @@ class ServiceProvider {
   String name;
   String description;
   String website;
-  List<dynamic> media;
+  List<Media> media;
   String profile_photo;
   User user;
   List<Category> categories;
@@ -37,7 +38,7 @@ class ServiceProvider {
       : name = fire['name'],
         description = fire['description'],
         website = fire['website'],
-        media = fire['media'],
+        // media = fire['media'],
         id = null,
         profile_photo = fire['profile_photo'];
 

@@ -1,6 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:home_services_provider/app/global_widgets/map_select_widget.dart';
 import 'package:home_services_provider/app/models/Branch.dart';
 import 'package:home_services_provider/app/models/Provider.dart';
 import 'package:home_services_provider/app/modules/auth/controllers/auth_controller.dart';
@@ -91,7 +93,6 @@ class ProfileView extends GetView<ProfileController> {
 
   @override
   Widget build(BuildContext context) {
-
 // eServicesController.getAllCategories().then((value){
 // eServicesController.categories.forEach((element){
 //       // chosencats..add(false);
@@ -99,15 +100,17 @@ class ProfileView extends GetView<ProfileController> {
 //     });
 //      });
 
-    if(profileController.serviceProvider!=null&&!profileController.serviceProvider.isBlank){
-      print("many cats "+Get.find<EServicesController>().categories.length.toString());
-      int index=0;
-      Get.find<EServicesController>().categories.forEach((element) { 
+    if (profileController.serviceProvider != null &&
+        !profileController.serviceProvider.isBlank) {
+      print("many cats " +
+          Get.find<EServicesController>().categories.length.toString());
+      int index = 0;
+      Get.find<EServicesController>().categories.forEach((element) {
         bool a;
-        
-        profileController.serviceProvider.value.categories.forEach((value){
-          if(element.name==value.name){
-            eServicesController.chosencats[index]=true;
+
+        profileController.serviceProvider.value.categories.forEach((value) {
+          if (element.name == value.name) {
+            eServicesController.chosencats[index] = true;
           }
         });
         index++;
@@ -116,11 +119,11 @@ class ProfileView extends GetView<ProfileController> {
         //         print(profileController.serviceProvider.value.categories[1].name);
 
         // if(a=profileController.serviceProvider.value.categories.contains(element)){
-          
+
         //   int index=profileController.serviceProvider.value.categories.indexOf(element);
         //   Get.find<EServicesController>().chosencats[index]=true;
         // }
-        print("condition "+a.toString());
+        print("condition " + a.toString());
       });
     }
     // print(controller.serviceProvider.value.categories.first.name);
@@ -185,7 +188,7 @@ class ProfileView extends GetView<ProfileController> {
                           // user: authController.userServices.getUserRef(authController.currentUser.value.id),
                           branches: [
                             Branch(
-                              address: desccontrol.text,
+                              address: addresscontrol.text,
                               branch_name: '',
                               city: citycontrol.text,
                               country: countrycontrol.text,
@@ -289,62 +292,69 @@ class ProfileView extends GetView<ProfileController> {
                 initialValue: controller
                     .serviceProvider.value.branches.first.phone
                     .toString(),
-                hintText: "+1 565 6899 659",
+                hintText: "+216 56 689 659",
                 labelText: "Phone number".tr,
                 iconData: Icons.phone_android_outlined,
               ),
-              TextFieldWidget(
-                control: countrycontrol,
-                onSaved: (input) => controller
-                    .serviceProvider.value.branches.first.country = input,
-                validator: (input) => input.length < 3
-                    ? "Should be more than 3 letters".tr
-                    : null,
-                initialValue:
-                    controller.serviceProvider.value.branches.first.country,
-                hintText: "Tunisia".tr,
-                labelText: "Country".tr,
-                iconData: Icons.map_outlined,
+
+
+              GetBuilder<ProfileController>(
+                builder: (profileController) {
+                  return MapSelect(context,profileController,addresscontrol);
+                }
               ),
-              TextFieldWidget(
-                control: statecontrol,
-                onSaved: (input) => controller
-                    .serviceProvider.value.branches.first.state = input,
-                validator: (input) => input.length < 3
-                    ? "Should be more than 3 letters".tr
-                    : null,
-                initialValue:
-                    controller.serviceProvider.value.branches.first.state,
-                hintText: "Tunis".tr,
-                labelText: "State".tr,
-                iconData: Icons.map_outlined,
-              ),
-              TextFieldWidget(
-                control: citycontrol,
-                onSaved: (input) => controller
-                    .serviceProvider.value.branches.first.city = input,
-                validator: (input) => input.length < 3
-                    ? "Should be more than 3 letters".tr
-                    : null,
-                initialValue:
-                    controller.serviceProvider.value.branches.first.city,
-                hintText: "Centre Urbain Nord".tr,
-                labelText: "City".tr,
-                iconData: Icons.map_outlined,
-              ),
-              TextFieldWidget(
-                control: addresscontrol,
-                onSaved: (input) => controller
-                    .serviceProvider.value.branches.first.address = input,
-                validator: (input) => input.length < 3
-                    ? "Should be more than 3 letters".tr
-                    : null,
-                initialValue:
-                    controller.serviceProvider.value.branches.first.address,
-                hintText: "123 Street, City 136, State, Country".tr,
-                labelText: "Address".tr,
-                iconData: Icons.map_outlined,
-              ),
+              // TextFieldWidget(
+              //   control: countrycontrol,
+              //   onSaved: (input) => controller
+              //       .serviceProvider.value.branches.first.country = input,
+              //   validator: (input) => input.length < 3
+              //       ? "Should be more than 3 letters".tr
+              //       : null,
+              //   initialValue:
+              //       controller.serviceProvider.value.branches.first.country,
+              //   hintText: "Tunisia".tr,
+              //   labelText: "Country".tr,
+              //   iconData: Icons.map_outlined,
+              // ),
+              // TextFieldWidget(
+              //   control: statecontrol,
+              //   onSaved: (input) => controller
+              //       .serviceProvider.value.branches.first.state = input,
+              //   validator: (input) => input.length < 3
+              //       ? "Should be more than 3 letters".tr
+              //       : null,
+              //   initialValue:
+              //       controller.serviceProvider.value.branches.first.state,
+              //   hintText: "Tunis".tr,
+              //   labelText: "State".tr,
+              //   iconData: Icons.map_outlined,
+              // ),
+              // TextFieldWidget(
+              //   control: citycontrol,
+              //   onSaved: (input) => controller
+              //       .serviceProvider.value.branches.first.city = input,
+              //   validator: (input) => input.length < 3
+              //       ? "Should be more than 3 letters".tr
+              //       : null,
+              //   initialValue:
+              //       controller.serviceProvider.value.branches.first.city,
+              //   hintText: "Centre Urbain Nord".tr,
+              //   labelText: "City".tr,
+              //   iconData: Icons.map_outlined,
+              // ),
+              // TextFieldWidget(
+              //   control: addresscontrol,
+              //   onSaved: (input) => controller
+              //       .serviceProvider.value.branches.first.address = input,
+              //   validator: (input) => input.length < 3
+              //       ? "Should be more than 3 letters".tr
+              //       : null,
+              //   initialValue:
+              //       controller.serviceProvider.value.branches.first.address,
+              //   hintText: "123 Street, City 136, State, Country".tr,
+              //   labelText: "Address".tr,
+              //   iconData: Icons.map_outlined,
+              // ),
               TextFieldWidget(
                 control: websitecontrol,
                 onSaved: (input) =>
@@ -462,7 +472,29 @@ class ProfileView extends GetView<ProfileController> {
               if (Get.find<ProfileController>().serviceProvider.value.name !=
                       '' &&
                   Get.find<ProfileController>().serviceProvider != null)
-                addImageHeaderWidget(authController)
+                addImageHeaderWidget(authController),
+              FloatingActionButton(
+                  onPressed: () async {
+                    authController.addImage();
+                    authController.update();
+                    // storeimage.printInfo();
+                    //     final ImagePicker _picker = ImagePicker();
+
+                    //     final XFile image = await _picker.pickImage(source: ImageSource.gallery);
+                    //     File im=File(image.path);
+                    //     storeimage=Image.file(im);
+                    //       storeimage=Container(
+                    //         height: 150,
+                    //         child: Image(
+                    //   image: FileImage(im,
+
+                    //   ),
+                    // ),
+                    //       );
+                    //    print(storeimage);
+                    //   storecontrol.update();
+                  },
+                  child: Icon(Icons.camera))
             ],
           ),
         ));
@@ -528,62 +560,260 @@ class ProfileView extends GetView<ProfileController> {
   }
 
   Widget addImageHeaderWidget(AuthController control) {
+    control.iml.forEach(((element) {
+      control.boolimg.add(true);
+    }));
+
     return GetBuilder<AuthController>(
         init: AuthController(), // intialize with the Controller
         builder: (value) => Container(
-              padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-              width: double.maxFinite,
-              decoration: BoxDecoration(
-                color: Colors.blue,
-                gradient: new LinearGradient(
-                    colors: [
-                      const Color(0xFF3366FF).withOpacity(0.1),
-                      const Color(0xFF3366FF).withOpacity(0.09),
-                    ],
-                    begin: const FractionalOffset(0.0, 0.0),
-                    end: const FractionalOffset(0.0, 1.0),
-                    stops: [0.0, 1.0],
-                    tileMode: TileMode.clamp),
-              ),
-              child: Column(children: [
-                Column(
-                  children: [
-                    for (var img in control.iml) img,
+            padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+            width: 500,
+            height: 300,
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              gradient: new LinearGradient(
+                  colors: [
+                    const Color(0xFF3366FF).withOpacity(0.1),
+                    const Color(0xFF3366FF).withOpacity(0.09),
                   ],
-                ),
-                //
-                //         Container(
-                //         height: 150,
-                //         child: Image(
-                //   image: NetworkImage(store.image,
-
-                //   ),
-                // ),
-                //       ),
-                SizedBox(height: 20),
-                FloatingActionButton(
-                    onPressed: () async {
-                      control.addImage();
-                      control.update();
-                      // storeimage.printInfo();
-                      //     final ImagePicker _picker = ImagePicker();
-
-                      //     final XFile image = await _picker.pickImage(source: ImageSource.gallery);
-                      //     File im=File(image.path);
-                      //     storeimage=Image.file(im);
-                      //       storeimage=Container(
-                      //         height: 150,
-                      //         child: Image(
-                      //   image: FileImage(im,
-
-                      //   ),
-                      // ),
-                      //       );
-                      //    print(storeimage);
-                      //   storecontrol.update();
+                  begin: const FractionalOffset(0.0, 0.0),
+                  end: const FractionalOffset(0.0, 1.0),
+                  stops: [0.0, 1.0],
+                  tileMode: TileMode.clamp),
+            ),
+            child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: control.iml.length,
+                itemBuilder: (context, index) {
+                  var _media = control.iml.elementAt(index);
+                  return InkWell(
+                    onTap: () {
+                      showDialog(
+                          context: context,
+                          builder: (context) {
+                            return Column(
+                              children: [
+                                Dialog(
+                                    insetPadding: EdgeInsets.all(0),
+                                    backgroundColor: Colors.transparent,
+                                    child: Container(
+                                      color:
+                                          Colors.transparent.withOpacity(0.3),
+                                      width: MediaQuery.of(context).size.width,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.7,
+                                      child: _media,
+                                    )),
+                              ],
+                            );
+                          });
+                      //Get.toNamed(Routes.CATEGORY, arguments: _category);
+                      //Get.toNamed(Routes.CATEGORY, arguments: _category);
                     },
-                    child: Icon(Icons.camera))
-              ]),
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      margin: EdgeInsetsDirectional.only(
+                          end: 20,
+                          start: index == 0 ? 20 : 0,
+                          top: 10,
+                          bottom: 10),
+                      child: Stack(
+                        alignment: AlignmentDirectional.topStart,
+                        children: [
+                          ClipRRect(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                              child: _media),
+
+                          FloatingActionButton.small(
+                              onPressed: () async {
+                                showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return Container(
+                                        child: Dialog(
+                                          child: Column(children: [
+                                            Text(
+                                                "do you want to delete this image?",
+                                                style: Get.textTheme.headline6),
+                                            SizedBox(
+                                              height: 600,
+                                              child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(10)),
+                                                  child: _media),
+                                            ),
+                                            Row(
+                                              children: [
+                                                MaterialButton(
+                                                  elevation: 0,
+                                                  onPressed: () {
+                                                    if (!control
+                                                        .boolimg[index]) {
+                                                      print(control
+                                                          .boolimg.length);
+                                                      value.iml.removeAt(index);
+                                                      value.boolimg
+                                                          .removeAt(index);
+                                                      print(control
+                                                          .boolimg.length);
+                                                      value.update();
+                                                      Navigator.pop(context);
+                                                      value.update();
+                                                    } else {
+                                                      control.deleteImage(
+                                                          profileController
+                                                              .serviceProvider
+                                                              .value
+                                                              .media[index]);
+                                                      value.iml.removeAt(index);
+                                                      value.boolimg
+                                                          .removeAt(index);
+
+                                                      control.update();
+                                                      Navigator.pop(context);
+                                                    }
+                                                  },
+                                                  color: Get.theme.accentColor,
+                                                  height: 40,
+                                                  child: Wrap(
+                                                    runAlignment:
+                                                        WrapAlignment.center,
+                                                    crossAxisAlignment:
+                                                        WrapCrossAlignment
+                                                            .center,
+                                                    spacing: 9,
+                                                    children: [
+                                                      Icon(Icons.delete_forever,
+                                                          color: Get.theme
+                                                              .primaryColor,
+                                                          size: 24),
+                                                      Text(
+                                                        "delete".tr,
+                                                        style: Get
+                                                            .textTheme.subtitle1
+                                                            .merge(TextStyle(
+                                                                color: Get.theme
+                                                                    .primaryColor)),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  shape: StadiumBorder(),
+                                                ),
+                                                MaterialButton(
+                                                  elevation: 0,
+                                                  color: Get.theme.focusColor
+                                                      .withOpacity(0.2),
+                                                  height: 40,
+                                                  onPressed: () {
+                                                    navigator.pop();
+                                                  },
+                                                  child: Wrap(
+                                                    runAlignment:
+                                                        WrapAlignment.center,
+                                                    crossAxisAlignment:
+                                                        WrapCrossAlignment
+                                                            .center,
+                                                    spacing: 9,
+                                                    children: [
+                                                      Icon(Icons.cancel,
+                                                          color: Get
+                                                              .theme.hintColor,
+                                                          size: 24),
+                                                      Text(
+                                                        "Cancel".tr,
+                                                        style: Get
+                                                            .textTheme.subtitle1
+                                                            .merge(TextStyle(
+                                                                color: Get.theme
+                                                                    .hintColor)),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  shape: StadiumBorder(),
+                                                ),
+                                              ],
+                                            )
+                                          ]),
+                                        ),
+                                      );
+                                    });
+                                // storeimage.printInfo();
+                                //     final ImagePicker _picker = ImagePicker();
+
+                                //     final XFile image = await _picker.pickImage(source: ImageSource.gallery);
+                                //     File im=File(image.path);
+                                //     storeimage=Image.file(im);
+                                //       storeimage=Container(
+                                //         height: 150,
+                                //         child: Image(
+                                //   image: FileImage(im,
+
+                                //   ),
+                                // ),
+                                //       );
+                                //    print(storeimage);
+                                //   storecontrol.update();
+                              },
+                              child: Icon(Icons.delete))
+                          // Padding(
+                          //   padding:
+                          //       const EdgeInsetsDirectional.only(start: 12, top: 8),
+                          //   child: Text(
+                          //     _media.name ?? '',
+                          //     maxLines: 2,
+                          //     style: Get.textTheme.bodyText2
+                          //         .merge(TextStyle(color: Get.theme.primaryColor)),
+                          //   ),
+                          // ),
+                        ],
+                      ),
+                    ),
+                  );
+                })
+            // child: Column(children: [
+            //   Column(
+            //     children: [
+            //       for (var img in control.iml) img,
+            //     ],
+            //   ),
+            //   //
+            //   //         Container(
+            //   //         height: 150,
+            //   //         child: Image(
+            //   //   image: NetworkImage(store.image,
+
+            //   //   ),
+            //   // ),
+            //   //       ),
+            //   SizedBox(height: 20),
+            //   FloatingActionButton(
+            //       onPressed: () async {
+            //         control.addImage();
+            //         control.update();
+            //         // storeimage.printInfo();
+            //         //     final ImagePicker _picker = ImagePicker();
+
+            //         //     final XFile image = await _picker.pickImage(source: ImageSource.gallery);
+            //         //     File im=File(image.path);
+            //         //     storeimage=Image.file(im);
+            //         //       storeimage=Container(
+            //         //         height: 150,
+            //         //         child: Image(
+            //         //   image: FileImage(im,
+
+            //         //   ),
+            //         // ),
+            //         //       );
+            //         //    print(storeimage);
+            //         //   storecontrol.update();
+            //       },
+            //       child: Icon(Icons.camera))
+            // ]),
             ));
   }
 }
