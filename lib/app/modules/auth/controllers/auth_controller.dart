@@ -116,9 +116,13 @@ class AuthController extends GetxController {
             role = element;
           }
         });
+        print('registring');
         DocumentReference roleref = roleServices.getRoleRef(role.id);
+        print('registring');
         Map<String, dynamic> mapdata = user.tofire();
+        print('registring');
         mapdata['role'] = roleref;
+        print('registring');
         if (ok) {
           DocumentReference val = await userServices.addUser(mapdata);
           currentUser.value = user;

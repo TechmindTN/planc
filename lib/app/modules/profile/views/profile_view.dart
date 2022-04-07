@@ -93,6 +93,10 @@ class ProfileView extends GetView<ProfileController> {
 
   @override
   Widget build(BuildContext context) {
+    // int con = 0;
+    // eServicesController.chosencats.forEach((element) {
+    //   if (element) con++;
+    // });
 // eServicesController.getAllCategories().then((value){
 // eServicesController.categories.forEach((element){
 //       // chosencats..add(false);
@@ -297,12 +301,9 @@ class ProfileView extends GetView<ProfileController> {
                 iconData: Icons.phone_android_outlined,
               ),
 
-
-              GetBuilder<ProfileController>(
-                builder: (profileController) {
-                  return MapSelect(context,profileController,addresscontrol);
-                }
-              ),
+              GetBuilder<ProfileController>(builder: (profileController) {
+                return MapSelect(context, profileController, addresscontrol);
+              }),
               // TextFieldWidget(
               //   control: countrycontrol,
               //   onSaved: (input) => controller
@@ -367,58 +368,68 @@ class ProfileView extends GetView<ProfileController> {
                 labelText: "Website".tr,
                 iconData: Icons.map_outlined,
               ),
-              Text("Categories".tr, style: Get.textTheme.headline5)
-                  .paddingOnly(top: 25, bottom: 0, right: 22, left: 22),
+
+              if (Get.find<ProfileController>().serviceProvider.value.name !=
+                      '' &&
+                  Get.find<ProfileController>().serviceProvider != null)
+                Text("Categories".tr, style: Get.textTheme.headline5)
+                    .paddingOnly(top: 25, bottom: 0, right: 22, left: 22),
               // for(var check in checks)
               // check,
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.03,
               ),
+
               ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: eServicesController.categories.length,
                   itemBuilder: ((context, index) {
-                    return Container(
-                      padding: EdgeInsets.only(
-                          top: 20, bottom: 14, left: 20, right: 20),
-                      margin: EdgeInsets.only(
-                          left: 20, right: 20, top: 0, bottom: 10),
-                      decoration: BoxDecoration(
-                          color: Get.theme.primaryColor,
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Get.theme.focusColor.withOpacity(0.1),
-                                blurRadius: 10,
-                                offset: Offset(0, 5)),
+                    if (eServicesController.chosencats[index])
+                      return Container(
+                        padding: EdgeInsets.only(
+                            top: 20, bottom: 14, left: 20, right: 20),
+                        margin: EdgeInsets.only(
+                            left: 20, right: 20, top: 0, bottom: 10),
+                        decoration: BoxDecoration(
+                            color: Get.theme.primaryColor,
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Get.theme.focusColor.withOpacity(0.1),
+                                  blurRadius: 10,
+                                  offset: Offset(0, 5)),
+                            ],
+                            border: Border.all(
+                                color: Get.theme.focusColor.withOpacity(0.05))),
+                        width: MediaQuery.of(context).size.width * 0.25,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(eServicesController.categories[index].name),
+                            Obx((() => Checkbox(
+                                  activeColor: Colors.amber,
+                                  checkColor: Colors.amber,
+                                  value: eServicesController.chosencats[index],
+                                  onChanged: (bool newValue) {
+                                    // setState(() {
+                                    eServicesController.chosencats[index] =
+                                        newValue;
+                                    eServicesController.update();
+                                    controller.update();
+                                    print(eServicesController
+                                        .categories[index].id);
+                                    print(
+                                        eServicesController.chosencats[index]);
+                                    // });
+                                  },
+                                ))),
                           ],
-                          border: Border.all(
-                              color: Get.theme.focusColor.withOpacity(0.05))),
-                      width: MediaQuery.of(context).size.width * 0.25,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(eServicesController.categories[index].name),
-                          Obx((() => Checkbox(
-                                activeColor: Colors.amber,
-                                checkColor: Colors.amber,
-                                value: eServicesController.chosencats[index],
-                                onChanged: (bool newValue) {
-                                  // setState(() {
-                                  eServicesController.chosencats[index] =
-                                      newValue;
-                                  eServicesController.update();
-                                  controller.update();
-                                  print(
-                                      eServicesController.categories[index].id);
-                                  print(eServicesController.chosencats[index]);
-                                  // });
-                                },
-                              ))),
-                        ],
-                      ),
-                    );
+                        ),
+                      );
+                    else {
+                      return SizedBox();
+                    }
                   })),
 
               Text("Social Media".tr, style: Get.textTheme.headline5)
@@ -473,28 +484,31 @@ class ProfileView extends GetView<ProfileController> {
                       '' &&
                   Get.find<ProfileController>().serviceProvider != null)
                 addImageHeaderWidget(authController),
-              FloatingActionButton(
-                  onPressed: () async {
-                    authController.addImage();
-                    authController.update();
-                    // storeimage.printInfo();
-                    //     final ImagePicker _picker = ImagePicker();
+              if (Get.find<ProfileController>().serviceProvider.value.name !=
+                      '' &&
+                  Get.find<ProfileController>().serviceProvider != null)
+                FloatingActionButton(
+                    onPressed: () async {
+                      authController.addImage();
+                      authController.update();
+                      // storeimage.printInfo();
+                      //     final ImagePicker _picker = ImagePicker();
 
-                    //     final XFile image = await _picker.pickImage(source: ImageSource.gallery);
-                    //     File im=File(image.path);
-                    //     storeimage=Image.file(im);
-                    //       storeimage=Container(
-                    //         height: 150,
-                    //         child: Image(
-                    //   image: FileImage(im,
+                      //     final XFile image = await _picker.pickImage(source: ImageSource.gallery);
+                      //     File im=File(image.path);
+                      //     storeimage=Image.file(im);
+                      //       storeimage=Container(
+                      //         height: 150,
+                      //         child: Image(
+                      //   image: FileImage(im,
 
-                    //   ),
-                    // ),
-                    //       );
-                    //    print(storeimage);
-                    //   storecontrol.update();
-                  },
-                  child: Icon(Icons.camera))
+                      //   ),
+                      // ),
+                      //       );
+                      //    print(storeimage);
+                      //   storecontrol.update();
+                    },
+                    child: Icon(Icons.camera))
             ],
           ),
         ));

@@ -21,6 +21,7 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  intro_slider: ^3.0.4
   firebase_storage: any
   path: ^1.8.0
   # GET

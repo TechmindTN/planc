@@ -1,4 +1,5 @@
 import 'package:get/get.dart' show GetPage, Transition;
+import 'package:home_services_provider/app/models/Category.dart';
 import 'package:home_services_provider/app/modules/settings/views/colors_view.dart';
 
 import '../../which.dart';
@@ -27,6 +28,8 @@ import '../modules/settings/bindings/settings_binding.dart';
 import '../modules/settings/views/language_view.dart';
 import '../modules/settings/views/settings_view.dart';
 import '../modules/settings/views/theme_mode_view.dart';
+import '../modules/intro/views/intro.dart';
+import '../modules/category/views/category.dart';
 
 part 'app_routes.dart';
 
@@ -34,28 +37,83 @@ class AppPages {
   static const INITIAL = Routes.PRE;
 
   static final routes = [
-            GetPage(name: Routes.PRE, page: () => Which(), ),
-
+    GetPage(
+      name: Routes.PRE,
+      page: () => Which(),
+    ),
     GetPage(name: Routes.ROOT, page: () => RootView(), binding: RootBinding()),
-
     GetPage(name: Routes.CHAT, page: () => ChatsView()),
-    GetPage(name: Routes.SETTINGS, page: () => SettingsView(), binding: SettingsBinding()),
-    GetPage(name: Routes.SETTINGS_THEME_MODE, page: () => ThemeModeView(), binding: SettingsBinding()),
-    GetPage(name: Routes.SETTINGS_LANGUAGE, page: () => LanguageView(), binding: SettingsBinding()),
-      GetPage(name: Routes.SETTINGS_COLOR, page: () => ColorView(), binding: SettingsBinding()),
-
-    GetPage(name: Routes.PROFILE, page: () => ProfileView(), binding: ProfileBinding()),
-    GetPage(name: Routes.LOGIN, page: () => LoginView(), binding: AuthBinding()),
-    GetPage(name: Routes.REGISTER, page: () => RegisterView(), binding: AuthBinding()),
-    GetPage(name: Routes.FORGOT_PASSWORD, page: () => ForgotPasswordView(), binding: AuthBinding()),
-    GetPage(name: Routes.PHONE_VERIFICATION, page: () => PhoneVerificationView(), binding: AuthBinding()),
-    GetPage(name: Routes.E_SERVICE, page: () => EServiceView(), binding: EServicesBinding(), transition: Transition.downToUp),
-    GetPage(name: Routes.E_SERVICES, page: () => EServicesView(), binding: EServicesBinding()),
-    GetPage(name: Routes.SEARCH, page: () => SearchView(), binding: RootBinding(), transition: Transition.downToUp),
-    GetPage(name: Routes.NOTIFICATIONS, page: () => NotificationsView(), binding: NotificationsBinding()),
-    GetPage(name: Routes.PRIVACY, page: () => PrivacyView(), binding: HelpPrivacyBinding()),
-    GetPage(name: Routes.HELP, page: () => HelpView(), binding: HelpPrivacyBinding()),
-    GetPage(name: Routes.REVIEW, page: () => ReviewView(), binding: RootBinding()),
-    GetPage(name: Routes.BOOKING, page: () => BookingView(), binding: RootBinding()),
+    GetPage(
+        name: Routes.SETTINGS,
+        page: () => SettingsView(),
+        binding: SettingsBinding()),
+    GetPage(
+        name: Routes.SETTINGS_THEME_MODE,
+        page: () => ThemeModeView(),
+        binding: SettingsBinding()),
+    GetPage(
+        name: Routes.SETTINGS_LANGUAGE,
+        page: () => LanguageView(),
+        binding: SettingsBinding()),
+    GetPage(
+        name: Routes.SETTINGS_COLOR,
+        page: () => ColorView(),
+        binding: SettingsBinding()),
+    GetPage(
+        name: Routes.PROFILE,
+        page: () => ProfileView(),
+        binding: ProfileBinding()),
+    GetPage(
+        name: Routes.LOGIN, page: () => LoginView(), binding: AuthBinding()),
+    GetPage(
+        name: Routes.REGISTER,
+        page: () => RegisterView(),
+        binding: AuthBinding()),
+    GetPage(
+        name: Routes.FORGOT_PASSWORD,
+        page: () => ForgotPasswordView(),
+        binding: AuthBinding()),
+    GetPage(
+        name: Routes.PHONE_VERIFICATION,
+        page: () => PhoneVerificationView(),
+        binding: AuthBinding()),
+    GetPage(
+        name: Routes.E_SERVICE,
+        page: () => EServiceView(),
+        binding: EServicesBinding(),
+        transition: Transition.downToUp),
+    GetPage(
+        name: Routes.E_SERVICES,
+        page: () => EServicesView(),
+        binding: EServicesBinding()),
+    GetPage(
+        name: Routes.SEARCH,
+        page: () => SearchView(),
+        binding: RootBinding(),
+        transition: Transition.downToUp),
+    GetPage(
+        name: Routes.NOTIFICATIONS,
+        page: () => NotificationsView(),
+        binding: NotificationsBinding()),
+    GetPage(
+        name: Routes.PRIVACY,
+        page: () => PrivacyView(),
+        binding: HelpPrivacyBinding()),
+    GetPage(
+        name: Routes.HELP,
+        page: () => HelpView(),
+        binding: HelpPrivacyBinding()),
+    GetPage(
+        name: Routes.REVIEW, page: () => ReviewView(), binding: RootBinding()),
+    GetPage(
+        name: Routes.BOOKING,
+        page: () => BookingView(),
+        binding: RootBinding()),
+    GetPage(
+        name: Routes.INTRO, page: () => IntroScreen(), binding: RootBinding()),
+    GetPage(
+        name: Routes.CATEGORY,
+        page: () => CategoryView(),
+        binding: ProfileBinding()),
   ];
 }
