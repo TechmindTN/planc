@@ -22,9 +22,8 @@ import '../../../services/auth_service.dart';
 import '../../e_services/controllers/e_services_controller.dart';
 
 class ProfileController extends GetxController {
-
   // var user = new User().obs;
-  Set<Marker> markers=Set();
+  Set<Marker> markers = Set();
   Rx<User> user = User().obs;
   List<DocumentReference> cat = [];
   CategoryNetwork categoryNetwork = CategoryNetwork();
@@ -32,7 +31,7 @@ class ProfileController extends GetxController {
   final hidePassword = true.obs;
   EServicesController eServicesController;
   ServiceProviderNetwork providerNetwork = ServiceProviderNetwork();
-      LatLng position ;
+  LatLng position;
 
   @override
   void onInit() {

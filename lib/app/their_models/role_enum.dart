@@ -1,4 +1,1 @@
-enum RoleEnum{
-Entreprise,
-Professional
-}
+enum RoleEnum { Entreprise, Professionel }
