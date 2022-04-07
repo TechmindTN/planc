@@ -49,21 +49,18 @@ class ProfileController extends GetxController {
           id: '',
           user: user.value = Get.find<AuthController>().currentUser.value,
           profile_photo: '',
-          branches: [
-            Branch(
-                address: '',
-                branch_name: '',
-                city: '',
-                country: '',
-                id: '',
-                is_main: true,
-                location: null,
-                open_days: {},
-                phone: 00000000,
-                social_media: {},
-                state: '',
-                zip_code: 0)
-          ]);
+          address: '',
+          // branch_name: '',
+          city: '',
+          country: '',
+          // id: '',
+          // is_main: true,
+          location: null,
+          open_days: {},
+          phone: 00000000,
+          social_media: {},
+          state: '',
+          zip_code: 0);
     }
 
     user.value = Get.find<AuthController>().currentUser.value;
@@ -204,13 +201,27 @@ class ProfileController extends GetxController {
     // serviceProvider.value.profile_photo = url;
     try {
       if (profileForm.currentState.validate()) {
+        print("hello1");
         prepareCategories();
+        print("hello2");
         serviceProvider.value = tempProvider;
-        print(serviceProvider.value.branches.first.branch_name);
+        print("hello3");
+        // print(serviceProvider.value);
+        print("hello4");
         serviceProvider.value.profile_photo = url;
+        print("hello5");
         serviceProvider.value.media = med;
+        print("hello6");
         // serviceProvider.value.categories = cat;
-        providerNetwork.addProvider(serviceProvider.value, cat);
+        DocumentReference dr =
+            await providerNetwork.addProvider(serviceProvider.value, cat);
+        print("hello7");
+
+        Future.delayed(Duration(seconds: 4), (() {
+          print("docref id " + dr.id);
+          serviceProvider.value.id = dr.id;
+        }));
+
         Get.toNamed(
           Routes.ROOT,
         );
