@@ -22,64 +22,33 @@ class ProfileView extends GetView<ProfileController> {
   TextEditingController desccontrol = TextEditingController(
       text: Get.find<ProfileController>().serviceProvider.value.description);
   TextEditingController countrycontrol = TextEditingController(
-      text: Get.find<ProfileController>()
-          .serviceProvider
-          .value
-          .branches
-          .first
-          .country);
+      text: Get.find<ProfileController>().serviceProvider.value.country);
   TextEditingController phonecontrol = TextEditingController(
-      text: Get.find<ProfileController>()
-          .serviceProvider
-          .value
-          .branches
-          .first
-          .phone
-          .toString());
+      text:
+          Get.find<ProfileController>().serviceProvider.value.phone.toString());
 
   TextEditingController citycontrol = TextEditingController(
-      text: Get.find<ProfileController>()
-          .serviceProvider
-          .value
-          .branches
-          .first
-          .city);
+      text: Get.find<ProfileController>().serviceProvider.value.city);
   TextEditingController statecontrol = TextEditingController(
-      text: Get.find<ProfileController>()
-          .serviceProvider
-          .value
-          .branches
-          .first
-          .state);
+      text: Get.find<ProfileController>().serviceProvider.value.state);
   TextEditingController addresscontrol = TextEditingController(
-      text: Get.find<ProfileController>()
-          .serviceProvider
-          .value
-          .branches
-          .first
-          .address);
+      text: Get.find<ProfileController>().serviceProvider.value.address);
   TextEditingController websitecontrol = TextEditingController(
       text: Get.find<ProfileController>().serviceProvider.value.website);
   TextEditingController linkcontrol = TextEditingController(
       text: Get.find<ProfileController>()
           .serviceProvider
           .value
-          .branches
-          .first
           .social_media['LinkedIn']);
   TextEditingController fbcontrol = TextEditingController(
       text: Get.find<ProfileController>()
           .serviceProvider
           .value
-          .branches
-          .first
           .social_media['Facebook']);
   TextEditingController instcontrol = TextEditingController(
       text: Get.find<ProfileController>()
           .serviceProvider
           .value
-          .branches
-          .first
           .social_media['Instagram']);
 
   final EServicesController eServicesController =
@@ -181,33 +150,31 @@ class ProfileView extends GetView<ProfileController> {
                             '' ||
                         Get.find<ProfileController>().serviceProvider == null) {
                       ServiceProvider tempProvider = ServiceProvider(
-                          description: desccontrol.text,
-                          media: [],
-                          name: namecontrol.text,
-                          profile_photo: '',
-                          website: websitecontrol.text,
-                          categories: [],
+                        description: desccontrol.text,
+                        media: [],
+                        name: namecontrol.text,
+                        profile_photo: '',
+                        website: websitecontrol.text,
+                        categories: [],
 
-                          // user: authController.userServices.dr,
-                          // user: authController.userServices.getUserRef(authController.currentUser.value.id),
-                          branches: [
-                            Branch(
-                              address: addresscontrol.text,
-                              branch_name: '',
-                              city: citycontrol.text,
-                              country: countrycontrol.text,
-                              is_main: true,
-                              phone: int.parse(phonecontrol.text),
-                              social_media: {
-                                "Facebook": fbcontrol.text,
-                                "LinkedIn": linkcontrol.text,
-                                "Instagram": instcontrol.text
-                              },
-                              state: statecontrol.text,
-                              open_days: {},
-                              zip_code: 0000,
-                            ),
-                          ]);
+                        // user: authController.userServices.dr,
+                        // user: authController.userServices.getUserRef(authController.currentUser.value.id),
+
+                        address: addresscontrol.text,
+                        // branch_name: '',
+                        city: citycontrol.text,
+                        country: countrycontrol.text,
+                        // is_main: true,
+                        phone: int.parse(phonecontrol.text),
+                        social_media: {
+                          "Facebook": fbcontrol.text,
+                          "LinkedIn": linkcontrol.text,
+                          "Instagram": instcontrol.text
+                        },
+                        state: statecontrol.text,
+                        open_days: {},
+                        zip_code: 0000,
+                      );
                       print(authController.currentUser.value.id);
                       controller.saveProviderForm(_profileForm, tempProvider);
                     } else {
@@ -287,15 +254,13 @@ class ProfileView extends GetView<ProfileController> {
               TextFieldWidget(
                 control: phonecontrol,
                 keyboardType: TextInputType.phone,
-                onSaved: (input) => controller.serviceProvider.value.branches
-                    .first.phone = int.parse(input),
+                onSaved: (input) =>
+                    controller.serviceProvider.value.phone = int.parse(input),
                 validator: (input) =>
                     !input.startsWith('+') && !input.startsWith('00')
                         ? "Phone number must start with country code!".tr
                         : null,
-                initialValue: controller
-                    .serviceProvider.value.branches.first.phone
-                    .toString(),
+                initialValue: controller.serviceProvider.value.phone.toString(),
                 hintText: "+216 56 689 659",
                 labelText: "Phone number".tr,
                 iconData: Icons.phone_android_outlined,
@@ -438,13 +403,13 @@ class ProfileView extends GetView<ProfileController> {
               Obx(() {
                 return TextFieldWidget(
                   control: linkcontrol,
-                  onSaved: (input) => controller.serviceProvider.value.branches
-                      .first.social_media['LinkedIn'] = input,
+                  onSaved: (input) => controller
+                      .serviceProvider.value.social_media['LinkedIn'] = input,
                   validator: (input) => input.length < 3
                       ? "Should be more than 3 letters".tr
                       : null,
-                  initialValue: controller.serviceProvider.value.branches.first
-                      .social_media['LinkedIn'],
+                  initialValue:
+                      controller.serviceProvider.value.social_media['LinkedIn'],
                   hintText: "".tr,
                   labelText: "LinkedIn".tr,
                   iconData: Icons.map_outlined,
@@ -453,13 +418,13 @@ class ProfileView extends GetView<ProfileController> {
               Obx(() {
                 return TextFieldWidget(
                   control: fbcontrol,
-                  onSaved: (input) => controller.serviceProvider.value.branches
-                      .first.social_media['Facebook'] = input,
+                  onSaved: (input) => controller
+                      .serviceProvider.value.social_media['Facebook'] = input,
                   validator: (input) => input.length < 3
                       ? "Should be more than 3 letters".tr
                       : null,
-                  initialValue: controller.serviceProvider.value.branches.first
-                      .social_media['Facebook'],
+                  initialValue:
+                      controller.serviceProvider.value.social_media['Facebook'],
                   hintText: "".tr,
                   labelText: "Facebook".tr,
                   iconData: Icons.map_outlined,
@@ -468,13 +433,13 @@ class ProfileView extends GetView<ProfileController> {
               Obx(() {
                 return TextFieldWidget(
                   control: instcontrol,
-                  onSaved: (input) => controller.serviceProvider.value.branches
-                      .first.social_media['Instagram'] = input,
+                  onSaved: (input) => controller
+                      .serviceProvider.value.social_media['Instagram'] = input,
                   validator: (input) => input.length < 3
                       ? "Should be more than 3 letters".tr
                       : null,
-                  initialValue: controller.serviceProvider.value.branches.first
-                      .social_media['Instagram'],
+                  initialValue: controller
+                      .serviceProvider.value.social_media['Instagram'],
                   hintText: "".tr,
                   labelText: "Instagram".tr,
                   iconData: Icons.map_outlined,
@@ -536,7 +501,17 @@ class ProfileView extends GetView<ProfileController> {
               child: Column(children: [
                 Container(
                     constraints: BoxConstraints(maxHeight: 250),
-                    child: control.im),
+                    child:
+                        // control.im
+                        (profileController
+                                        .serviceProvider.value.profile_photo !=
+                                    null &&
+                                profileController
+                                        .serviceProvider.value.profile_photo !=
+                                    '')
+                            ? Image.network(profileController
+                                .serviceProvider.value.profile_photo)
+                            : control.im),
                 //
                 //         Container(
                 //         height: 150,

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:home_services_provider/app/models/Branch.dart';
 import 'package:home_services_provider/app/models/Category.dart';
 import 'package:home_services_provider/app/models/Media.dart';
@@ -12,34 +13,71 @@ class ServiceProvider {
   String profile_photo;
   User user;
   List<Category> categories;
-  List<Branch> branches;
+  double rate;
+  Map<String, dynamic> open_days;
+  String address;
+  String city;
+  String country;
+  String state;
+  int zip_code;
+  GeoPoint location;
+  Map<String, dynamic> social_media;
+  int phone;
 
-  ServiceProvider(
-      {this.id,
-      this.name,
-      this.description,
-      this.website,
-      this.media,
-      this.profile_photo,
-      this.user,
-      this.categories,
-      this.branches});
+  ServiceProvider({
+    this.id,
+    this.name,
+    this.description,
+    this.rate,
+    this.website,
+    this.media,
+    this.profile_photo,
+    this.user,
+    this.categories,
+    this.open_days,
+    this.address,
+    this.city,
+    this.country,
+    this.state,
+    this.zip_code,
+    this.location,
+    this.social_media,
+    this.phone,
+  });
 
   Map<String, dynamic> tofire() => {
         'name': name,
+        'rate': rate ?? 0,
         'description': description,
         'website': website,
-        'media': media,
+        // 'media': media,
         'profile_photo': profile_photo,
         'categories': categories,
+        'address': address,
+        'city': city,
+        'country': country,
+        'state': state,
+        'zip_code': zip_code,
+        'location': location,
+        'social_media': social_media,
+        'phone': phone
       };
 
   ServiceProvider.fromFire(fire)
       : name = fire['name'],
+        // rate = fire['rate'],
         description = fire['description'],
         website = fire['website'],
-        // media = fire['media'],
-        id = null,
+        address = fire['address'],
+        city = fire['city'],
+        country = fire['country'],
+        state = fire['satete'],
+        zip_code = fire['zip_code'],
+        location = fire['location'],
+        social_media = fire['social_media'],
+        phone = fire['phone'],
+        // // media = fire['media'],
+        // id = null,
         profile_photo = fire['profile_photo'];
 
   printProvider() {
@@ -47,6 +85,8 @@ class ServiceProvider {
     print(this.name);
     print(this.description);
     print(this.website);
+    print(this.rate);
+
     this.media.forEach((element) {
       print(element);
     });
@@ -56,9 +96,9 @@ class ServiceProvider {
       this.categories.forEach((element) {
         element.printCategory();
       });
-      this.branches.forEach((element) {
-        element.printBranch();
-      });
+      // this.branches.forEach((element) {
+      //   element.printBranch();
+      // });
     });
   }
 }
