@@ -76,8 +76,8 @@ class AuthController extends GetxController {
       print('getting provider');
       print(
           'provider is ' + profileController.serviceProvider.value.description);
-      print('provider is ' +
-          profileController.serviceProvider.value.branches.first.city);
+      // print('provider is ' +
+      //     profileController.serviceProvider.value.branches.first.city);
       if (profileController.serviceProvider.value.profile_photo != null &&
           profileController.serviceProvider.value.profile_photo != "") {
         im = Image.network(

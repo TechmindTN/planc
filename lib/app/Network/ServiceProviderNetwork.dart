@@ -37,8 +37,8 @@ class ServiceProviderNetwork {
       // serviceProvider.id = element.id;
 
       //get Branches
-      serviceProvider.branches =
-          await branchServices.getBranchListByProvider(providers[index].id);
+      // serviceProvider.branches =
+      //     await branchServices.getBranchListByProvider(providers[index].id);
 
       // get category
       List<dynamic> drList = element['categories'];
@@ -75,13 +75,13 @@ class ServiceProviderNetwork {
 
   addProvider(ServiceProvider serviceProvider, List<DocumentReference> cat) {
     Map<String, dynamic> mapdata = serviceProvider.tofire();
-    mapdata.addAll(serviceProvider.branches.first.tofire());
+    // mapdata.addAll(serviceProvider.branches.first.tofire());
     print('our user is ' + UserNetwork.dr.id);
     mapdata['user'] = UserNetwork.dr;
     mapdata['categories'] = cat;
     providersRef.add(mapdata).then((value) {
       print('provider added');
-      branchServices.addBranch(serviceProvider.branches.first, value.id);
+      // branchServices.addBranch(serviceProvider.branches.first, value.id);
     });
   }
 
@@ -141,9 +141,9 @@ class ServiceProviderNetwork {
       print('hello from network 5');
 
       //get Branches
-      serviceProvider.branches =
-          await branchServices.getBranchListByProvider(snapshot.docs.first.id);
-      print('branches done');
+      // // serviceProvider.branches =
+      // //     await branchServices.getBranchListByProvider(snapshot.docs.first.id);
+      // print('branches done');
       // get category
 
       // getMyCategories();
@@ -218,8 +218,8 @@ class ServiceProviderNetwork {
     });
 
     //get Branches
-    serviceProvider.branches =
-        await branchServices.getBranchListByProvider(serviceProvider.id);
+    // serviceProvider.branches =
+    //     await branchServices.getBranchListByProvider(serviceProvider.id);
 
     //get user
     DocumentReference dr = snapshot['user'];

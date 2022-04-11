@@ -23,6 +23,7 @@ Widget MapSelect(context, ProfileController profileController,
                     List<Placemark> placemarks = await placemarkFromCoordinates(
                         profileController.position.latitude,
                         profileController.position.longitude);
+                        profileController.marks=placemarks;
                     addresscontrol.text = placemarks.first.country +
                         ", " +
                         placemarks.first.administrativeArea +

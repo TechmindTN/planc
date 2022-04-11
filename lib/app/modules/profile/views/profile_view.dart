@@ -21,42 +21,26 @@ class ProfileView extends GetView<ProfileController> {
       text: Get.find<ProfileController>().serviceProvider.value.name);
   TextEditingController desccontrol = TextEditingController(
       text: Get.find<ProfileController>().serviceProvider.value.description);
-  TextEditingController countrycontrol = TextEditingController(
-      text: Get.find<ProfileController>()
-          .serviceProvider
-          .value
-          .branches
-          .first
-          .country);
+  // TextEditingController countrycontrol = TextEditingController(
+  //     text: Get.find<ProfileController>()
+  //         .serviceProvider
+  //         .value
+  //         .branches
+  //         .first
+  //         .country);
   TextEditingController phonecontrol = TextEditingController(
       text: Get.find<ProfileController>()
           .serviceProvider
           .value
-          .branches
-          .first
           .phone
           .toString());
 
-  TextEditingController citycontrol = TextEditingController(
-      text: Get.find<ProfileController>()
-          .serviceProvider
-          .value
-          .branches
-          .first
-          .city);
-  TextEditingController statecontrol = TextEditingController(
-      text: Get.find<ProfileController>()
-          .serviceProvider
-          .value
-          .branches
-          .first
-          .state);
+
+
   TextEditingController addresscontrol = TextEditingController(
       text: Get.find<ProfileController>()
           .serviceProvider
           .value
-          .branches
-          .first
           .address);
   TextEditingController websitecontrol = TextEditingController(
       text: Get.find<ProfileController>().serviceProvider.value.website);
@@ -64,22 +48,16 @@ class ProfileView extends GetView<ProfileController> {
       text: Get.find<ProfileController>()
           .serviceProvider
           .value
-          .branches
-          .first
           .social_media['LinkedIn']);
   TextEditingController fbcontrol = TextEditingController(
       text: Get.find<ProfileController>()
           .serviceProvider
           .value
-          .branches
-          .first
           .social_media['Facebook']);
   TextEditingController instcontrol = TextEditingController(
       text: Get.find<ProfileController>()
           .serviceProvider
           .value
-          .branches
-          .first
           .social_media['Instagram']);
 
   final EServicesController eServicesController =
@@ -183,27 +161,37 @@ class ProfileView extends GetView<ProfileController> {
                           profile_photo: '',
                           website: websitecontrol.text,
                           categories: [],
-
-                          // user: authController.userServices.dr,
-                          // user: authController.userServices.getUserRef(authController.currentUser.value.id),
-                          branches: [
-                            Branch(
-                              address: addresscontrol.text,
-                              branch_name: '',
-                              city: citycontrol.text,
-                              country: countrycontrol.text,
-                              is_main: true,
+                          address: addresscontrol.text,
                               phone: int.parse(phonecontrol.text),
                               social_media: {
                                 "Facebook": fbcontrol.text,
                                 "LinkedIn": linkcontrol.text,
                                 "Instagram": instcontrol.text
                               },
-                              state: statecontrol.text,
                               open_days: {},
                               zip_code: 0000,
-                            ),
-                          ]);
+
+                          // user: authController.userServices.dr,
+                          // user: authController.userServices.getUserRef(authController.currentUser.value.id),
+                          // branches: [
+                          //   Branch(
+                          //     address: addresscontrol.text,
+                          //     branch_name: '',
+                          //     city: citycontrol.text,
+                          //     country: countrycontrol.text,
+                          //     is_main: true,
+                          //     phone: int.parse(phonecontrol.text),
+                          //     social_media: {
+                          //       "Facebook": fbcontrol.text,
+                          //       "LinkedIn": linkcontrol.text,
+                          //       "Instagram": instcontrol.text
+                          //     },
+                          //     state: statecontrol.text,
+                          //     open_days: {},
+                          //     zip_code: 0000,
+                          //   ),
+                          // ]
+                          );
                       print(authController.currentUser.value.id);
                       controller.saveProviderForm(_profileForm, tempProvider);
                     } else {
@@ -283,14 +271,13 @@ class ProfileView extends GetView<ProfileController> {
               TextFieldWidget(
                 control: phonecontrol,
                 keyboardType: TextInputType.phone,
-                onSaved: (input) => controller.serviceProvider.value.branches
-                    .first.phone = int.parse(input),
+                onSaved: (input) => controller.serviceProvider.value.phone = int.parse(input),
                 validator: (input) =>
                     !input.startsWith('+') && !input.startsWith('00')
                         ? "Phone number must start with country code!".tr
                         : null,
                 initialValue: controller
-                    .serviceProvider.value.branches.first.phone
+                    .serviceProvider.value.phone
                     .toString(),
                 hintText: "+216 56 689 659",
                 labelText: "Phone number".tr,
@@ -427,13 +414,11 @@ class ProfileView extends GetView<ProfileController> {
               Obx(() {
                 return TextFieldWidget(
                   control: linkcontrol,
-                  onSaved: (input) => controller.serviceProvider.value.branches
-                      .first.social_media['LinkedIn'] = input,
+                  onSaved: (input) => controller.serviceProvider.value.social_media['LinkedIn'] = input,
                   validator: (input) => input.length < 3
                       ? "Should be more than 3 letters".tr
                       : null,
-                  initialValue: controller.serviceProvider.value.branches.first
-                      .social_media['LinkedIn'],
+                  initialValue: controller.serviceProvider.value.social_media['LinkedIn'],
                   hintText: "".tr,
                   labelText: "LinkedIn".tr,
                   iconData: Icons.map_outlined,
@@ -442,13 +427,11 @@ class ProfileView extends GetView<ProfileController> {
               Obx(() {
                 return TextFieldWidget(
                   control: fbcontrol,
-                  onSaved: (input) => controller.serviceProvider.value.branches
-                      .first.social_media['Facebook'] = input,
+                  onSaved: (input) => controller.serviceProvider.value.social_media['Facebook'] = input,
                   validator: (input) => input.length < 3
                       ? "Should be more than 3 letters".tr
                       : null,
-                  initialValue: controller.serviceProvider.value.branches.first
-                      .social_media['Facebook'],
+                  initialValue: controller.serviceProvider.value.social_media['Facebook'],
                   hintText: "".tr,
                   labelText: "Facebook".tr,
                   iconData: Icons.map_outlined,
@@ -457,13 +440,11 @@ class ProfileView extends GetView<ProfileController> {
               Obx(() {
                 return TextFieldWidget(
                   control: instcontrol,
-                  onSaved: (input) => controller.serviceProvider.value.branches
-                      .first.social_media['Instagram'] = input,
+                  onSaved: (input) => controller.serviceProvider.value.social_media['Instagram'] = input,
                   validator: (input) => input.length < 3
                       ? "Should be more than 3 letters".tr
                       : null,
-                  initialValue: controller.serviceProvider.value.branches.first
-                      .social_media['Instagram'],
+                  initialValue: controller.serviceProvider.value.social_media['Instagram'],
                   hintText: "".tr,
                   labelText: "Instagram".tr,
                   iconData: Icons.map_outlined,

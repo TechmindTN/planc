@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:geocoding/geocoding.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:home_services_provider/app/Network/CategoryNetwork.dart';
@@ -25,6 +26,7 @@ class ProfileController extends GetxController {
 
   // var user = new User().obs;
   Set<Marker> markers=Set();
+  List<Placemark> marks=[];
   Rx<User> user = User().obs;
   List<DocumentReference> cat = [];
   CategoryNetwork categoryNetwork = CategoryNetwork();
@@ -50,21 +52,23 @@ class ProfileController extends GetxController {
           id: '',
           user: user.value = Get.find<AuthController>().currentUser.value,
           profile_photo: '',
-          branches: [
-            Branch(
+          // branches: [
+            // Branch(
                 address: '',
-                branch_name: '',
+                // branch_name: '',
                 city: '',
                 country: '',
-                id: '',
-                is_main: true,
+                // id: '',
+                // is_main: true,
                 location: null,
                 open_days: {},
                 phone: 00000000,
                 social_media: {},
                 state: '',
-                zip_code: 0)
-          ]);
+                zip_code: 0
+                // )
+          // ]
+          );
     }
 
     user.value = Get.find<AuthController>().currentUser.value;
@@ -207,9 +211,14 @@ class ProfileController extends GetxController {
       if (profileForm.currentState.validate()) {
         prepareCategories();
         serviceProvider.value = tempProvider;
-        print(serviceProvider.value.branches.first.branch_name);
+        serviceProvider.value.country=marks.first.country;
+        serviceProvider.value.state=marks.first.administrativeArea;
+        serviceProvider.value.city=marks.first.subAdministrativeArea;
+        // serviceProvider.value.country=marks.first.country;
+
         serviceProvider.value.profile_photo = url;
         serviceProvider.value.media = med;
+        // serviceProvider.value.
         // serviceProvider.value.categories = cat;
         providerNetwork.addProvider(serviceProvider.value, cat);
         Get.toNamed(
