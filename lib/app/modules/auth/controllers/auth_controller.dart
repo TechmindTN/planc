@@ -76,8 +76,12 @@ class AuthController extends GetxController {
       print('getting provider');
       print(
           'provider is ' + profileController.serviceProvider.value.description);
+<<<<<<< HEAD
       // print('provider is ' +
       //     profileController.serviceProvider.value.branches.first.city);
+=======
+      print('provider is ' + profileController.serviceProvider.value.city);
+>>>>>>> e1b2ef206c7bb5349e67310604fa528ecc2d27cd
       if (profileController.serviceProvider.value.profile_photo != null &&
           profileController.serviceProvider.value.profile_photo != "") {
         im = Image.network(
@@ -116,9 +120,13 @@ class AuthController extends GetxController {
             role = element;
           }
         });
+        print('registring');
         DocumentReference roleref = roleServices.getRoleRef(role.id);
+        print('registring');
         Map<String, dynamic> mapdata = user.tofire();
+        print('registring');
         mapdata['role'] = roleref;
+        print('registring');
         if (ok) {
           DocumentReference val = await userServices.addUser(mapdata);
           currentUser.value = user;

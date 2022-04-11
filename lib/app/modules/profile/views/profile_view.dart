@@ -71,6 +71,10 @@ class ProfileView extends GetView<ProfileController> {
 
   @override
   Widget build(BuildContext context) {
+    // int con = 0;
+    // eServicesController.chosencats.forEach((element) {
+    //   if (element) con++;
+    // });
 // eServicesController.getAllCategories().then((value){
 // eServicesController.categories.forEach((element){
 //       // chosencats..add(false);
@@ -271,25 +275,21 @@ class ProfileView extends GetView<ProfileController> {
               TextFieldWidget(
                 control: phonecontrol,
                 keyboardType: TextInputType.phone,
-                onSaved: (input) => controller.serviceProvider.value.phone = int.parse(input),
+                onSaved: (input) =>
+                    controller.serviceProvider.value.phone = int.parse(input),
                 validator: (input) =>
                     !input.startsWith('+') && !input.startsWith('00')
                         ? "Phone number must start with country code!".tr
                         : null,
-                initialValue: controller
-                    .serviceProvider.value.phone
-                    .toString(),
+                initialValue: controller.serviceProvider.value.phone.toString(),
                 hintText: "+216 56 689 659",
                 labelText: "Phone number".tr,
                 iconData: Icons.phone_android_outlined,
               ),
 
-
-              GetBuilder<ProfileController>(
-                builder: (profileController) {
-                  return MapSelect(context,profileController,addresscontrol);
-                }
-              ),
+              GetBuilder<ProfileController>(builder: (profileController) {
+                return MapSelect(context, profileController, addresscontrol);
+              }),
               // TextFieldWidget(
               //   control: countrycontrol,
               //   onSaved: (input) => controller
@@ -354,58 +354,68 @@ class ProfileView extends GetView<ProfileController> {
                 labelText: "Website".tr,
                 iconData: Icons.map_outlined,
               ),
-              Text("Categories".tr, style: Get.textTheme.headline5)
-                  .paddingOnly(top: 25, bottom: 0, right: 22, left: 22),
+
+              if (Get.find<ProfileController>().serviceProvider.value.name !=
+                      '' &&
+                  Get.find<ProfileController>().serviceProvider != null)
+                Text("Categories".tr, style: Get.textTheme.headline5)
+                    .paddingOnly(top: 25, bottom: 0, right: 22, left: 22),
               // for(var check in checks)
               // check,
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.03,
               ),
+
               ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: eServicesController.categories.length,
                   itemBuilder: ((context, index) {
-                    return Container(
-                      padding: EdgeInsets.only(
-                          top: 20, bottom: 14, left: 20, right: 20),
-                      margin: EdgeInsets.only(
-                          left: 20, right: 20, top: 0, bottom: 10),
-                      decoration: BoxDecoration(
-                          color: Get.theme.primaryColor,
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Get.theme.focusColor.withOpacity(0.1),
-                                blurRadius: 10,
-                                offset: Offset(0, 5)),
+                    if (eServicesController.chosencats[index])
+                      return Container(
+                        padding: EdgeInsets.only(
+                            top: 20, bottom: 14, left: 20, right: 20),
+                        margin: EdgeInsets.only(
+                            left: 20, right: 20, top: 0, bottom: 10),
+                        decoration: BoxDecoration(
+                            color: Get.theme.primaryColor,
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Get.theme.focusColor.withOpacity(0.1),
+                                  blurRadius: 10,
+                                  offset: Offset(0, 5)),
+                            ],
+                            border: Border.all(
+                                color: Get.theme.focusColor.withOpacity(0.05))),
+                        width: MediaQuery.of(context).size.width * 0.25,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(eServicesController.categories[index].name),
+                            Obx((() => Checkbox(
+                                  activeColor: Colors.amber,
+                                  checkColor: Colors.amber,
+                                  value: eServicesController.chosencats[index],
+                                  onChanged: (bool newValue) {
+                                    // setState(() {
+                                    eServicesController.chosencats[index] =
+                                        newValue;
+                                    eServicesController.update();
+                                    controller.update();
+                                    print(eServicesController
+                                        .categories[index].id);
+                                    print(
+                                        eServicesController.chosencats[index]);
+                                    // });
+                                  },
+                                ))),
                           ],
-                          border: Border.all(
-                              color: Get.theme.focusColor.withOpacity(0.05))),
-                      width: MediaQuery.of(context).size.width * 0.25,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(eServicesController.categories[index].name),
-                          Obx((() => Checkbox(
-                                activeColor: Colors.amber,
-                                checkColor: Colors.amber,
-                                value: eServicesController.chosencats[index],
-                                onChanged: (bool newValue) {
-                                  // setState(() {
-                                  eServicesController.chosencats[index] =
-                                      newValue;
-                                  eServicesController.update();
-                                  controller.update();
-                                  print(
-                                      eServicesController.categories[index].id);
-                                  print(eServicesController.chosencats[index]);
-                                  // });
-                                },
-                              ))),
-                        ],
-                      ),
-                    );
+                        ),
+                      );
+                    else {
+                      return SizedBox();
+                    }
                   })),
 
               Text("Social Media".tr, style: Get.textTheme.headline5)
@@ -414,11 +424,13 @@ class ProfileView extends GetView<ProfileController> {
               Obx(() {
                 return TextFieldWidget(
                   control: linkcontrol,
-                  onSaved: (input) => controller.serviceProvider.value.social_media['LinkedIn'] = input,
+                  onSaved: (input) => controller
+                      .serviceProvider.value.social_media['LinkedIn'] = input,
                   validator: (input) => input.length < 3
                       ? "Should be more than 3 letters".tr
                       : null,
-                  initialValue: controller.serviceProvider.value.social_media['LinkedIn'],
+                  initialValue:
+                      controller.serviceProvider.value.social_media['LinkedIn'],
                   hintText: "".tr,
                   labelText: "LinkedIn".tr,
                   iconData: Icons.map_outlined,
@@ -427,11 +439,13 @@ class ProfileView extends GetView<ProfileController> {
               Obx(() {
                 return TextFieldWidget(
                   control: fbcontrol,
-                  onSaved: (input) => controller.serviceProvider.value.social_media['Facebook'] = input,
+                  onSaved: (input) => controller
+                      .serviceProvider.value.social_media['Facebook'] = input,
                   validator: (input) => input.length < 3
                       ? "Should be more than 3 letters".tr
                       : null,
-                  initialValue: controller.serviceProvider.value.social_media['Facebook'],
+                  initialValue:
+                      controller.serviceProvider.value.social_media['Facebook'],
                   hintText: "".tr,
                   labelText: "Facebook".tr,
                   iconData: Icons.map_outlined,
@@ -440,11 +454,13 @@ class ProfileView extends GetView<ProfileController> {
               Obx(() {
                 return TextFieldWidget(
                   control: instcontrol,
-                  onSaved: (input) => controller.serviceProvider.value.social_media['Instagram'] = input,
+                  onSaved: (input) => controller
+                      .serviceProvider.value.social_media['Instagram'] = input,
                   validator: (input) => input.length < 3
                       ? "Should be more than 3 letters".tr
                       : null,
-                  initialValue: controller.serviceProvider.value.social_media['Instagram'],
+                  initialValue: controller
+                      .serviceProvider.value.social_media['Instagram'],
                   hintText: "".tr,
                   labelText: "Instagram".tr,
                   iconData: Icons.map_outlined,
@@ -454,28 +470,31 @@ class ProfileView extends GetView<ProfileController> {
                       '' &&
                   Get.find<ProfileController>().serviceProvider != null)
                 addImageHeaderWidget(authController),
-              FloatingActionButton(
-                  onPressed: () async {
-                    authController.addImage();
-                    authController.update();
-                    // storeimage.printInfo();
-                    //     final ImagePicker _picker = ImagePicker();
+              if (Get.find<ProfileController>().serviceProvider.value.name !=
+                      '' &&
+                  Get.find<ProfileController>().serviceProvider != null)
+                FloatingActionButton(
+                    onPressed: () async {
+                      authController.addImage();
+                      authController.update();
+                      // storeimage.printInfo();
+                      //     final ImagePicker _picker = ImagePicker();
 
-                    //     final XFile image = await _picker.pickImage(source: ImageSource.gallery);
-                    //     File im=File(image.path);
-                    //     storeimage=Image.file(im);
-                    //       storeimage=Container(
-                    //         height: 150,
-                    //         child: Image(
-                    //   image: FileImage(im,
+                      //     final XFile image = await _picker.pickImage(source: ImageSource.gallery);
+                      //     File im=File(image.path);
+                      //     storeimage=Image.file(im);
+                      //       storeimage=Container(
+                      //         height: 150,
+                      //         child: Image(
+                      //   image: FileImage(im,
 
-                    //   ),
-                    // ),
-                    //       );
-                    //    print(storeimage);
-                    //   storecontrol.update();
-                  },
-                  child: Icon(Icons.camera))
+                      //   ),
+                      // ),
+                      //       );
+                      //    print(storeimage);
+                      //   storecontrol.update();
+                    },
+                    child: Icon(Icons.camera))
             ],
           ),
         ));
@@ -503,7 +522,17 @@ class ProfileView extends GetView<ProfileController> {
               child: Column(children: [
                 Container(
                     constraints: BoxConstraints(maxHeight: 250),
-                    child: control.im),
+                    child:
+                        // control.im
+                        (profileController
+                                        .serviceProvider.value.profile_photo !=
+                                    null &&
+                                profileController
+                                        .serviceProvider.value.profile_photo !=
+                                    '')
+                            ? Image.network(profileController
+                                .serviceProvider.value.profile_photo)
+                            : control.im),
                 //
                 //         Container(
                 //         height: 150,

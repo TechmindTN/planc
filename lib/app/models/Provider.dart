@@ -24,34 +24,36 @@ class ServiceProvider {
   int phone;
   // bool is_main;
   List<Category> categories;
-  // List<Branch> branches;
+  double rate;
 
-  ServiceProvider(
-      {this.id,
-      this.name,
-      this.description,
-      this.website,
-      this.media,
-      this.profile_photo,
-      this.user,
-      this.categories,
-      this.open_days,
-      this.address,
-      this.city,
-      this.country,
-      this.location,
-      this.phone,
-      this.social_media,
-      this.state,
-      this.zip_code
-      // this.branches
-      });
+
+  ServiceProvider({
+    this.id,
+    this.name,
+    this.description,
+    this.rate,
+    this.website,
+    this.media,
+    this.profile_photo,
+    this.user,
+    this.categories,
+    this.open_days,
+    this.address,
+    this.city,
+    this.country,
+    this.state,
+    this.zip_code,
+    this.location,
+    this.social_media,
+    this.phone,
+  });
 
   Map<String, dynamic> tofire() => {
         'name': name,
+        'rate': rate ?? 0,
         'description': description,
         'website': website,
-        'media': media,
+        // 'media': media,
         'profile_photo': profile_photo,
         'categories': categories,
         //  'branch_name': branch_name,
@@ -61,36 +63,35 @@ class ServiceProvider {
         'country': country,
         'state': state,
         'zip_code': zip_code,
-        'phone': phone,
-        // 'is_main': is_main,
+        'location': location,
         'social_media': social_media,
+        'phone': phone
       };
 
   ServiceProvider.fromFire(fire)
       : name = fire['name'],
+        // rate = fire['rate'],
         description = fire['description'],
         website = fire['website'],
-        // media = fire['media'],
-        id = null,
-        profile_photo = fire['profile_photo'],
-      //  branch_name = fire['branch_name'],
-        open_days = fire['open_days'],
         address = fire['address'],
         city = fire['city'],
         country = fire['country'],
-        state = fire['state'],
+        state = fire['satete'],
         zip_code = fire['zip_code'],
-        // location = fire['location'],
+        location = fire['location'],
         social_media = fire['social_media'],
-        phone = fire['phone'];
-        // is_main = fire['is_main'],
-        // id = null;
+        phone = fire['phone'],
+        // // media = fire['media'],
+        // id = null,
+        profile_photo = fire['profile_photo'];
 
   printProvider() {
     print(this.id);
     print(this.name);
     print(this.description);
     print(this.website);
+    print(this.rate);
+
     this.media.forEach((element) {
       print(element);
     });

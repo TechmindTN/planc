@@ -23,10 +23,13 @@ import '../../../services/auth_service.dart';
 import '../../e_services/controllers/e_services_controller.dart';
 
 class ProfileController extends GetxController {
-
   // var user = new User().obs;
+<<<<<<< HEAD
   Set<Marker> markers=Set();
   List<Placemark> marks=[];
+=======
+  Set<Marker> markers = Set();
+>>>>>>> e1b2ef206c7bb5349e67310604fa528ecc2d27cd
   Rx<User> user = User().obs;
   List<DocumentReference> cat = [];
   CategoryNetwork categoryNetwork = CategoryNetwork();
@@ -34,7 +37,7 @@ class ProfileController extends GetxController {
   final hidePassword = true.obs;
   EServicesController eServicesController;
   ServiceProviderNetwork providerNetwork = ServiceProviderNetwork();
-      LatLng position ;
+  LatLng position;
 
   @override
   void onInit() {
@@ -52,6 +55,7 @@ class ProfileController extends GetxController {
           id: '',
           user: user.value = Get.find<AuthController>().currentUser.value,
           profile_photo: '',
+<<<<<<< HEAD
           // branches: [
             // Branch(
                 address: '',
@@ -69,6 +73,20 @@ class ProfileController extends GetxController {
                 // )
           // ]
           );
+=======
+          address: '',
+          // branch_name: '',
+          city: '',
+          country: '',
+          // id: '',
+          // is_main: true,
+          location: null,
+          open_days: {},
+          phone: 00000000,
+          social_media: {},
+          state: '',
+          zip_code: 0);
+>>>>>>> e1b2ef206c7bb5349e67310604fa528ecc2d27cd
     }
 
     user.value = Get.find<AuthController>().currentUser.value;
@@ -209,18 +227,39 @@ class ProfileController extends GetxController {
     // serviceProvider.value.profile_photo = url;
     try {
       if (profileForm.currentState.validate()) {
+        print("hello1");
         prepareCategories();
+        print("hello2");
         serviceProvider.value = tempProvider;
+<<<<<<< HEAD
         serviceProvider.value.country=marks.first.country;
         serviceProvider.value.state=marks.first.administrativeArea;
         serviceProvider.value.city=marks.first.subAdministrativeArea;
         // serviceProvider.value.country=marks.first.country;
 
+=======
+        print("hello3");
+        // print(serviceProvider.value);
+        print("hello4");
+>>>>>>> e1b2ef206c7bb5349e67310604fa528ecc2d27cd
         serviceProvider.value.profile_photo = url;
+        print("hello5");
         serviceProvider.value.media = med;
+<<<<<<< HEAD
         // serviceProvider.value.
+=======
+        print("hello6");
+>>>>>>> e1b2ef206c7bb5349e67310604fa528ecc2d27cd
         // serviceProvider.value.categories = cat;
-        providerNetwork.addProvider(serviceProvider.value, cat);
+        DocumentReference dr =
+            await providerNetwork.addProvider(serviceProvider.value, cat);
+        print("hello7");
+
+        Future.delayed(Duration(seconds: 4), (() {
+          print("docref id " + dr.id);
+          serviceProvider.value.id = dr.id;
+        }));
+
         Get.toNamed(
           Routes.ROOT,
         );

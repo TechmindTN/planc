@@ -49,6 +49,7 @@ class MediaNetwork {
   }
 
   addMedia(List<Map<String, dynamic>> data, id) {
+    print(data);
     data.forEach((element) {
       providersRef
           .doc(id)
@@ -56,7 +57,7 @@ class MediaNetwork {
           .add(element)
           .then((value) => print('Media Added'))
           .catchError((e) {
-        print('can not add media');
+        print('can not add media ' + id);
       });
     });
   }

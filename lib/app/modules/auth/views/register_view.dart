@@ -16,12 +16,12 @@ import '../controllers/auth_controller.dart';
 
 class RegisterView extends GetView<AuthController> {
   // final _currentUser = Get.find<AuthService>().user;
-  
+
   final Setting _settings = Get.find<SettingsService>().setting.value;
-String chosen=RoleEnum.Entreprise.name;
-TextEditingController emailcontrol=TextEditingController();
-TextEditingController psdcontrol=TextEditingController();
-TextEditingController psd2control=TextEditingController();
+  String chosen = RoleEnum.Entreprise.name;
+  TextEditingController emailcontrol = TextEditingController();
+  TextEditingController psdcontrol = TextEditingController();
+  TextEditingController psd2control = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,8 @@ TextEditingController psd2control=TextEditingController();
       appBar: AppBar(
         title: Text(
           "Register".tr,
-          style: Get.textTheme.headline6.merge(TextStyle(color: context.theme.primaryColor)),
+          style: Get.textTheme.headline6
+              .merge(TextStyle(color: context.theme.primaryColor)),
         ),
         centerTitle: true,
         backgroundColor: Get.theme.accentColor,
@@ -49,9 +50,13 @@ TextEditingController psd2control=TextEditingController();
                 width: Get.width,
                 decoration: BoxDecoration(
                   color: Get.theme.accentColor,
-                  borderRadius: BorderRadius.vertical(bottom: Radius.circular(10)),
+                  borderRadius:
+                      BorderRadius.vertical(bottom: Radius.circular(10)),
                   boxShadow: [
-                    BoxShadow(color: Get.theme.focusColor.withOpacity(0.2), blurRadius: 10, offset: Offset(0, 5)),
+                    BoxShadow(
+                        color: Get.theme.focusColor.withOpacity(0.2),
+                        blurRadius: 10,
+                        offset: Offset(0, 5)),
                   ],
                 ),
                 margin: EdgeInsets.only(bottom: 50),
@@ -61,12 +66,14 @@ TextEditingController psd2control=TextEditingController();
                     children: [
                       Text(
                         _settings.appName,
-                        style: Get.textTheme.headline6.merge(TextStyle(color: Get.theme.primaryColor, fontSize: 24)),
+                        style: Get.textTheme.headline6.merge(TextStyle(
+                            color: Get.theme.primaryColor, fontSize: 24)),
                       ),
                       SizedBox(height: 5),
                       Text(
                         "Welcome to the best service provider system!".tr,
-                        style: Get.textTheme.caption.merge(TextStyle(color: Get.theme.primaryColor)),
+                        style: Get.textTheme.caption
+                            .merge(TextStyle(color: Get.theme.primaryColor)),
                         textAlign: TextAlign.center,
                       ),
                       // Text("Fill the following credentials to login your account", style: Get.textTheme.caption.merge(TextStyle(color: Get.theme.primaryColor))),
@@ -99,8 +106,8 @@ TextEditingController psd2control=TextEditingController();
             isFirst: true,
             isLast: false,
           ),
-          RadioType(controller,chosen),
-          
+          RadioType(controller, chosen),
+
 //           Container(
 //             color: Colors.white,
 //             child: Column(children: [
@@ -108,8 +115,6 @@ TextEditingController psd2control=TextEditingController();
 //           RadioListTile(value: RoleEnum.Professional.name, groupValue: "role", onChanged: (value){}),
 //             ]),
 //           ),
-         
-
 
           // TextFieldWidget(
           //   labelText: "Phone Number".tr,
@@ -120,8 +125,7 @@ TextEditingController psd2control=TextEditingController();
           // ),
           Obx(() {
             return TextFieldWidget(
-                          control: psdcontrol,
-
+              control: psdcontrol,
               labelText: "Password".tr,
               hintText: "••••••••••••".tr,
               obscureText: controller.hidePassword.value,
@@ -131,18 +135,19 @@ TextEditingController psd2control=TextEditingController();
               isFirst: false,
               suffixIcon: IconButton(
                 onPressed: () {
-                  controller.hidePassword.value = !controller.hidePassword.value;
+                  controller.hidePassword.value =
+                      !controller.hidePassword.value;
                 },
                 color: Get.theme.focusColor,
-                icon: Icon(controller.hidePassword.value ? Icons.visibility_outlined : Icons.visibility_off_outlined),
+                icon: Icon(controller.hidePassword.value
+                    ? Icons.visibility_outlined
+                    : Icons.visibility_off_outlined),
               ),
             );
           }),
           Obx(() {
             return TextFieldWidget(
-                          control: psd2control,
-
-              
+              control: psd2control,
               labelText: "Confirm Password".tr,
               hintText: "••••••••••••".tr,
               obscureText: controller.hidePassword.value,
@@ -166,35 +171,35 @@ TextEditingController psd2control=TextEditingController();
                 child: BlockButtonWidget(
                   onPressed: () {
                     controller.getRoles();
-                    Future.delayed(Duration(seconds: 2),
-                    (){
+                    Future.delayed(Duration(seconds: 2), () {
                       print(controller.roles.length);
-                    }
-                    );
-                    
-                  controller.update();
-                    Role role=Role(name: controller.selected.string);
-                    User user=User(
-                      email: emailcontrol.text.trim(),
-                      password: psdcontrol.text.trim(),
-                      creation_date: Timestamp.now(),
-                      last_login: Timestamp.now(),
-                      username: emailcontrol.text,
-                      role: role
-                    );
-                      controller.roles.forEach((element) {print('role is '+element.name);});
+                    });
+
+                    controller.update();
+                    Role role = Role(name: controller.selected.string);
+                    User user = User(
+                        email: emailcontrol.text.trim(),
+                        password: psdcontrol.text.trim(),
+                        creation_date: Timestamp.now(),
+                        last_login: Timestamp.now(),
+                        username: emailcontrol.text,
+                        role: role);
+                    controller.roles.forEach((element) {
+                      print('role is ' + element.name);
+                    });
 
                     user.printUser();
-                    
-                    controller.RegisterUser(user,psd2control.text,context);
-                                        Get.offAllNamed(Routes.PROFILE);
+
+                    controller.RegisterUser(user, psd2control.text, context);
+                    Get.offAllNamed(Routes.INTRO);
 
                     // Get.offAllNamed(Routes.PHONE_VERIFICATION);
                   },
                   color: Get.theme.accentColor,
                   text: Text(
                     "Register".tr,
-                    style: Get.textTheme.headline6.merge(TextStyle(color: Get.theme.primaryColor)),
+                    style: Get.textTheme.headline6
+                        .merge(TextStyle(color: Get.theme.primaryColor)),
                   ),
                 ).paddingOnly(top: 15, bottom: 5, right: 20, left: 20),
               ),

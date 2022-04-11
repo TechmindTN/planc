@@ -73,22 +73,32 @@ class ServiceProviderNetwork {
     return providers;
   }
 
-  addProvider(ServiceProvider serviceProvider, List<DocumentReference> cat) {
-    Map<String, dynamic> mapdata = serviceProvider.tofire();
-    // mapdata.addAll(serviceProvider.branches.first.tofire());
-    print('our user is ' + UserNetwork.dr.id);
-    mapdata['user'] = UserNetwork.dr;
-    mapdata['categories'] = cat;
-    providersRef.add(mapdata).then((value) {
-      print('provider added');
+  addProvider(
+      ServiceProvider serviceProvider, List<DocumentReference> cat) async {
+    try {
+      Map<String, dynamic> mapdata = serviceProvider.tofire();
+      // mapdata.addAll(serviceProvider.tofire());
+      print('our user is ' + UserNetwork.dr.id);
+      mapdata['user'] = UserNetwork.dr;
+      mapdata['categories'] = cat;
+      DocumentReference dr = await providersRef.add(mapdata);
+      print(dr.id);
+      return dr;
+      // then((value) {
+      //   print('provider added');
+      //   print("new user is " + value.id);
+      //   return value;
       // branchServices.addBranch(serviceProvider.branches.first, value.id);
-    });
+      // });
+    } catch (e) {
+      print("add provider error " + e);
+    }
   }
 
   updateProvider(List<dynamic> data, id, BuildContext context) {
     List<Map<String, dynamic>> mediaMapList = [];
     data.forEach((element) {
-      mediaMapList.add({"url": element, "type": "image"});
+      mediaMapList.add({"url": element.url, "type": "image"});
     });
 
     // serviceProvider.media.forEach((element) {
@@ -98,22 +108,22 @@ class ServiceProviderNetwork {
     //       mediaServices.addMedia(mediaMapList, value.id);
     //   print('media list length '+mediaMapList.length.toString());
 
-    Map<String, dynamic> mapdata = {'media': data};
-    providersRef.doc(id).update(mapdata).then((value) {
-      print('provider updated');
-      SnackBar snack = SnackBar(
-        content: Text("Profile Successfully updated".tr),
-        backgroundColor: Colors.green,
-      );
-      ScaffoldMessenger.of(context).showSnackBar(snack);
-    }).catchError((error) {
-      SnackBar snack = SnackBar(
-        content: Text("There is a problem".tr),
-        backgroundColor: Colors.red,
-      );
-      ScaffoldMessenger.of(context).showSnackBar(snack);
-      print('Can not update provider');
-    });
+    // Map<String, dynamic> mapdata = {'media': data};
+    // providersRef.doc(id).collection("Media").add().then((value) {
+    //   print('provider updated');
+    //   SnackBar snack = SnackBar(
+    //     content: Text("Profile Successfully updated".tr),
+    //     backgroundColor: Colors.green,
+    //   );
+    //   ScaffoldMessenger.of(context).showSnackBar(snack);
+    // }).catchError((error) {
+    //   SnackBar snack = SnackBar(
+    //     content: Text("There is a problem".tr),
+    //     backgroundColor: Colors.red,
+    //   );
+    //   ScaffoldMessenger.of(context).showSnackBar(snack);
+    //   print('Can not update provider ' + error.toString());
+    // });
     mediaServices.addMedia(mediaMapList, id);
   }
 
@@ -141,8 +151,8 @@ class ServiceProviderNetwork {
       print('hello from network 5');
 
       //get Branches
-      // // serviceProvider.branches =
-      // //     await branchServices.getBranchListByProvider(snapshot.docs.first.id);
+      // serviceProvider.branches =
+      //     await branchServices.getBranchListByProvider(snapshot.docs.first.id);
       // print('branches done');
       // get category
 
@@ -217,7 +227,7 @@ class ServiceProviderNetwork {
       print(element.name);
     });
 
-    //get Branches
+    // //get Branches
     // serviceProvider.branches =
     //     await branchServices.getBranchListByProvider(serviceProvider.id);
 

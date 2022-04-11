@@ -18,7 +18,7 @@ void initServices() async {
   await Get.putAsync(() => SettingsService().init());
   await GetStorage.init();
   Firebase.initializeApp();
-  
+
   Get.log('All services started...');
 }
 
