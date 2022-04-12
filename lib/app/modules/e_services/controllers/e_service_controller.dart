@@ -8,7 +8,6 @@ import '../../../their_models/review_model.dart';
 import '../../../repositories/e_service_repository.dart';
 
 class EServiceController extends GetxController {
-  
   final eService = EService().obs;
   final reviews = <Review>[].obs;
   final currentSlide = 0.obs;
@@ -34,19 +33,17 @@ class EServiceController extends GetxController {
     await getEService();
     await getReviews();
     if (showMessage) {
-      Get.showSnackbar(Ui.SuccessSnackBar(message: eService.value.title + " " + "page refreshed successfully".tr));
+      Get.showSnackbar(Ui.SuccessSnackBar(
+          message:
+              eService.value.title + " " + "page refreshed successfully".tr));
     }
   }
 
-
-
-
-  
   Future getEService() async {
     try {
       eService.value = await _eServiceRepository.get(eService.value.id);
     } catch (e) {
-      Get.showSnackbar(Ui.ErrorSnackBar(message: e.toString()));
+      // Get.showSnackbar(Ui.ErrorSnackBar(message: e.toString()));
     }
   }
 
@@ -54,7 +51,7 @@ class EServiceController extends GetxController {
     try {
       reviews.value = await _eServiceRepository.getReviews(eService.value.id);
     } catch (e) {
-      Get.showSnackbar(Ui.ErrorSnackBar(message: e.toString()));
+      // Get.showSnackbar(Ui.ErrorSnackBar(message: e.toString()));
     }
   }
 }

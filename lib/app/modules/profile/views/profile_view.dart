@@ -344,58 +344,64 @@ class ProfileView extends GetView<ProfileController> {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.03,
               ),
-
-              ListView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: eServicesController.categories.length,
-                  itemBuilder: ((context, index) {
-                    if (eServicesController.chosencats[index])
-                      return Container(
-                        padding: EdgeInsets.only(
-                            top: 20, bottom: 14, left: 20, right: 20),
-                        margin: EdgeInsets.only(
-                            left: 20, right: 20, top: 0, bottom: 10),
-                        decoration: BoxDecoration(
-                            color: Get.theme.primaryColor,
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Get.theme.focusColor.withOpacity(0.1),
-                                  blurRadius: 10,
-                                  offset: Offset(0, 5)),
+              if (Get.find<ProfileController>().serviceProvider.value.name !=
+                      '' &&
+                  Get.find<ProfileController>().serviceProvider != null)
+                ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: eServicesController.categories.length,
+                    itemBuilder: ((context, index) {
+                      if (eServicesController.chosencats[index])
+                        return Container(
+                          padding: EdgeInsets.only(
+                              top: 20, bottom: 14, left: 20, right: 20),
+                          margin: EdgeInsets.only(
+                              left: 20, right: 20, top: 0, bottom: 10),
+                          decoration: BoxDecoration(
+                              color: Get.theme.primaryColor,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20)),
+                              boxShadow: [
+                                BoxShadow(
+                                    color:
+                                        Get.theme.focusColor.withOpacity(0.1),
+                                    blurRadius: 10,
+                                    offset: Offset(0, 5)),
+                              ],
+                              border: Border.all(
+                                  color:
+                                      Get.theme.focusColor.withOpacity(0.05))),
+                          width: MediaQuery.of(context).size.width * 0.25,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(eServicesController.categories[index].name),
+                              Obx((() => Checkbox(
+                                    activeColor: Colors.amber,
+                                    checkColor: Colors.amber,
+                                    value:
+                                        eServicesController.chosencats[index],
+                                    onChanged: (bool newValue) {
+                                      // setState(() {
+                                      eServicesController.chosencats[index] =
+                                          newValue;
+                                      eServicesController.update();
+                                      controller.update();
+                                      print(eServicesController
+                                          .categories[index].id);
+                                      print(eServicesController
+                                          .chosencats[index]);
+                                      // });
+                                    },
+                                  ))),
                             ],
-                            border: Border.all(
-                                color: Get.theme.focusColor.withOpacity(0.05))),
-                        width: MediaQuery.of(context).size.width * 0.25,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(eServicesController.categories[index].name),
-                            Obx((() => Checkbox(
-                                  activeColor: Colors.amber,
-                                  checkColor: Colors.amber,
-                                  value: eServicesController.chosencats[index],
-                                  onChanged: (bool newValue) {
-                                    // setState(() {
-                                    eServicesController.chosencats[index] =
-                                        newValue;
-                                    eServicesController.update();
-                                    controller.update();
-                                    print(eServicesController
-                                        .categories[index].id);
-                                    print(
-                                        eServicesController.chosencats[index]);
-                                    // });
-                                  },
-                                ))),
-                          ],
-                        ),
-                      );
-                    else {
-                      return SizedBox();
-                    }
-                  })),
+                          ),
+                        );
+                      else {
+                        return SizedBox();
+                      }
+                    })),
 
               Text("Social Media".tr, style: Get.textTheme.headline5)
                   .paddingOnly(top: 25, bottom: 0, right: 22, left: 22),
@@ -473,7 +479,7 @@ class ProfileView extends GetView<ProfileController> {
                       //    print(storeimage);
                       //   storecontrol.update();
                     },
-                    child: Icon(Icons.camera))
+                    child: Icon(Icons.add_a_photo))
             ],
           ),
         ));
@@ -543,7 +549,7 @@ class ProfileView extends GetView<ProfileController> {
                       //    print(storeimage);
                       //   storecontrol.update();
                     },
-                    child: Icon(Icons.camera))
+                    child: Icon(Icons.add_a_photo))
               ]),
             ));
   }
@@ -602,8 +608,8 @@ class ProfileView extends GetView<ProfileController> {
                       //Get.toNamed(Routes.CATEGORY, arguments: _category);
                     },
                     child: Container(
-                      width: 100,
-                      height: 100,
+                      width: 120,
+                      height: 120,
                       margin: EdgeInsetsDirectional.only(
                           end: 20,
                           start: index == 0 ? 20 : 0,
@@ -612,143 +618,396 @@ class ProfileView extends GetView<ProfileController> {
                       child: Stack(
                         alignment: AlignmentDirectional.topStart,
                         children: [
-                          ClipRRect(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
-                              child: _media),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 20.0),
+                            child: ClipRRect(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10)),
+                                child: _media),
+                          ),
 
-                          FloatingActionButton.small(
-                              onPressed: () async {
-                                showDialog(
-                                    context: context,
-                                    builder: (context) {
-                                      return Container(
-                                        child: Dialog(
-                                          child: Column(children: [
-                                            Text(
-                                                "do you want to delete this image?",
-                                                style: Get.textTheme.headline6),
-                                            SizedBox(
-                                              height: 600,
-                                              child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                          Radius.circular(10)),
-                                                  child: _media),
-                                            ),
-                                            Row(
-                                              children: [
-                                                MaterialButton(
-                                                  elevation: 0,
-                                                  onPressed: () {
-                                                    if (!control
-                                                        .boolimg[index]) {
-                                                      print(control
-                                                          .boolimg.length);
-                                                      value.iml.removeAt(index);
-                                                      value.boolimg
-                                                          .removeAt(index);
-                                                      print(control
-                                                          .boolimg.length);
-                                                      value.update();
-                                                      Navigator.pop(context);
-                                                      value.update();
-                                                    } else {
-                                                      control.deleteImage(
-                                                          profileController
-                                                              .serviceProvider
-                                                              .value
-                                                              .media[index]);
-                                                      value.iml.removeAt(index);
-                                                      value.boolimg
-                                                          .removeAt(index);
+                          // Padding(
+                          //   padding: const EdgeInsets.only(left: 78.0),
+                          //   child: Container(
+                          //     height: 30,
+                          //     width: 30,
+                          //     child: FloatingActionButton.small(
+                          //         onPressed: () async {
+                          //           showDialog(
+                          //               context: context,
+                          //               builder: (context) {
+                          //                 return Container(
+                          //                   child: Dialog(
+                          //                     child: Column(children: [
+                          //                       SizedBox(
+                          //                         height: MediaQuery.of(context)
+                          //                                 .size
+                          //                                 .height *
+                          //                             0.025,
+                          //                       ),
+                          //                       Text(
+                          //                           "do you want to delete this image?",
+                          //                           style: Get
+                          //                               .textTheme.headline6),
+                          //                       SizedBox(
+                          //                           height:
+                          //                               MediaQuery.of(context)
+                          //                                       .size
+                          //                                       .height *
+                          //                                   0.025),
+                          //                       SizedBox(
+                          //                         height: MediaQuery.of(context)
+                          //                                 .size
+                          //                                 .height *
+                          //                             0.75,
+                          //                         child: ClipRRect(
+                          //                             borderRadius:
+                          //                                 BorderRadius.all(
+                          //                                     Radius.circular(
+                          //                                         10)),
+                          //                             child: _media),
+                          //                       ),
+                          //                       Padding(
+                          //                         padding:
+                          //                             const EdgeInsets.only(
+                          //                                 left: 8.0,
+                          //                                 right: 8.0),
+                          //                         child: Row(
+                          //                           children: [
+                          //                             MaterialButton(
+                          //                               elevation: 0,
+                          //                               onPressed: () {
+                          //                                 if (!control
+                          //                                     .boolimg[index]) {
+                          //                                   print(control
+                          //                                       .boolimg
+                          //                                       .length);
+                          //                                   value.iml.removeAt(
+                          //                                       index);
+                          //                                   value.boolimg
+                          //                                       .removeAt(
+                          //                                           index);
+                          //                                   print(control
+                          //                                       .boolimg
+                          //                                       .length);
+                          //                                   value.update();
+                          //                                   Navigator.pop(
+                          //                                       context);
+                          //                                   value.update();
+                          //                                 } else {
+                          //                                   control.deleteImage(
+                          //                                       profileController
+                          //                                           .serviceProvider
+                          //                                           .value
+                          //                                           .media[index]);
+                          //                                   value.iml.removeAt(
+                          //                                       index);
+                          //                                   value.boolimg
+                          //                                       .removeAt(
+                          //                                           index);
 
-                                                      control.update();
-                                                      Navigator.pop(context);
-                                                    }
-                                                  },
-                                                  color: Get.theme.accentColor,
-                                                  height: 40,
-                                                  child: Wrap(
-                                                    runAlignment:
-                                                        WrapAlignment.center,
-                                                    crossAxisAlignment:
-                                                        WrapCrossAlignment
-                                                            .center,
-                                                    spacing: 9,
-                                                    children: [
-                                                      Icon(Icons.delete_forever,
+                          //                                   control.update();
+                          //                                   Navigator.pop(
+                          //                                       context);
+                          //                                 }
+                          //                               },
+                          //                               color: Get
+                          //                                   .theme.accentColor,
+                          //                               height: 40,
+                          //                               child: Wrap(
+                          //                                 runAlignment:
+                          //                                     WrapAlignment
+                          //                                         .center,
+                          //                                 crossAxisAlignment:
+                          //                                     WrapCrossAlignment
+                          //                                         .center,
+                          //                                 spacing: 9,
+                          //                                 children: [
+                          //                                   Icon(Icons.delete,
+                          //                                       color: Get.theme
+                          //                                           .primaryColor,
+                          //                                       size: 24),
+                          //                                   Text(
+                          //                                     "delete".tr,
+                          //                                     style: Get
+                          //                                         .textTheme
+                          //                                         .subtitle1
+                          //                                         .merge(TextStyle(
+                          //                                             color: Get
+                          //                                                 .theme
+                          //                                                 .primaryColor)),
+                          //                                   ),
+                          //                                 ],
+                          //                               ),
+                          //                               shape: StadiumBorder(),
+                          //                             ),
+                          //                             SizedBox(
+                          //                               width: MediaQuery.of(
+                          //                                           context)
+                          //                                       .size
+                          //                                       .width *
+                          //                                   0.025,
+                          //                             ),
+                          //                             MaterialButton(
+                          //                               elevation: 0,
+                          //                               color: Get
+                          //                                   .theme.focusColor
+                          //                                   .withOpacity(0.2),
+                          //                               height: 40,
+                          //                               onPressed: () {
+                          //                                 navigator.pop();
+                          //                               },
+                          //                               child: Wrap(
+                          //                                 runAlignment:
+                          //                                     WrapAlignment
+                          //                                         .center,
+                          //                                 crossAxisAlignment:
+                          //                                     WrapCrossAlignment
+                          //                                         .center,
+                          //                                 spacing: 9,
+                          //                                 children: [
+                          //                                   Icon(Icons.cancel,
+                          //                                       color: Get.theme
+                          //                                           .hintColor,
+                          //                                       size: 24),
+                          //                                   Text(
+                          //                                     "Cancel".tr,
+                          //                                     style: Get
+                          //                                         .textTheme
+                          //                                         .subtitle1
+                          //                                         .merge(TextStyle(
+                          //                                             color: Get
+                          //                                                 .theme
+                          //                                                 .hintColor)),
+                          //                                   ),
+                          //                                 ],
+                          //                               ),
+                          //                               shape: StadiumBorder(),
+                          //                             ),
+                          //                           ],
+                          //                         ),
+                          //                       )
+                          //                     ]),
+                          //                   ),
+                          //                 );
+                          //               });
+                          //           // storeimage.printInfo();
+                          //           //     final ImagePicker _picker = ImagePicker();
+
+                          //           //     final XFile image = await _picker.pickImage(source: ImageSource.gallery);
+                          //           //     File im=File(image.path);
+                          //           //     storeimage=Image.file(im);
+                          //           //       storeimage=Container(
+                          //           //         height: 150,
+                          //           //         child: Image(
+                          //           //   image: FileImage(im,
+
+                          //           //   ),
+                          //           // ),
+                          //           //       );
+                          //           //    print(storeimage);
+                          //           //   storecontrol.update();
+                          //         },
+                          //         child: Icon(Icons.remove)),
+                          //   ),
+                          // ),
+                          Positioned(
+                            top: 7,
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 88.0),
+                              child: Container(
+                                height: 25,
+                                width: 25,
+                                child: FloatingActionButton.small(
+                                    onPressed: () async {
+                                      showDialog(
+                                          context: context,
+                                          builder: (context) {
+                                            return Container(
+                                              child: Dialog(
+                                                child: Column(children: [
+                                                  SizedBox(
+                                                    height:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
+                                                  ),
+                                                  Text(
+                                                      "do you want to delete this image?",
+                                                      style: Get
+                                                          .textTheme.headline6),
+                                                  SizedBox(
+                                                      height:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .height *
+                                                              0.025),
+                                                  SizedBox(
+                                                    height:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            0.75,
+                                                    child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    10)),
+                                                        child: _media),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            left: 8.0,
+                                                            right: 8.0),
+                                                    child: Row(
+                                                      children: [
+                                                        MaterialButton(
+                                                          elevation: 0,
+                                                          onPressed: () {
+                                                            if (!control
+                                                                    .boolimg[
+                                                                index]) {
+                                                              print(control
+                                                                  .boolimg
+                                                                  .length);
+                                                              value.iml
+                                                                  .removeAt(
+                                                                      index);
+                                                              value.boolimg
+                                                                  .removeAt(
+                                                                      index);
+                                                              print(control
+                                                                  .boolimg
+                                                                  .length);
+                                                              value.update();
+                                                              Navigator.pop(
+                                                                  context);
+                                                              value.update();
+                                                            } else {
+                                                              control.deleteImage(
+                                                                  profileController
+                                                                      .serviceProvider
+                                                                      .value
+                                                                      .media[index]);
+                                                              value.iml
+                                                                  .removeAt(
+                                                                      index);
+                                                              value.boolimg
+                                                                  .removeAt(
+                                                                      index);
+
+                                                              control.update();
+                                                              Navigator.pop(
+                                                                  context);
+                                                            }
+                                                          },
                                                           color: Get.theme
-                                                              .primaryColor,
-                                                          size: 24),
-                                                      Text(
-                                                        "delete".tr,
-                                                        style: Get
-                                                            .textTheme.subtitle1
-                                                            .merge(TextStyle(
-                                                                color: Get.theme
-                                                                    .primaryColor)),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  shape: StadiumBorder(),
-                                                ),
-                                                MaterialButton(
-                                                  elevation: 0,
-                                                  color: Get.theme.focusColor
-                                                      .withOpacity(0.2),
-                                                  height: 40,
-                                                  onPressed: () {
-                                                    navigator.pop();
-                                                  },
-                                                  child: Wrap(
-                                                    runAlignment:
-                                                        WrapAlignment.center,
-                                                    crossAxisAlignment:
-                                                        WrapCrossAlignment
-                                                            .center,
-                                                    spacing: 9,
-                                                    children: [
-                                                      Icon(Icons.cancel,
+                                                              .accentColor,
+                                                          height: 40,
+                                                          child: Wrap(
+                                                            runAlignment:
+                                                                WrapAlignment
+                                                                    .center,
+                                                            crossAxisAlignment:
+                                                                WrapCrossAlignment
+                                                                    .center,
+                                                            spacing: 9,
+                                                            children: [
+                                                              Icon(Icons.delete,
+                                                                  color: Get
+                                                                      .theme
+                                                                      .primaryColor,
+                                                                  size: 24),
+                                                              Text(
+                                                                "delete".tr,
+                                                                style: Get
+                                                                    .textTheme
+                                                                    .subtitle1
+                                                                    .merge(TextStyle(
+                                                                        color: Get
+                                                                            .theme
+                                                                            .primaryColor)),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          shape:
+                                                              StadiumBorder(),
+                                                        ),
+                                                        SizedBox(
+                                                          width: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .width *
+                                                              0.025,
+                                                        ),
+                                                        MaterialButton(
+                                                          elevation: 0,
                                                           color: Get
-                                                              .theme.hintColor,
-                                                          size: 24),
-                                                      Text(
-                                                        "Cancel".tr,
-                                                        style: Get
-                                                            .textTheme.subtitle1
-                                                            .merge(TextStyle(
-                                                                color: Get.theme
-                                                                    .hintColor)),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  shape: StadiumBorder(),
-                                                ),
-                                              ],
-                                            )
-                                          ]),
-                                        ),
-                                      );
-                                    });
-                                // storeimage.printInfo();
-                                //     final ImagePicker _picker = ImagePicker();
+                                                              .theme.focusColor
+                                                              .withOpacity(0.2),
+                                                          height: 40,
+                                                          onPressed: () {
+                                                            navigator.pop();
+                                                          },
+                                                          child: Wrap(
+                                                            runAlignment:
+                                                                WrapAlignment
+                                                                    .center,
+                                                            crossAxisAlignment:
+                                                                WrapCrossAlignment
+                                                                    .center,
+                                                            spacing: 9,
+                                                            children: [
+                                                              Icon(Icons.cancel,
+                                                                  color: Get
+                                                                      .theme
+                                                                      .hintColor,
+                                                                  size: 24),
+                                                              Text(
+                                                                "Cancel".tr,
+                                                                style: Get
+                                                                    .textTheme
+                                                                    .subtitle1
+                                                                    .merge(TextStyle(
+                                                                        color: Get
+                                                                            .theme
+                                                                            .hintColor)),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          shape:
+                                                              StadiumBorder(),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  )
+                                                ]),
+                                              ),
+                                            );
+                                          });
+                                      // storeimage.printInfo();
+                                      //     final ImagePicker _picker = ImagePicker();
 
-                                //     final XFile image = await _picker.pickImage(source: ImageSource.gallery);
-                                //     File im=File(image.path);
-                                //     storeimage=Image.file(im);
-                                //       storeimage=Container(
-                                //         height: 150,
-                                //         child: Image(
-                                //   image: FileImage(im,
+                                      //     final XFile image = await _picker.pickImage(source: ImageSource.gallery);
+                                      //     File im=File(image.path);
+                                      //     storeimage=Image.file(im);
+                                      //       storeimage=Container(
+                                      //         height: 150,
+                                      //         child: Image(
+                                      //   image: FileImage(im,
 
-                                //   ),
-                                // ),
-                                //       );
-                                //    print(storeimage);
-                                //   storecontrol.update();
-                              },
-                              child: Icon(Icons.delete))
+                                      //   ),
+                                      // ),
+                                      //       );
+                                      //    print(storeimage);
+                                      //   storecontrol.update();
+                                    },
+                                    child: Icon(Icons.remove)),
+                              ),
+                            ),
+                          )
                           // Padding(
                           //   padding:
                           //       const EdgeInsetsDirectional.only(start: 12, top: 8),

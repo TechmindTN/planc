@@ -12,6 +12,7 @@ abstract class Routes {
   static const RATING = '/rating';
   static const CHAT = '/chat';
   static const INTRO = '/intro';
+  static const STATS = '/stats';
 
   static const SETTINGS = '/settings';
   static const SETTINGS_THEME_MODE = '/settings/theme_mode';

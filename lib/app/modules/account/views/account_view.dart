@@ -150,6 +150,14 @@ class AccountView extends GetView<AccountController> {
                       Get.find<RootController>().changePageInRoot(2);
                     },
                   ),
+                  AccountLinkWidget(
+                    icon: Icon(Icons.arrow_circle_up_sharp,
+                        color: Get.theme.accentColor),
+                    text: Text("Stats".tr),
+                    onTap: (e) {
+                      Get.toNamed(Routes.STATS);
+                    },
+                  ),
                 ],
               ),
             ),

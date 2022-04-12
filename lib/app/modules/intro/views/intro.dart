@@ -21,9 +21,9 @@ class IntroScreenState extends State<IntroScreen> {
 
     slides.add(
       new Slide(
-          title: "WELCOME TO PLANC",
+          title: "BIENVENUE SUR PLANC",
           description:
-              "this is the provider application where you can manage your store",
+              "ceci est l’application Provider où vous pouvez gérer votre boutique",
           pathImage: "assets/img/planCFull.png",
           colorBegin: Color.fromARGB(255, 255, 0, 0),
           colorEnd: Color.fromARGB(255, 245, 74, 74),
@@ -32,8 +32,8 @@ class IntroScreenState extends State<IntroScreen> {
     );
     slides.add(
       new Slide(
-          title: "HOME PAGE",
-          description: "you can find your services in this page",
+          title: "PAGE D'ACCUEIL",
+          description: "vous pouvez trouver vos services dans cette page",
           pathImage: "assets/img/home.png",
           colorBegin: Color.fromARGB(255, 255, 0, 0),
           colorEnd: Color.fromARGB(255, 245, 74, 74),
@@ -44,7 +44,7 @@ class IntroScreenState extends State<IntroScreen> {
       new Slide(
           title: "NOTIFICATIONS",
           description:
-              "you will receive notification for any action related to your services",
+              "vous recevrez une notification pour toute action liée à vos services",
           pathImage: "assets/img/notifications.png",
           colorBegin: Color.fromARGB(255, 255, 0, 0),
           colorEnd: Color.fromARGB(255, 245, 74, 74),
@@ -55,7 +55,7 @@ class IntroScreenState extends State<IntroScreen> {
       new Slide(
           title: "CATALOGUE",
           description:
-              "in the bottum of the profile page, you can add images for your account, these images will be visible for the users",
+              "en bas de la page de profil, vous pouvez ajouter des images pour votre compte, ces images seront visibles pour les utilisateurs",
           pathImage: "assets/img/catalog.png",
           colorBegin: Color.fromARGB(255, 255, 0, 0),
           colorEnd: Color.fromARGB(255, 245, 74, 74),
@@ -65,7 +65,7 @@ class IntroScreenState extends State<IntroScreen> {
     slides.add(
       new Slide(
           title: "PLANC",
-          description: "click done to create your profile",
+          description: "cliquez sur 'Done' pour créer votre profil",
           pathImage: "assets/img/planCFull.png",
           colorBegin: Color.fromARGB(255, 255, 0, 0),
           colorEnd: Color.fromARGB(255, 245, 74, 74),

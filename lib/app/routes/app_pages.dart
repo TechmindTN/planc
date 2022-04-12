@@ -30,6 +30,7 @@ import '../modules/settings/views/settings_view.dart';
 import '../modules/settings/views/theme_mode_view.dart';
 import '../modules/intro/views/intro.dart';
 import '../modules/category/views/category.dart';
+import '../modules/stats/views/Stats_view.dart';
 
 part 'app_routes.dart';
 
@@ -115,5 +116,7 @@ class AppPages {
         name: Routes.CATEGORY,
         page: () => CategoryView(),
         binding: ProfileBinding()),
+    GetPage(
+        name: Routes.STATS, page: () => StatsView(), binding: ProfileBinding()),
   ];
 }
