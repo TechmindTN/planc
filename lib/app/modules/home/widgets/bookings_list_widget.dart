@@ -37,6 +37,7 @@ class BookingsListWidget extends GetView<HomeController> {
             } else {
               nbr++;
               var _booking = controller.bookings.elementAt(index);
+
               if (nbr % 2 == 0) {
                 return BookingsListItemWidget(booking: _booking);
               } else {

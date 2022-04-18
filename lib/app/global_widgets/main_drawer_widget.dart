@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 // import 'package:home_services_provider/app/global_widgets/Restartwidget.dart';
 import 'package:home_services_provider/app/modules/auth/controllers/auth_controller.dart';
+import 'package:home_services_provider/app/modules/home/controllers/home_controller.dart';
 import 'package:home_services_provider/app/modules/profile/controllers/profile_controller.dart';
 import 'package:home_services_provider/main.dart';
 
@@ -47,6 +48,7 @@ class MainDrawerWidget extends StatelessWidget {
                         onPressed: () {
                           Get.find<ProfileController>().onInit();
                           Get.find<AuthController>().onInit();
+                          Get.find<HomeController>().onInit();
                           Get.find<AuthController>().currentUser.value = null;
                           // // context.findAncestorStateOfType<_RestartWidgetState>().restartApp();
                           initServices();

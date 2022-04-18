@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../models/Intervention.dart';
 import '../../../their_models/booking_model.dart';
 import '../../../routes/app_pages.dart';
 
 class BookingOptionsPopupMenuWidget extends StatelessWidget {
   const BookingOptionsPopupMenuWidget({
     Key key,
-    @required Booking booking,
+    @required Intervention booking,
   })  : _booking = booking,
         super(key: key);
 
-  final Booking _booking;
+  final Intervention _booking;
 
   @override
   Widget build(BuildContext context) {

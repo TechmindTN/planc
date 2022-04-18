@@ -13,9 +13,8 @@ import '../widgets/bookings_list_widget.dart';
 import '../widgets/statistics_carousel_widget.dart';
 
 class HomeView extends GetView<HomeController> {
-  AuthController authController=Get.find<AuthController>();
-    EServicesController eServicesController=Get.find<EServicesController>();
-
+  AuthController authController = Get.find<AuthController>();
+  EServicesController eServicesController = Get.find<EServicesController>();
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +22,7 @@ class HomeView extends GetView<HomeController> {
       body: RefreshIndicator(
           onRefresh: () async {
             print(authController.currentUser.value.email);
-                        print(eServicesController.categories.first.name);
+            print(eServicesController.categories.first.name);
 
             controller.refreshHome(showMessage: true);
           },
@@ -60,14 +59,14 @@ class HomeView extends GetView<HomeController> {
                       },
                     ),
                     ChipWidget(
-                      text: "Completed".tr,
+                      text: "waiting".tr,
                       id: 1,
                       onSelected: (id) {
                         controller.changeTab(id);
                       },
                     ),
                     ChipWidget(
-                      text: "Archived".tr,
+                      text: "Completed".tr,
                       id: 2,
                       onSelected: (id) {
                         controller.changeTab(id);
@@ -81,13 +80,15 @@ class HomeView extends GetView<HomeController> {
                       statisticsList: controller.statistics,
                     ).paddingOnly(top: 70, bottom: 50)),
               ),
-              SliverToBoxAdapter(
-                child: Wrap(
-                  children: [
-                    BookingsListWidget(),
-                  ],
-                ),
-              ),
+              GetBuilder<HomeController>(builder: (context) {
+                return SliverToBoxAdapter(
+                  child: Wrap(
+                    children: [
+                      BookingsListWidget(),
+                    ],
+                  ),
+                );
+              }),
             ],
           )),
     );

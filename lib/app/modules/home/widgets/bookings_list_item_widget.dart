@@ -3,12 +3,14 @@
  */
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart' show DateFormat;
 
 import '../../../../common/ui.dart';
+import '../../../models/Intervention.dart';
 import '../../../their_models/booking_model.dart';
 import '../../../routes/app_pages.dart';
 import 'booking_options_popup_menu_widget.dart';
@@ -16,11 +18,11 @@ import 'booking_options_popup_menu_widget.dart';
 class BookingsListItemWidget extends StatelessWidget {
   BookingsListItemWidget({
     Key key,
-    @required Booking booking,
+    @required Intervention booking,
   })  : _booking = booking,
         super(key: key);
 
-  final Booking _booking;
+  final Intervention _booking;
   GetStorage box;
   @override
   Widget build(BuildContext context) {
@@ -29,6 +31,8 @@ class BookingsListItemWidget extends StatelessWidget {
       onTap: () {
         print(box.read('currentUser'));
         Get.toNamed(Routes.BOOKING, arguments: _booking);
+        print("test pp");
+        print(_booking.client.profile_photo);
       },
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
@@ -49,7 +53,7 @@ class BookingsListItemWidget extends StatelessWidget {
                       height: 80,
                       width: 80,
                       fit: BoxFit.cover,
-                      imageUrl: _booking.eService.firstMediaUrl,
+                      imageUrl: _booking.client.profile_photo,
                       placeholder: (context, url) => Image.asset(
                         'assets/img/loading.gif',
                         fit: BoxFit.cover,
@@ -65,7 +69,9 @@ class BookingsListItemWidget extends StatelessWidget {
                   width: 80,
                   child: Column(
                     children: [
-                      Text(DateFormat('HH:mm').format(_booking.dateTime),
+                      Text(
+                          DateFormat('HH:mm')
+                              .format(_booking.datetime.toDate()),
                           maxLines: 1,
                           style: Get.textTheme.bodyText2.merge(
                             TextStyle(
@@ -74,7 +80,7 @@ class BookingsListItemWidget extends StatelessWidget {
                           softWrap: false,
                           textAlign: TextAlign.center,
                           overflow: TextOverflow.fade),
-                      Text(DateFormat('dd').format(_booking.dateTime),
+                      Text(DateFormat('dd').format(_booking.datetime.toDate()),
                           maxLines: 1,
                           style: Get.textTheme.headline3.merge(
                             TextStyle(color: Get.theme.primaryColor, height: 1),
@@ -82,7 +88,7 @@ class BookingsListItemWidget extends StatelessWidget {
                           softWrap: false,
                           textAlign: TextAlign.center,
                           overflow: TextOverflow.fade),
-                      Text(DateFormat('MMM').format(_booking.dateTime),
+                      Text(DateFormat('MMM').format(_booking.datetime.toDate()),
                           maxLines: 1,
                           style: Get.textTheme.bodyText2.merge(
                             TextStyle(color: Get.theme.primaryColor, height: 1),
@@ -112,7 +118,7 @@ class BookingsListItemWidget extends StatelessWidget {
                     children: [
                       Expanded(
                         child: Text(
-                          _booking.eService?.title ?? '',
+                          _booking.title ?? '',
                           style: Get.textTheme.bodyText2,
                           maxLines: 3,
                           // textAlign: TextAlign.end,
@@ -132,7 +138,9 @@ class BookingsListItemWidget extends StatelessWidget {
                       SizedBox(width: 5),
                       Flexible(
                         child: Text(
-                          _booking.user.name,
+                          _booking.client.first_name +
+                              ' ' +
+                              _booking.client.last_name,
                           maxLines: 1,
                           overflow: TextOverflow.fade,
                           softWrap: false,
@@ -151,7 +159,7 @@ class BookingsListItemWidget extends StatelessWidget {
                       SizedBox(width: 5),
                       Flexible(
                         child: Text(
-                          _booking.address.address,
+                          _booking.address,
                           maxLines: 1,
                           overflow: TextOverflow.fade,
                           softWrap: false,

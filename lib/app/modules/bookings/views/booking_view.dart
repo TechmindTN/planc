@@ -3,11 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:home_services_provider/app/models/Intervention.dart';
+import 'package:home_services_provider/app/modules/auth/controllers/auth_controller.dart';
 import 'package:intl/intl.dart' show DateFormat;
 import 'package:map_launcher/map_launcher.dart' as launcher;
 
 import '../../../../common/ui.dart';
 import '../../../global_widgets/circular_loading_widget.dart';
+import '../../../models/Media.dart';
 import '../../../their_models/address_model.dart';
 import '../../../their_models/booking_model.dart';
 import '../controllers/booking_controller.dart';
@@ -20,7 +23,7 @@ class BookingView extends GetView<BookingController> {
   Widget build(BuildContext context) {
     return Obx(() {
       var _booking = controller.booking.value;
-      if (!_booking.hasData) {
+      if (_booking == null || _booking.isBlank) {
         return Scaffold(
           body: CircularLoadingWidget(height: Get.height),
         );
@@ -98,8 +101,8 @@ class BookingView extends GetView<BookingController> {
                     actions: [
                       MaterialButton(
                         elevation: 0,
-                        onPressed: () => openMapsSheet(
-                            context, _booking.address, _booking.id),
+                        // onPressed: () => openMapsSheet(
+                        //     context, _booking.address, _booking.id),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
                         color: Get.theme.accentColor,
@@ -176,7 +179,7 @@ class BookingView extends GetView<BookingController> {
                                               .withOpacity(0.1),
                                         ),
                                         child: Text(
-                                          _booking.progress,
+                                          _booking.state,
                                           style: TextStyle(
                                               color: Get.theme.hintColor),
                                         ),
@@ -202,7 +205,7 @@ class BookingView extends GetView<BookingController> {
                                               .withOpacity(0.1),
                                         ),
                                         child: Text(
-                                          _booking.paymentMethod.name,
+                                          _booking.price.toString(),
                                           style: TextStyle(
                                               color: Get.theme.hintColor),
                                         ),
@@ -232,7 +235,8 @@ class BookingView extends GetView<BookingController> {
                                   value: _booking.description),
                             ],
                           ),
-                        )
+                        ),
+                        buildCatalogCustomer(controller.booking.value)
                       ],
                     ),
                   ),
@@ -243,7 +247,7 @@ class BookingView extends GetView<BookingController> {
     });
   }
 
-  BookingTitleBarWidget buildBookingTitleBarWidget(Booking _booking) {
+  BookingTitleBarWidget buildBookingTitleBarWidget(Intervention _booking) {
     return BookingTitleBarWidget(
       title: Row(
         children: [
@@ -254,7 +258,7 @@ class BookingView extends GetView<BookingController> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
-                  _booking.eService?.title ?? '',
+                  _booking.title ?? '',
                   style: Get.textTheme.headline5,
                 ),
                 Row(
@@ -262,7 +266,9 @@ class BookingView extends GetView<BookingController> {
                     Icon(Icons.person_outline, color: Get.theme.focusColor),
                     SizedBox(width: 8),
                     Text(
-                      _booking.user.name,
+                      _booking.client.first_name +
+                          ' ' +
+                          _booking.client.last_name,
                       style: Get.textTheme.bodyText1,
                       maxLines: 1,
                       overflow: TextOverflow.fade,
@@ -274,7 +280,7 @@ class BookingView extends GetView<BookingController> {
                     Icon(Icons.place_outlined, color: Get.theme.focusColor),
                     SizedBox(width: 8),
                     Expanded(
-                      child: Text(_booking.address.address,
+                      child: Text(_booking.address,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: Get.textTheme.bodyText1),
@@ -291,7 +297,7 @@ class BookingView extends GetView<BookingController> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(DateFormat('HH:mm').format(_booking.dateTime),
+                Text(DateFormat('HH:mm').format(_booking.datetime.toDate()),
                     maxLines: 1,
                     style: Get.textTheme.bodyText2.merge(
                       TextStyle(color: Get.theme.accentColor, height: 1.4),
@@ -299,7 +305,7 @@ class BookingView extends GetView<BookingController> {
                     softWrap: false,
                     textAlign: TextAlign.center,
                     overflow: TextOverflow.fade),
-                Text(DateFormat('dd').format(_booking.dateTime),
+                Text(DateFormat('dd').format(_booking.datetime.toDate()),
                     maxLines: 1,
                     style: Get.textTheme.headline3.merge(
                       TextStyle(color: Get.theme.accentColor, height: 1),
@@ -307,7 +313,7 @@ class BookingView extends GetView<BookingController> {
                     softWrap: false,
                     textAlign: TextAlign.center,
                     overflow: TextOverflow.fade),
-                Text(DateFormat('MMM').format(_booking.dateTime),
+                Text(DateFormat('MMM').format(_booking.datetime.toDate()),
                     maxLines: 1,
                     style: Get.textTheme.bodyText2.merge(
                       TextStyle(color: Get.theme.accentColor, height: 1),
@@ -328,7 +334,7 @@ class BookingView extends GetView<BookingController> {
     );
   }
 
-  Container buildContactCustomer(Booking _booking) {
+  Container buildContactCustomer(Intervention _booking) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -340,7 +346,8 @@ class BookingView extends GetView<BookingController> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text("Contact Customer".tr, style: Get.textTheme.subtitle2),
-                Text(_booking.user?.phone ?? '', style: Get.textTheme.caption),
+                Text(_booking.client.phone.toString() ?? '',
+                    style: Get.textTheme.caption),
               ],
             ),
           ),
@@ -350,7 +357,7 @@ class BookingView extends GetView<BookingController> {
               MaterialButton(
                 elevation: 0,
                 onPressed: () {
-                  //controller.saveProfileForm(_profileForm);
+                  // controller.saveProfileForm(_profileForm);
                 },
                 height: 44,
                 minWidth: 44,
@@ -382,6 +389,84 @@ class BookingView extends GetView<BookingController> {
             ],
           )
         ],
+      ),
+    );
+  }
+
+  Container buildCatalogCustomer(Intervention _booking) {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      decoration: Ui.getBoxDecoration(),
+      child: Expanded(
+        child: GetBuilder<AuthController>(
+          init: AuthController(), // intialize with the Controller
+          builder: (value) => Container(
+            padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+            width: 500,
+            height: 200,
+            // decoration: BoxDecoration(
+            //   color: Colors.blue,
+            //   gradient: new LinearGradient(
+            //       colors: [
+            //         const Color(0xFF3366FF).withOpacity(0.1),
+            //         const Color(0xFF3366FF).withOpacity(0.09),
+            //       ],
+            //       begin: const FractionalOffset(0.0, 0.0),
+            //       end: const FractionalOffset(0.0, 1.0),
+            //       stops: [0.0, 1.0],
+            //       tileMode: TileMode.clamp),
+            // ),
+            child: ListView.builder(
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemCount: _booking.media.length,
+                itemBuilder: (context, index) {
+                  Media _media = _booking.media.elementAt(index);
+                  return InkWell(
+                    child: Stack(
+                      alignment: AlignmentDirectional.topStart,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10.0),
+                          child: ClipRRect(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(5)),
+                              child: Image.network(_media.url)),
+                        ),
+                      ],
+                    ),
+                    onTap: () {
+                      showDialog(
+                          context: context,
+                          builder: (context) {
+                            print("aaaaaaaaaaaaa");
+                            print(_media);
+
+                            return Column(
+                              children: [
+                                Dialog(
+                                    insetPadding: EdgeInsets.all(0),
+                                    backgroundColor: Colors.transparent,
+                                    child: Container(
+                                      color:
+                                          Colors.transparent.withOpacity(0.3),
+                                      width: MediaQuery.of(context).size.width,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.7,
+                                      child: Image.network(_media.url),
+                                    )),
+                              ],
+                            );
+                          });
+                      //Get.toNamed(Routes.CATEGORY, arguments: _category);
+                      //Get.toNamed(Routes.CATEGORY, arguments: _category);
+                    },
+                  );
+                }),
+          ),
+        ),
       ),
     );
   }
