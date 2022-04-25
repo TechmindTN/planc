@@ -19,78 +19,78 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: RefreshIndicator(
-          onRefresh: () async {
-            print(authController.currentUser.value.email);
-            print(eServicesController.categories.first.name);
+      body: RefreshIndicator(onRefresh: () async {
+        print(authController.currentUser.value.email);
+        print(eServicesController.categories.first.name);
 
-            controller.refreshHome(showMessage: true);
-          },
-          child: CustomScrollView(
-            controller: controller.scrollController,
-            shrinkWrap: false,
-            slivers: <Widget>[
-              SliverAppBar(
-                backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-                expandedHeight: 290,
-                elevation: 0.5,
-                // pinned: true,
-                floating: false,
-                iconTheme: IconThemeData(color: Get.theme.primaryColor),
-                title: Text(
-                  "Plan C",
-                  // Get.find<SettingsService>().setting.value.appName,
-                  style: Get.textTheme.headline6,
-                ),
-                centerTitle: true,
-                automaticallyImplyLeading: false,
-                leading: new IconButton(
-                  icon: new Icon(Icons.sort, color: Colors.black87),
-                  onPressed: () => {Scaffold.of(context).openDrawer()},
-                ),
-                actions: [NotificationsButtonWidget()],
-                bottom: TabBarWidget(
-                  tabs: [
-                    ChipWidget(
-                      text: "On Going".tr,
-                      id: 0,
-                      onSelected: (id) {
-                        controller.changeTab(id);
-                      },
-                    ),
-                    ChipWidget(
-                      text: "waiting".tr,
-                      id: 1,
-                      onSelected: (id) {
-                        controller.changeTab(id);
-                      },
-                    ),
-                    ChipWidget(
-                      text: "Completed".tr,
-                      id: 2,
-                      onSelected: (id) {
-                        controller.changeTab(id);
-                      },
-                    )
+        controller.refreshHome(showMessage: true);
+      }, child: Obx(() {
+        return CustomScrollView(
+          controller: controller.scrollController,
+          shrinkWrap: false,
+          slivers: <Widget>[
+            SliverAppBar(
+              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+              expandedHeight: 290,
+              elevation: 0.5,
+              // pinned: true,
+              floating: false,
+              iconTheme: IconThemeData(color: Get.theme.primaryColor),
+              title: Text(
+                "Plan C",
+                // Get.find<SettingsService>().setting.value.appName,
+                style: Get.textTheme.headline6,
+              ),
+              centerTitle: true,
+              automaticallyImplyLeading: false,
+              leading: new IconButton(
+                icon: new Icon(Icons.sort, color: Colors.black87),
+                onPressed: () => {Scaffold.of(context).openDrawer()},
+              ),
+              actions: [NotificationsButtonWidget()],
+              bottom: TabBarWidget(
+                tabs: [
+                  ChipWidget(
+                    text: "pending".tr,
+                    id: 0,
+                    onSelected: (id) {
+                      controller.getPendingTasks(id: id);
+                    },
+                  ),
+                  ChipWidget(
+                    text: "On Going".tr,
+                    id: 1,
+                    onSelected: (id) {
+                      controller.getOngoingTasks();
+                    },
+                  ),
+                  ChipWidget(
+                    text: "Completed".tr,
+                    id: 2,
+                    onSelected: (id) {
+                      controller.getCompletedTasks();
+                    },
+                  )
+                ],
+              ),
+              flexibleSpace: FlexibleSpaceBar(
+                  collapseMode: CollapseMode.parallax,
+                  background: StatisticsCarouselWidget(
+                    statisticsList: controller.statistics,
+                  ).paddingOnly(top: 70, bottom: 50)),
+            ),
+            GetBuilder<HomeController>(builder: (context) {
+              return SliverToBoxAdapter(
+                child: Wrap(
+                  children: [
+                    BookingsListWidget(),
                   ],
                 ),
-                flexibleSpace: FlexibleSpaceBar(
-                    collapseMode: CollapseMode.parallax,
-                    background: StatisticsCarouselWidget(
-                      statisticsList: controller.statistics,
-                    ).paddingOnly(top: 70, bottom: 50)),
-              ),
-              GetBuilder<HomeController>(builder: (context) {
-                return SliverToBoxAdapter(
-                  child: Wrap(
-                    children: [
-                      BookingsListWidget(),
-                    ],
-                  ),
-                );
-              }),
-            ],
-          )),
+              );
+            }),
+          ],
+        );
+      })),
     );
   }
 }

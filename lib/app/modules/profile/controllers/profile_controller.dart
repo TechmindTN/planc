@@ -39,7 +39,7 @@ class ProfileController extends GetxController {
 
     // user.value = Get.find<AuthService>().user.value;
     // if(serviceProvider.value.)
-    if (serviceProvider.value.name != '') {
+    if (serviceProvider != null && serviceProvider.value.name != '') {
       serviceProvider.value = ServiceProvider(
           description: '',
           name: '',

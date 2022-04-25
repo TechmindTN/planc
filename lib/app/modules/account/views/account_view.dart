@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../common/ui.dart';
+import '../../../../main.dart';
 import '../../../global_widgets/notifications_button_widget.dart';
 import '../../../routes/app_pages.dart';
 import '../../../services/auth_service.dart';
@@ -11,6 +12,7 @@ import '../../profile/controllers/profile_controller.dart';
 import '../../root/controllers/root_controller.dart';
 import '../controllers/account_controller.dart';
 import '../widgets/account_link_widget.dart';
+import '../../Home/controllers/home_controller.dart';
 
 class AccountView extends GetView<AccountController> {
   @override
@@ -212,6 +214,12 @@ class AccountView extends GetView<AccountController> {
                     icon: Icon(Icons.logout, color: Get.theme.accentColor),
                     text: Text("Logout".tr),
                     onTap: (e) {
+                      Get.find<ProfileController>().onInit();
+                      Get.find<AuthController>().onInit();
+                      Get.find<HomeController>().onInit();
+                      Get.find<AuthController>().currentUser.value = null;
+                      // // context.findAncestorStateOfType<_RestartWidgetState>().restartApp();
+                      initServices();
                       Get.offAllNamed(Routes.LOGIN);
                     },
                   ),

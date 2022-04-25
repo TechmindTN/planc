@@ -11,23 +11,24 @@ import '../../../services/settings_service.dart';
 import '../controllers/auth_controller.dart';
 
 class LoginView extends GetView<AuthController> {
-    final GlobalKey<FormState> _loginForm = new GlobalKey<FormState>();
+  final GlobalKey<FormState> _loginForm = new GlobalKey<FormState>();
 
   // final _currentUser = Get.find<AuthService>().user;
   final Setting _settings = Get.find<SettingsService>().setting.value;
-  TextEditingController emailcontrol=TextEditingController();
-  TextEditingController psdcontrol=TextEditingController();
+  TextEditingController emailcontrol = TextEditingController();
+  TextEditingController psdcontrol = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    if(controller==null){
+    if (controller == null) {
       Get.put(AuthController());
     }
     return Scaffold(
         appBar: AppBar(
           title: Text(
             "Login".tr,
-            style: Get.textTheme.headline6.merge(TextStyle(color: context.theme.primaryColor)),
+            style: Get.textTheme.headline6
+                .merge(TextStyle(color: context.theme.primaryColor)),
           ),
           centerTitle: true,
           backgroundColor: Get.theme.accentColor,
@@ -35,7 +36,6 @@ class LoginView extends GetView<AuthController> {
           elevation: 0,
         ),
         body: Form(
-
           key: _loginForm,
           child: ListView(
             primary: true,
@@ -48,9 +48,13 @@ class LoginView extends GetView<AuthController> {
                     width: Get.width,
                     decoration: BoxDecoration(
                       color: Get.theme.accentColor,
-                      borderRadius: BorderRadius.vertical(bottom: Radius.circular(10)),
+                      borderRadius:
+                          BorderRadius.vertical(bottom: Radius.circular(10)),
                       boxShadow: [
-                        BoxShadow(color: Get.theme.focusColor.withOpacity(0.2), blurRadius: 10, offset: Offset(0, 5)),
+                        BoxShadow(
+                            color: Get.theme.focusColor.withOpacity(0.2),
+                            blurRadius: 10,
+                            offset: Offset(0, 5)),
                       ],
                     ),
                     margin: EdgeInsets.only(bottom: 50),
@@ -60,12 +64,14 @@ class LoginView extends GetView<AuthController> {
                         children: [
                           Text(
                             _settings.appName,
-                            style: Get.textTheme.headline6.merge(TextStyle(color: Get.theme.primaryColor, fontSize: 24)),
+                            style: Get.textTheme.headline6.merge(TextStyle(
+                                color: Get.theme.primaryColor, fontSize: 24)),
                           ),
                           SizedBox(height: 5),
                           Text(
                             "Welcome to the best service provider system!".tr,
-                            style: Get.textTheme.caption.merge(TextStyle(color: Get.theme.primaryColor)),
+                            style: Get.textTheme.caption.merge(
+                                TextStyle(color: Get.theme.primaryColor)),
                             textAlign: TextAlign.center,
                           ),
                           // Text("Fill the following credentials to login your account", style: Get.textTheme.caption.merge(TextStyle(color: Get.theme.primaryColor))),
@@ -76,7 +82,8 @@ class LoginView extends GetView<AuthController> {
                   Container(
                     decoration: Ui.getBoxDecoration(
                       radius: 14,
-                      border: Border.all(width: 5, color: Get.theme.primaryColor),
+                      border:
+                          Border.all(width: 5, color: Get.theme.primaryColor),
                     ),
                     child: ClipRRect(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -91,7 +98,9 @@ class LoginView extends GetView<AuthController> {
                 ],
               ),
               TextFieldWidget(
-          onSaved: (value){print('sss');},
+                onSaved: (value) {
+                  print('sss');
+                },
                 control: emailcontrol,
                 labelText: "Email Address".tr,
                 hintText: "johndoe@gmail.com".tr,
@@ -107,10 +116,13 @@ class LoginView extends GetView<AuthController> {
                   keyboardType: TextInputType.visiblePassword,
                   suffixIcon: IconButton(
                     onPressed: () {
-                      controller.hidePassword.value = !controller.hidePassword.value;
+                      controller.hidePassword.value =
+                          !controller.hidePassword.value;
                     },
                     color: Get.theme.focusColor,
-                    icon: Icon(controller.hidePassword.value ? Icons.visibility_outlined : Icons.visibility_off_outlined),
+                    icon: Icon(controller.hidePassword.value
+                        ? Icons.visibility_outlined
+                        : Icons.visibility_off_outlined),
                   ),
                 );
               }),
@@ -127,17 +139,18 @@ class LoginView extends GetView<AuthController> {
               ).paddingSymmetric(horizontal: 20),
               BlockButtonWidget(
                 onPressed: () async {
-                  await controller.login(emailcontrol.text,psdcontrol.text,context);
-                  if(controller.currentUser.value.email!=''&&controller.currentUser.value.email!=null){
-                  Get.offAllNamed(Routes.ROOT);
-        
+                  await controller.login(
+                      emailcontrol.text, psdcontrol.text, context);
+                  if (controller.currentUser.value.email != '' &&
+                      controller.currentUser.value.email != null) {
+                    Get.offAllNamed(Routes.ROOT);
                   }
-        
                 },
                 color: Get.theme.accentColor,
                 text: Text(
                   "Login".tr,
-                  style: Get.textTheme.headline6.merge(TextStyle(color: Get.theme.primaryColor)),
+                  style: Get.textTheme.headline6
+                      .merge(TextStyle(color: Get.theme.primaryColor)),
                 ),
               ).paddingSymmetric(vertical: 10, horizontal: 20),
               Row(
@@ -155,7 +168,4 @@ class LoginView extends GetView<AuthController> {
           ),
         ));
   }
-
-
-  
 }

@@ -14,6 +14,8 @@ class BookingsListWidget extends GetView<HomeController> {
     return Obx(() {
       if (controller.bookings.isEmpty) {
         return CircularLoadingWidget(height: 300);
+
+        // return Center(child: Text("List Is Empty"));
       } else {
         int nbr = 0;
         return ListView.builder(
@@ -29,7 +31,7 @@ class BookingsListWidget extends GetView<HomeController> {
                   child: new Center(
                     child: new Opacity(
                       opacity: controller.isLoading.value ? 1 : 0,
-                      child: new CircularProgressIndicator(),
+                      // child: new CircularProgressIndicator(),
                     ),
                   ),
                 );

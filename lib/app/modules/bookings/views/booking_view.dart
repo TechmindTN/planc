@@ -50,6 +50,7 @@ class BookingView extends GetView<BookingController> {
                     onPressed: () {
                       // TODO Accept booking
                       //controller.saveProfileForm(_profileForm);
+                      navigator.pop();
                     },
                     padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
                     shape: RoundedRectangleBorder(
@@ -66,6 +67,7 @@ class BookingView extends GetView<BookingController> {
                   onPressed: () {
                     // TODO decline booking
                     // controller.resetProfileForm(_profileForm);
+                    navigator.pop();
                   },
                   padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
                   shape: RoundedRectangleBorder(
@@ -179,7 +181,7 @@ class BookingView extends GetView<BookingController> {
                                               .withOpacity(0.1),
                                         ),
                                         child: Text(
-                                          _booking.state,
+                                          _booking.states,
                                           style: TextStyle(
                                               color: Get.theme.hintColor),
                                         ),
@@ -188,7 +190,7 @@ class BookingView extends GetView<BookingController> {
                                   ),
                                   hasDivider: true),
                               BookingRowWidget(
-                                  description: "Payment Method".tr,
+                                  description: "address".tr,
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
@@ -205,7 +207,7 @@ class BookingView extends GetView<BookingController> {
                                               .withOpacity(0.1),
                                         ),
                                         child: Text(
-                                          _booking.price.toString(),
+                                          _booking.address,
                                           style: TextStyle(
                                               color: Get.theme.hintColor),
                                         ),
@@ -214,22 +216,48 @@ class BookingView extends GetView<BookingController> {
                                   ),
                                   hasDivider: true),
                               BookingRowWidget(
-                                description: "Tax Amount".tr,
-                                child: Align(
-                                  alignment: Alignment.centerRight,
-                                  child: Text("5 dt",
-                                      style: Get.textTheme.bodyText2),
-                                ),
-                              ),
-                              BookingRowWidget(
-                                description: "Total Amount".tr,
-                                child: Align(
-                                  alignment: Alignment.centerRight,
-                                  child: Text("40 dt",
-                                      style: Get.textTheme.headline6),
-                                ),
-                                hasDivider: true,
-                              ),
+                                  description: "category".tr,
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Container(
+                                        padding: const EdgeInsets.only(
+                                            right: 12,
+                                            left: 12,
+                                            top: 6,
+                                            bottom: 6),
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(5)),
+                                          color: Get.theme.focusColor
+                                              .withOpacity(0.1),
+                                        ),
+                                        child: Text(
+                                          _booking.category.name,
+                                          style: TextStyle(
+                                              color: Get.theme.hintColor),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  hasDivider: true),
+                              // BookingRowWidget(
+                              //   description: "Tax Amount".tr,
+                              //   child: Align(
+                              //     alignment: Alignment.centerRight,
+                              //     child: Text("5 dt",
+                              //         style: Get.textTheme.bodyText2),
+                              //   ),
+                              // ),
+                              // BookingRowWidget(
+                              //   description: "Total Amount".tr,
+                              //   child: Align(
+                              //     alignment: Alignment.centerRight,
+                              //     child: Text("40 dt",
+                              //         style: Get.textTheme.headline6),
+                              //   ),
+                              //   hasDivider: true,
+                              // ),
                               BookingRowWidget(
                                   description: "Description".tr,
                                   value: _booking.description),

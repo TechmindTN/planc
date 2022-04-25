@@ -2,6 +2,8 @@
  * Copyright (c) 2020 .
  */
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 // import 'package:home_services_provider/app/global_widgets/Restartwidget.dart';
@@ -10,6 +12,7 @@ import 'package:home_services_provider/app/modules/home/controllers/home_control
 import 'package:home_services_provider/app/modules/profile/controllers/profile_controller.dart';
 import 'package:home_services_provider/main.dart';
 
+import '../modules/bookings/controllers/booking_controller.dart';
 import '../modules/root/controllers/root_controller.dart' show RootController;
 import '../routes/app_pages.dart';
 import '../services/settings_service.dart';
@@ -46,9 +49,16 @@ class MainDrawerWidget extends StatelessWidget {
                       MaterialButton(
                         elevation: 0,
                         onPressed: () {
-                          Get.find<ProfileController>().onInit();
-                          Get.find<AuthController>().onInit();
+                          Get.find<ProfileController>().serviceProvider.value =
+                              null;
+                          // Get.find<ProfileController>().onInit();
+                          Get.find<AuthController>().file = File('');
+                          Get.find<AuthController>().im =
+                              Image.file(Get.find<AuthController>().file);
+                          // Get.find<AuthController>().onInit();
                           Get.find<HomeController>().onInit();
+                          Get.find<BookingController>().onInit();
+                          Get.find<HomeController>().refreshHome();
                           Get.find<AuthController>().currentUser.value = null;
                           // // context.findAncestorStateOfType<_RestartWidgetState>().restartApp();
                           initServices();

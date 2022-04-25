@@ -168,29 +168,48 @@ class BookingsListItemWidget extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Divider(height: 8, thickness: 1),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Expanded(
-                        flex: 1,
+                      Icon(
+                        Icons.category,
+                        size: 18,
+                        color: Get.theme.focusColor,
+                      ),
+                      SizedBox(width: 5),
+                      Flexible(
                         child: Text(
-                          "Total".tr,
+                          _booking.category.name,
                           maxLines: 1,
                           overflow: TextOverflow.fade,
                           softWrap: false,
                           style: Get.textTheme.bodyText1,
                         ),
                       ),
-                      Expanded(
-                        flex: 1,
-                        child: Align(
-                            alignment: AlignmentDirectional.centerEnd,
-                            child:
-                                Text("40 dt", style: Get.textTheme.headline6)),
-                      ),
                     ],
                   ),
+                  // Divider(height: 8, thickness: 1),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //   children: [
+                  //     Expanded(
+                  //       flex: 1,
+                  //       child: Text(
+                  //         "Total".tr,
+                  //         maxLines: 1,
+                  //         overflow: TextOverflow.fade,
+                  //         softWrap: false,
+                  //         style: Get.textTheme.bodyText1,
+                  //       ),
+                  //     ),
+                  //     Expanded(
+                  //       flex: 1,
+                  //       child: Align(
+                  //           alignment: AlignmentDirectional.centerEnd,
+                  //           child:
+                  //               Text("40 dt", style: Get.textTheme.headline6)),
+                  //     ),
+                  //   ],
+                  // ),
                 ],
               ),
             ),

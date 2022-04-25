@@ -169,4 +169,8 @@ class InterventionNetwork {
       print(e);
     }
   }
+
+  Future<void> updateIntervention(String id) async {
+    await InterventionsRef.doc(id).update({"states": "ongoing"});
+  }
 }

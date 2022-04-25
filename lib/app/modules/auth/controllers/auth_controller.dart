@@ -14,6 +14,7 @@ import 'package:home_services_provider/app/models/Role.dart';
 import 'package:home_services_provider/app/models/User.dart';
 import 'package:home_services_provider/app/modules/e_services/controllers/e_service_controller.dart';
 import 'package:home_services_provider/app/modules/e_services/controllers/e_services_controller.dart';
+import 'package:home_services_provider/app/modules/home/controllers/home_controller.dart';
 import 'package:home_services_provider/app/modules/profile/controllers/profile_controller.dart';
 import 'package:home_services_provider/app/their_models/role_enum.dart';
 import 'package:image_picker/image_picker.dart';
@@ -47,7 +48,6 @@ class AuthController extends GetxController {
     im = Image.file(file);
     // iml = [];
     // Get.put(AuthController());
-    box = GetStorage();
     await getRoles();
 
     super.onInit();
@@ -207,7 +207,7 @@ class AuthController extends GetxController {
         currentUser.value =
             await userServices.getUserByEmailPassword(email, password);
         currentUser.value.printUser();
-        box.write('currentUser', "dhia");
+
         update();
       }
     } catch (e) {
@@ -221,6 +221,7 @@ class AuthController extends GetxController {
 
     try {
       await getProvider();
+      await Get.find<HomeController>().getIntervention();
     } catch (e) {
       print(e);
     }
