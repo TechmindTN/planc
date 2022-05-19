@@ -19,13 +19,14 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: RefreshIndicator(onRefresh: () async {
-        print(authController.currentUser.value.email);
-        print(eServicesController.categories.first.name);
+      body: RefreshIndicator(
+        onRefresh: () async {
+          controller.refreshHome();
+          controller.update();
 
-        controller.refreshHome(showMessage: true);
-      }, child: Obx(() {
-        return CustomScrollView(
+          controller.refreshHome(showMessage: true);
+        },
+        child: CustomScrollView(
           controller: controller.scrollController,
           shrinkWrap: false,
           slivers: <Widget>[
@@ -79,18 +80,21 @@ class HomeView extends GetView<HomeController> {
                     statisticsList: controller.statistics,
                   ).paddingOnly(top: 70, bottom: 50)),
             ),
-            GetBuilder<HomeController>(builder: (context) {
-              return SliverToBoxAdapter(
-                child: Wrap(
-                  children: [
-                    BookingsListWidget(),
-                  ],
-                ),
-              );
-            }),
+            GetBuilder<HomeController>(
+                init: HomeController(),
+                builder: (val) {
+                  // print('piiip: '+val.)
+                  return SliverToBoxAdapter(
+                    child: Wrap(
+                      children: [
+                        BookingsListWidget(bookings: val.bookings),
+                      ],
+                    ),
+                  );
+                }),
           ],
-        );
-      })),
+        ),
+      ),
     );
   }
 }

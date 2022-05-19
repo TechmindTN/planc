@@ -3,14 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:home_services_provider/app/models/Bill.dart';
 import 'package:home_services_provider/app/models/Intervention.dart';
 import 'package:home_services_provider/app/modules/auth/controllers/auth_controller.dart';
+import 'package:home_services_provider/app/modules/bill/controllers/bill_controller.dart';
+import 'package:home_services_provider/app/modules/bookings/widgets/billwidget.dart';
 import 'package:intl/intl.dart' show DateFormat;
 import 'package:map_launcher/map_launcher.dart' as launcher;
 
 import '../../../../common/ui.dart';
 import '../../../global_widgets/circular_loading_widget.dart';
 import '../../../models/Media.dart';
+import '../../../routes/app_pages.dart';
 import '../../../their_models/address_model.dart';
 import '../../../their_models/booking_model.dart';
 import '../controllers/booking_controller.dart';
@@ -21,63 +25,74 @@ import '../widgets/booking_title_bar_widget.dart';
 class BookingView extends GetView<BookingController> {
   @override
   Widget build(BuildContext context) {
+    // print('moch 7aja: ' + controller.booking.value.bill.state);
     return Obx(() {
       var _booking = controller.booking.value;
+      BillController billController = BillController();
       if (_booking == null || _booking.isBlank) {
         return Scaffold(
           body: CircularLoadingWidget(height: Get.height),
         );
       } else {
         return Scaffold(
-          bottomNavigationBar: Container(
-            padding: EdgeInsets.symmetric(vertical: 10),
-            decoration: BoxDecoration(
-              color: Get.theme.primaryColor,
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20), topRight: Radius.circular(20)),
-              boxShadow: [
-                BoxShadow(
-                    color: Get.theme.focusColor.withOpacity(0.1),
-                    blurRadius: 10,
-                    offset: Offset(0, -5)),
-              ],
-            ),
-            child: Row(
-              children: [
-                Expanded(
-                  child: MaterialButton(
-                    elevation: 0,
-                    onPressed: () {
-                      // TODO Accept booking
-                      //controller.saveProfileForm(_profileForm);
-                      navigator.pop();
-                    },
-                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    color: Get.theme.accentColor,
-                    child: Text("Accept".tr,
-                        style: Get.textTheme.bodyText2
-                            .merge(TextStyle(color: Get.theme.primaryColor))),
+          bottomNavigationBar: (controller.booking.value.billId == null)
+              ? Container(
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  decoration: BoxDecoration(
+                    color: Get.theme.primaryColor,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20)),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Get.theme.focusColor.withOpacity(0.1),
+                          blurRadius: 10,
+                          offset: Offset(0, -5)),
+                    ],
                   ),
-                ),
-                SizedBox(width: 10),
-                MaterialButton(
-                  elevation: 0,
-                  onPressed: () {
-                    // TODO decline booking
-                    // controller.resetProfileForm(_profileForm);
-                    navigator.pop();
-                  },
-                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                  color: Get.theme.hintColor.withOpacity(0.1),
-                  child: Text("Decline".tr, style: Get.textTheme.bodyText2),
-                ),
-              ],
-            ).paddingSymmetric(vertical: 10, horizontal: 20),
-          ),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: MaterialButton(
+                          elevation: 0,
+                          onPressed: () {
+                            // TODO Accept booking
+                            //controller.saveProfileForm(_profileForm);
+                            billController.billmat = [];
+                            billController.mat = [];
+                            billController.matwid = [];
+                            Get.toNamed(Routes.BILL);
+                          },
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 30, vertical: 12),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          color: Get.theme.accentColor,
+                          child: Text("create a bill".tr,
+                              style: Get.textTheme.bodyText2.merge(
+                                  TextStyle(color: Get.theme.primaryColor))),
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      MaterialButton(
+                        elevation: 0,
+                        onPressed: () {
+                          // TODO decline booking
+                          // controller.resetProfileForm(_profileForm);
+                          navigator.pop();
+                        },
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        color: Get.theme.hintColor.withOpacity(0.1),
+                        child:
+                            Text("Decline".tr, style: Get.textTheme.bodyText2),
+                      ),
+                    ],
+                  ).paddingSymmetric(vertical: 10, horizontal: 20),
+                )
+              : SizedBox(),
           body: RefreshIndicator(
               onRefresh: () async {
                 controller.refreshBooking(showMessage: true);
@@ -264,7 +279,18 @@ class BookingView extends GetView<BookingController> {
                             ],
                           ),
                         ),
-                        buildCatalogCustomer(controller.booking.value)
+                        buildCatalogCustomer(controller.booking.value),
+                        if (controller.booking.value.billId != null)
+                          FutureBuilder(
+                              future: billController
+                                  .getBill(controller.booking.value.billId.id),
+                              builder: (context, snapshot) {
+                                if (snapshot.hasData) {
+                                  Bill b = snapshot.data;
+                                  return BillWidget(bill: b);
+                                } else
+                                  return CircularLoadingWidget();
+                              })
                       ],
                     ),
                   ),

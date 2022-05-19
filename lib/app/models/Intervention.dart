@@ -11,6 +11,7 @@ class Intervention {
   Client client;
   ServiceProvider provider;
   Bill bill;
+  DocumentReference billId;
   Category category;
   final String title;
   final String description;

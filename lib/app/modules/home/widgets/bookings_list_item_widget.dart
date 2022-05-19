@@ -187,6 +187,29 @@ class BookingsListItemWidget extends StatelessWidget {
                       ),
                     ],
                   ),
+                  if (_booking.billId != null)
+                    Padding(
+                      padding: const EdgeInsets.only(left: 170),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.assignment_turned_in_rounded,
+                            size: 18,
+                            color: Color.fromARGB(255, 39, 211, 5),
+                          ),
+                          SizedBox(width: 5),
+                          Flexible(
+                            child: Text(
+                              "Billed",
+                              maxLines: 1,
+                              overflow: TextOverflow.fade,
+                              softWrap: false,
+                              style: Get.textTheme.bodyText1,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   // Divider(height: 8, thickness: 1),
                   // Row(
                   //   mainAxisAlignment: MainAxisAlignment.spaceBetween,

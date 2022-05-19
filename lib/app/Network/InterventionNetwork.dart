@@ -83,13 +83,25 @@ class InterventionNetwork {
       List<Media> media = await getMediaListByProvider(element.id);
       print('object 13');
       intervention.media = media;
-
-      //get bill
-      dr = element['bill'];
-
+      if (element.data().containsKey('bill') && element['bill'] != null)
+        print('bill element: ' + element['bill'].toString());
+      intervention.billId = element['bill'];
+      //get
+      // if (element.data().containsKey('bill') && element['bill'] != null) {
+      //   print('getting bill');
+      //   dr = element['bill'];
+      //   billServices.getBillById(dr.id).then((value) {
+      //     intervention.bill = value;
+      //     print('got bill');
+      //     interventions.add(intervention);
+      //     print('bill is: ' + intervention.bill.state);
+      //   });
+      // }
       // Bill bill = await billServices.getBillById(dr.id);
       // intervention.bill = bill;
+      // else {
       interventions.add(intervention);
+      // }
     });
     print('leeen' + interventions.length.toString());
     return interventions;
@@ -171,6 +183,10 @@ class InterventionNetwork {
   }
 
   Future<void> updateIntervention(String id) async {
-    await InterventionsRef.doc(id).update({"states": "ongoing"});
+    await InterventionsRef.doc(id).update({"states": "refused"});
+  }
+
+  Future<void> updateBillIntervention(String id, DocumentReference dr) async {
+    await InterventionsRef.doc(id).update({"bill": dr});
   }
 }

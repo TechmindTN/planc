@@ -82,7 +82,7 @@ class Setting {
         : true;
     defaultTheme = json['default_theme'];
     // mainColor = json['main_color'];
-    mainColor = '#e32636';
+    mainColor = '#9325f8';
 
     mainDarkColor = json['main_dark_color'];
     secondColor = json['second_color'];

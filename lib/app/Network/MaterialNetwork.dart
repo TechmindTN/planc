@@ -1,20 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '../models/Material.dart';
+import '../models/MaterialMod.dart';
 
-class MaterialNetwork{
-
-   FirebaseFirestore firestore = FirebaseFirestore.instance;
+class MaterialNetwork {
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
   CollectionReference materialRef =
       FirebaseFirestore.instance.collection('Material');
 
-  Future<List<Material>> getMaterialList() async {
-    List<Material> materials = [];
+  Future<List<MaterialMod>> getMaterialList() async {
+    List<MaterialMod> materials = [];
 
     QuerySnapshot snapshot = await materialRef.get();
     var list = snapshot.docs.map((e) => e.data()).toList();
     snapshot.docs.forEach((element) async {
-      Material material = Material.fromFire(element);
+      MaterialMod material = MaterialMod.fromFire(element);
 
       material.id = element.id;
       materials.add(material);
@@ -23,15 +22,26 @@ class MaterialNetwork{
     return materials;
   }
 
-   Future<Material> getMaterialById(String id) async {
-    Material material;
+  Future<MaterialMod> getMaterialById(String id) async {
+    MaterialMod material;
     DocumentSnapshot snapshot = await materialRef.doc(id).get();
-    material = Material.fromFire(snapshot.data());
+    material = MaterialMod.fromFire(snapshot.data());
     material.id = snapshot.id;
     return material;
   }
 
-  addMaterial(data){
-    materialRef.add(data).then((value) => print('Material Added')).catchError((e){print('can not add material');}   );
+  Future<DocumentReference> addMaterial(data) async {
+    try {
+      DocumentReference dr = await materialRef.add(data);
+      return dr;
+    } catch (e) {
+      print("add material error " + e);
+    }
+    // materialRef
+    //     .add(data)
+    //     .then((value) => print('Material Added'))
+    //     .catchError((e) {
+    //   print('can not add material');
+    // });
   }
 }

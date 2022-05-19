@@ -20,11 +20,14 @@ import 'package:home_services_provider/app/their_models/role_enum.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthController extends GetxController {
   File file;
   File fileLL;
-  Image im;
+  SharedPreferences prefs;
+  Image im = Image.network(
+      'https://icon-library.com/images/no-photo-available-icon/no-photo-available-icon-20.jpg');
   List<File> filel = [];
   List<Image> iml = [];
   List<bool> boolimg = [];
@@ -45,7 +48,7 @@ class AuthController extends GetxController {
 
   Future<void> onInit() async {
     file = File('');
-    im = Image.file(file);
+    // im = Image.file(file);
     // iml = [];
     // Get.put(AuthController());
     await getRoles();
@@ -202,6 +205,7 @@ class AuthController extends GetxController {
   login(String email, String password, context) async {
     try {
       print('a');
+      SharedPreferences prefs = await SharedPreferences.getInstance();
       if (formIsValid(email, password, context)) {
         print('b');
         currentUser.value =
@@ -222,6 +226,8 @@ class AuthController extends GetxController {
     try {
       await getProvider();
       await Get.find<HomeController>().getIntervention();
+      prefs.setString('email', email);
+      prefs.setString('password', password);
     } catch (e) {
       print(e);
     }

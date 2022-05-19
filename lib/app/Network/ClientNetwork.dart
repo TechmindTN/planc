@@ -9,6 +9,48 @@ class ClientNetwork {
       FirebaseFirestore.instance.collection('Client');
   UserNetwork userServices = UserNetwork();
 
+  Future<Client> getClientByUserRef(DocumentReference ref) async {
+    try {
+      print('hello from network');
+
+      Client client;
+      QuerySnapshot snapshot =
+          await clientsRef.where('user', isEqualTo: ref).get();
+      print('hello from network 2');
+      // snapshot..docs.first;
+      // DocumentSnapshot snapshot = await providersRef.doc(id).get();
+      client = Client.fromFire(snapshot.docs.first.data());
+      print('hello from network 2');
+      client.id = snapshot.docs.first.id;
+
+      //get Branches
+      // serviceProvider.branches =
+      //     await branchServices.getBranchListByProvider(snapshot.docs.first.id);
+//       print('branches done');
+//       // get category
+//       List<dynamic> drList = snapshot.docs.first['categories'];
+//       List<Category> categories = [];
+//       serviceProvider.categories = categories;
+// // print(drList.length);
+//       drList.forEach((value) async {
+//         List<Category> subCategories = [];
+//         Category category = Category(name: '', parent: null, id: value.id);
+//         subCategories =
+//             await categoryServices.getCategoriesByProvider(category.id ?? '');
+
+//         serviceProvider.categories.addAll(subCategories);
+//         print(serviceProvider.categories.length);
+//       });
+//       //  print(serviceProvider.categories!.length);
+//       serviceProvider.categories.forEach((element) {
+//         print(element.name);
+//       });
+      return client;
+    } catch (e) {
+      print('error in network ' + e);
+    }
+  }
+
   Future<List<Client>> getClientsList() async {
     int index = 0;
     List<Client> clients = [];

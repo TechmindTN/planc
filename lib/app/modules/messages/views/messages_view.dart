@@ -1,71 +1,194 @@
+import 'dart:async';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_html/style.dart';
 import 'package:get/get.dart';
+import 'package:home_services_provider/app/Network/ClientNetwork.dart';
+import 'package:home_services_provider/app/modules/profile/controllers/profile_controller.dart';
+import '../../../../common/ui.dart';
+// import '../../../Network/MessageNetwork.dart';
+import '../../../Network/ServiceProviderNetwork.dart';
+import '../../../Network/UserNetwork.dart';
+// import '../../../models/Chat.dart';
+import '../../../models/Client.dart';
+// import '../../../models/Message.dart';
 
 import '../../../global_widgets/circular_loading_widget.dart';
-import '../../../global_widgets/notifications_button_widget.dart';
-import '../../../services/auth_service.dart' show AuthService;
-import '../controllers/messages_controller.dart';
-import '../widgets/message_item_widget.dart';
 
+import '../../../models/Provider.dart';
+import '../../../models/User.dart';
+import '../../auth/controllers/auth_controller.dart';
+import '../controllers/messages_controller.dart';
+import '../widgets/chat_message_item_widget.dart';
+import '../widgets/message.dart';
+import '../widgets/new_message.dart';
+import 'chats_view.dart';
+
+// ignore: must_be_immutable
 class MessagesView extends GetView<MessagesController> {
-  Widget conversationsList() {
-    return Obx(
-      () {
-        if (controller.messages.isNotEmpty) {
-          var _messages = controller.messages;
-          return ListView.separated(
-              itemCount: _messages.length,
-              separatorBuilder: (context, index) {
-                return SizedBox(height: 7);
-              },
-              shrinkWrap: true,
-              primary: false,
-              itemBuilder: (context, index) {
-                // Message _message = _messages.elementAt(index);
-                // printInfo(info: _message.toMap().toString());
-                return MessageItemWidget(
-                  message: controller.messages.elementAt(index),
-                  onDismissed: (conversation) {
-                    controller.messages.removeAt(index);
-                  },
-                );
-              });
-        } else {
-          return CircularLoadingWidget(
-            height: Get.height,
-            onCompleteText: "Messages List Empty",
-          );
-        }
-      },
-    );
-  }
+  // ServiceProviderNetwork _providerNetwork = ServiceProviderNetwork();
+  ClientNetwork _clientNetwork = ClientNetwork();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Chats".tr,
-          style: Get.textTheme.headline6,
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        automaticallyImplyLeading: false,
-        leading: new IconButton(
-          icon: new Icon(Icons.sort, color: Get.theme.hintColor),
-          onPressed: () => {Scaffold.of(context).openDrawer()},
-        ),
-        actions: [NotificationsButtonWidget()],
-      ),
-      body: !Get.find<AuthService>().isAuth
-          ? Text('Permission denied')
-          : ListView(
-              primary: false,
-              children: <Widget>[
-                conversationsList(),
-              ],
+    return Container(
+        color: Colors.white,
+        // decoration: const BoxDecoration(
+        //   gradient: LinearGradient(
+        //     colors: [Colors.purple, Colors.pink],
+        //     tileMode: TileMode.clamp,
+        //     begin: Alignment.topRight,
+        //     end: Alignment.bottomLeft,
+        //   ),
+        // ),
+        child: Scaffold(
+            appBar: AppBar(
+              title: const Text(
+                'Chat',
+                style: TextStyle(color: Colors.white),
+              ),
+              backgroundColor: Ui.parseColor('#00B6BF'),
+              // actions: [
+              //   DropdownButton(
+              //     icon: const Icon(
+              //       Icons.more_vert,
+              //       color: Colors.white,
+              //     ),
+              //     items: [
+              //       DropdownMenuItem(
+              //         child: Row(children: const [
+              //           Icon(
+              //             Icons.exit_to_app,
+              //             color: Colors.pink,
+              //           ),
+              //           SizedBox(
+              //             width: 8,
+              //           ),
+              //           Text('Logout')
+              //         ]),
+              //         value: 'logout',
+              //       )
+              //     ],
+              //     onChanged: (itemIdentifier) {
+              //       if (itemIdentifier == 'logout') {}
+              //     },
+              //   )
+              // ],
             ),
-    );
+            body: StreamBuilder(
+                stream: FirebaseFirestore.instance
+                    .collection("Chat")
+                    .where('users',
+                        arrayContains: getRoleref(Get.find<ProfileController>()
+                            .serviceProvider
+                            .value
+                            .id))
+                    .orderBy('LastMsgAt', descending: true)
+                    .snapshots(),
+                builder: (ctx, chatSnapshot) {
+                  if (chatSnapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  } else {
+                    print('chats: ' + chatSnapshot.data.toString());
+                    final chatDocs = chatSnapshot.data?.docs;
+                    ServiceProvider sp;
+                    //  var Lastmsg = FirebaseFirestore.instance
+                    // .collection("Chat")
+                    // .where('users', arrayContains: controller.userRef)
+
+                    return ListView.builder(
+                        itemCount: chatDocs?.length,
+                        // ignore: missing_return
+                        itemBuilder: (ctx, index) {
+                          chatDocs[index]["users"].forEach((el) {
+                            if (el.id != controller.user.id) {
+                              print('el.id ' + el.id);
+                              controller.userNetwork
+                                  .getUserById(el.id)
+                                  .then((value) {
+                                controller.receiver.add(value);
+                                controller.update();
+                              });
+                              _clientNetwork
+                                  .getClientByUserRef(el)
+                                  .then((value2) {
+                                controller.receiver_client.add(value2);
+                                controller.update();
+                              });
+                            }
+                            controller.update();
+                          });
+                          return GetBuilder<MessagesController>(
+                              init: MessagesController(),
+                              builder: (val) => Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Column(children: [
+                                      InkWell(
+                                          child: Container(
+                                            height: 80,
+                                            child: Column(children: [
+                                              Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    CircleAvatar(
+                                                      backgroundImage:
+                                                          NetworkImage(val
+                                                              .receiver_client
+                                                              .value[index]
+                                                              .profile_photo),
+                                                    ),
+                                                    SizedBox(width: 15),
+                                                    Text(
+                                                      val
+                                                              .receiver_client
+                                                              .value[index]
+                                                              .first_name +
+                                                          ' ' +
+                                                          val
+                                                              .receiver_client
+                                                              .value[index]
+                                                              .last_name,
+                                                      // val.receiver.value[index]
+                                                      //         .username ??
+                                                      //     '',
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w800),
+                                                    ),
+                                                  ]),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Text("Last message",
+                                                      style: TextStyle(
+                                                          color: Colors.grey)),
+                                                ],
+                                              )
+                                            ]),
+                                          ),
+                                          onTap: () {
+                                            Get.to(() => ChatsView(
+                                                chat_id: chatDocs[index].id,
+                                                user: controller
+                                                    .receiver.value[index],
+                                                client: controller
+                                                    .receiver_client
+                                                    .value[index]));
+                                          }),
+                                      Divider(height: 8, thickness: 1),
+                                    ]),
+                                  ));
+                        });
+                  }
+                })));
   }
+}
+
+getRoleref(String id) {
+  return FirebaseFirestore.instance.doc('Provider/' + id);
 }

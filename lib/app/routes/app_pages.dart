@@ -8,6 +8,8 @@ import '../modules/auth/views/forgot_password_view.dart';
 import '../modules/auth/views/login_view.dart';
 import '../modules/auth/views/phone_verification_view.dart';
 import '../modules/auth/views/register_view.dart';
+import '../modules/bill/bindings/bill_bindings.dart';
+import '../modules/bill/views/bill.dart';
 import '../modules/bookings/views/booking_view.dart';
 import '../modules/e_services/bindings/e_services_binding.dart';
 import '../modules/e_services/views/e_service_view.dart';
@@ -36,6 +38,7 @@ part 'app_routes.dart';
 
 class AppPages {
   static const INITIAL = Routes.PRE;
+  static const root = Routes.ROOT;
 
   static final routes = [
     GetPage(
@@ -118,5 +121,6 @@ class AppPages {
         binding: ProfileBinding()),
     GetPage(
         name: Routes.STATS, page: () => StatsView(), binding: ProfileBinding()),
+    GetPage(name: Routes.BILL, page: () => BillView(), binding: BillBinding()),
   ];
 }

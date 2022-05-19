@@ -56,6 +56,7 @@ class HomeController extends GetxController {
     await getStatistics();
     // await getBookings(index: 1);
     if (showMessage) {
+      getIntervention();
       Get.showSnackbar(
           Ui.SuccessSnackBar(message: "Home page refreshed successfully".tr));
     }
@@ -81,6 +82,20 @@ class HomeController extends GetxController {
     try {
       intervention.value = await interventionNetwork.getInterventionsList(
           Get.find<ProfileController>().serviceProvider.value.id);
+      print('inter len: ' + intervention.length.toString());
+      Future.delayed(Duration(seconds: 2), () {
+        print('inter len: ' + intervention.length.toString());
+        intervention.value.forEach(((element) {
+          // print('ahla' + element.billId.toString());
+
+          // if (element.bill != null)
+          //   print('my bill: ' + element.bill.state);
+          // else {
+          //   print('no bill');
+          // }
+        }));
+      });
+
       // print("bookings length 2222..............................");
       // print(bookings.length);
       update();

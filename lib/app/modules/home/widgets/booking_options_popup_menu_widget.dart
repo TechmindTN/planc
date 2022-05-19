@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import '../../../models/Intervention.dart';
 import '../../../their_models/booking_model.dart';
 import '../../../routes/app_pages.dart';
+import '../../bill/controllers/bill_controller.dart';
 
 class BookingOptionsPopupMenuWidget extends StatelessWidget {
   const BookingOptionsPopupMenuWidget({
@@ -23,9 +24,15 @@ class BookingOptionsPopupMenuWidget extends StatelessWidget {
       ),
       onSelected: (item) {
         switch (item) {
-          case "accept":
+          case "Create a bill":
             {
               // TODO accept the booking
+
+              Get.toNamed(Routes.BILL, arguments: _booking);
+              Get.find<BillController>().billmat = [];
+              Get.find<BillController>().mat = [];
+              Get.find<BillController>().matwid = [];
+              // Get.toNamed(Routes.BILL, arguments: _booking);
             }
             break;
           case "decline":
@@ -69,12 +76,12 @@ class BookingOptionsPopupMenuWidget extends StatelessWidget {
               children: [
                 Icon(Icons.check_circle_outline, color: Get.theme.hintColor),
                 Text(
-                  "Accept".tr,
+                  "Create a bill".tr,
                   style: TextStyle(color: Get.theme.hintColor),
                 ),
               ],
             ),
-            value: "accept",
+            value: "Create a bill",
           ),
         );
         list.add(

@@ -21,22 +21,21 @@ class IntroScreenState extends State<IntroScreen> {
 
     slides.add(
       new Slide(
-          title: "BIENVENUE SUR PLANC",
-          description:
-              "ceci est l’application Provider où vous pouvez gérer votre boutique",
-          pathImage: "assets/img/planCFull.png",
-          colorBegin: Color.fromARGB(255, 255, 0, 0),
-          colorEnd: Color.fromARGB(255, 245, 74, 74),
+          title: "WELCOME TO PLANC",
+          description: "this is the Provider where you can manage your store",
+          pathImage: "assets/icon/planclogo1.png",
+          colorBegin: Color.fromARGB(255, 189, 44, 218),
+          colorEnd: Color.fromARGB(255, 128, 0, 167),
           directionColorBegin: Alignment.topLeft,
           directionColorEnd: Alignment.bottomRight),
     );
     slides.add(
       new Slide(
-          title: "PAGE D'ACCUEIL",
-          description: "vous pouvez trouver vos services dans cette page",
+          title: "HOME PAGE",
+          description: "You can find your services in this page",
           pathImage: "assets/img/home.png",
-          colorBegin: Color.fromARGB(255, 255, 0, 0),
-          colorEnd: Color.fromARGB(255, 245, 74, 74),
+          colorBegin: Color.fromARGB(255, 189, 44, 218),
+          colorEnd: Color.fromARGB(255, 128, 0, 167),
           directionColorBegin: Alignment.topLeft,
           directionColorEnd: Alignment.bottomRight),
     );
@@ -44,31 +43,31 @@ class IntroScreenState extends State<IntroScreen> {
       new Slide(
           title: "NOTIFICATIONS",
           description:
-              "vous recevrez une notification pour toute action liée à vos services",
+              "You receveive a notification for every action done in the application ",
           pathImage: "assets/img/notifications.png",
-          colorBegin: Color.fromARGB(255, 255, 0, 0),
-          colorEnd: Color.fromARGB(255, 245, 74, 74),
+          colorBegin: Color.fromARGB(255, 189, 44, 218),
+          colorEnd: Color.fromARGB(255, 128, 0, 167),
           directionColorBegin: Alignment.topLeft,
           directionColorEnd: Alignment.bottomRight),
     );
     slides.add(
       new Slide(
-          title: "CATALOGUE",
+          title: "CATALOG",
           description:
-              "en bas de la page de profil, vous pouvez ajouter des images pour votre compte, ces images seront visibles pour les utilisateurs",
+              "At the end of the profil page, you can add a catalog of photos that can be visible to the clients",
           pathImage: "assets/img/catalog.png",
-          colorBegin: Color.fromARGB(255, 255, 0, 0),
-          colorEnd: Color.fromARGB(255, 245, 74, 74),
+          colorBegin: Color.fromARGB(255, 189, 44, 218),
+          colorEnd: Color.fromARGB(255, 128, 0, 167),
           directionColorBegin: Alignment.topLeft,
           directionColorEnd: Alignment.bottomRight),
     );
     slides.add(
       new Slide(
           title: "PLANC",
-          description: "cliquez sur 'Done' pour créer votre profil",
-          pathImage: "assets/img/planCFull.png",
-          colorBegin: Color.fromARGB(255, 255, 0, 0),
-          colorEnd: Color.fromARGB(255, 245, 74, 74),
+          description: "Click 'Done' to create your profile",
+          pathImage: "assets/icon/planclogo1.png",
+          colorBegin: Color.fromARGB(255, 189, 44, 218),
+          colorEnd: Color.fromARGB(255, 128, 0, 167),
           directionColorBegin: Alignment.topLeft,
           directionColorEnd: Alignment.bottomRight),
     );

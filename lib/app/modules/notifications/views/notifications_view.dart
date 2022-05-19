@@ -30,8 +30,11 @@ class NotificationsView extends GetView<NotificationsController> {
         child: ListView(
           primary: true,
           children: <Widget>[
-            Text("Incoming Notifications".tr, style: Get.textTheme.headline5).paddingOnly(top: 25, bottom: 0, right: 22, left: 22),
-            Text("Swipe item left to delete it.".tr, style: Get.textTheme.caption).paddingSymmetric(horizontal: 22, vertical: 5),
+            Text("Incoming Notifications".tr, style: Get.textTheme.headline5)
+                .paddingOnly(top: 25, bottom: 0, right: 22, left: 22),
+            Text("Swipe item left to delete it.".tr,
+                    style: Get.textTheme.caption)
+                .paddingSymmetric(horizontal: 22, vertical: 5),
             notificationsList(),
           ],
         ),
@@ -40,32 +43,35 @@ class NotificationsView extends GetView<NotificationsController> {
   }
 
   Widget notificationsList() {
-    return Obx(() {
-      if (!controller.notifications.isNotEmpty) {
-        return CircularLoadingWidget(
-          height: 300,
-          onCompleteText: "Notification List is Empty".tr,
-        );
-      } else {
-        var _notifications = controller.notifications;
-        return ListView.separated(
-            itemCount: _notifications.length,
-            separatorBuilder: (context, index) {
-              return SizedBox(height: 7);
-            },
-            shrinkWrap: true,
-            primary: false,
-            itemBuilder: (context, index) {
-              // Message _message = _messages.elementAt(index);
-              // printInfo(info: _message.toMap().toString());
-              return NotificationItemWidget(
-                notification: controller.notifications.elementAt(index),
-                onDismissed: (conversation) {
-                  controller.notifications.removeAt(index);
+    return GetBuilder<NotificationsController>(
+        init: NotificationsController(),
+        builder: (val) {
+          if (controller.notifications.isEmpty) {
+            return CircularLoadingWidget(
+              height: 300,
+              onCompleteText: "Notification List is Empty".tr,
+            );
+          } else {
+            var _notifications = controller.notifications;
+            return ListView.separated(
+                itemCount: _notifications.length,
+                separatorBuilder: (context, index) {
+                  return SizedBox(height: 7);
                 },
-              );
-            });
-      }
-    });
+                shrinkWrap: true,
+                primary: false,
+                itemBuilder: (context, index) {
+                  // Message _message = _messages.elementAt(index);
+                  // printInfo(info: _message.toMap().toString());
+                  return NotificationItemWidget(
+                    notification: val.notifications.elementAt(index),
+                    onDismissed: (conversation) {
+                      val.notifications.removeAt(index);
+                      val.update();
+                    },
+                  );
+                });
+          }
+        });
   }
 }

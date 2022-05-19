@@ -5,14 +5,16 @@ import 'package:get/get.dart';
 import '../../../global_widgets/circular_loading_widget.dart';
 import '../controllers/home_controller.dart';
 import 'bookings_list_item_widget.dart';
+import '../../../models/Intervention.dart';
 
 class BookingsListWidget extends GetView<HomeController> {
-  BookingsListWidget({Key key}) : super(key: key);
+  RxList<Intervention> bookings = <Intervention>[].obs;
+  BookingsListWidget({Key key, this.bookings}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      if (controller.bookings.isEmpty) {
+      if (bookings.isEmpty) {
         return CircularLoadingWidget(height: 300);
 
         // return Center(child: Text("List Is Empty"));
@@ -22,9 +24,9 @@ class BookingsListWidget extends GetView<HomeController> {
           padding: EdgeInsets.only(bottom: 10, top: 10),
           primary: false,
           shrinkWrap: true,
-          itemCount: controller.bookings.length + 1,
+          itemCount: bookings.length + 1,
           itemBuilder: ((_, index) {
-            if (index == controller.bookings.length) {
+            if (index == bookings.length) {
               return Obx(() {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -38,7 +40,7 @@ class BookingsListWidget extends GetView<HomeController> {
               });
             } else {
               nbr++;
-              var _booking = controller.bookings.elementAt(index);
+              var _booking = bookings.elementAt(index);
 
               if (nbr % 2 == 0) {
                 return BookingsListItemWidget(booking: _booking);

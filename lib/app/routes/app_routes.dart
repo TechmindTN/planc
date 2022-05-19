@@ -29,4 +29,5 @@ abstract class Routes {
   static const REVIEW = '/review';
   static const BOOKING = '/booking';
   static const CATEGORY = '/category';
+  static const BILL = '/bill';
 }
