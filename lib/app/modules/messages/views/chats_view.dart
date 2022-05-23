@@ -1,0 +1,101 @@
+import 'dart:async';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:home_services_provider/app/routes/app_pages.dart';
+import '../../../../common/ui.dart';
+// import '../../../Network/MessageNetwork.dart';
+import '../../../Network/UserNetwork.dart';
+// import '../../../models/Chat.dart';
+// import '../../../models/Message.dart';
+
+import '../../../global_widgets/circular_loading_widget.dart';
+
+import '../../../models/Client.dart';
+import '../../../models/Provider.dart';
+import '../../../models/User.dart';
+import '../controllers/messages_controller.dart';
+import '../widgets/chat_message_item_widget.dart';
+import '../widgets/message.dart';
+import '../widgets/new_message.dart';
+
+// ignore: must_be_immutable
+class ChatsView extends GetView<MessagesController> {
+  final chat_id;
+  final User user;
+  final Client client;
+  ChatsView({this.chat_id, this.user, this.client});
+
+  @override
+  Widget build(BuildContext context) {
+    return WillPopScope(
+      onWillPop: () { 
+        Get.offAndToNamed(Routes.MESSAGES);
+       },
+      child: Container(
+        color: Colors.white,
+        // decoration: const BoxDecoration(
+        //   gradient: LinearGradient(
+        //     colors: [Colors.purple, Colors.pink],
+        //     tileMode: TileMode.clamp,
+        //     begin: Alignment.topRight,
+        //     end: Alignment.bottomLeft,
+        //   ),
+        // ),
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text(
+              client.first_name + ' ' + client.last_name,
+              style: TextStyle(color: Colors.white),
+            ),
+            backgroundColor: Ui.parseColor('#00B6BF'),
+            // actions: [
+            //   DropdownButton(
+            //     icon: const Icon(
+            //       Icons.more_vert,
+            //       color: Colors.white,
+            //     ),
+            //     items: [
+            //       DropdownMenuItem(
+            //         child: Row(children: const [
+            //           Icon(
+            //             Icons.exit_to_app,
+            //             color: Colors.pink,
+            //           ),
+            //           SizedBox(
+            //             width: 8,
+            //           ),
+            //           Text('Logout')
+            //         ]),
+            //         value: 'logout',
+            //       )
+            //     ],
+            //     onChanged: (itemIdentifier) {
+            //       if (itemIdentifier == 'logout') {}
+            //     },
+            //   )
+            // ],
+          ),
+          body: Container(
+            color: Color.fromARGB(131, 253, 193, 229),
+            child: Column(
+              children: [
+                Expanded(
+                  child: Messsages(
+                    chat_id: chat_id,
+                    receiver_client: client,
+                    receiver_user: user,
+                  ),
+                ),
+                NewMessage(
+                  chat_id: chat_id,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
