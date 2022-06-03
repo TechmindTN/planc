@@ -43,7 +43,9 @@ class Bill {
         'date': date ?? Timestamp.now(),
         'state': state ?? "pending",
         'total_price':
-            total_price ?? workforce_fee + service_fee + study_fee - discount,
+            total_price 
+            ?? workforce_fee + service_fee + study_fee - discount
+            ,
         // 'materials': materials
       };
 

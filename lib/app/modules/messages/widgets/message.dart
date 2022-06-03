@@ -56,7 +56,7 @@ class Messsages extends StatelessWidget {
                   return MessageBubble(
                     chatDocs[index]['content'],
                     chatDocs[index]['userId'] == user.id
-                        ? user.username
+                        ? serviceProvider.name
                         : receiver_client.first_name,
                     serviceProvider.profile_photo,
                     receiver_client.profile_photo,

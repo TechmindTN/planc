@@ -26,6 +26,8 @@ abstract class Routes {
   static const SEARCH = '/search';
   static const NOTIFICATIONS = '/notifications';
   static const HELP = '/help';
+  static const NETWORKERROR = '/network_error';
+
   static const PRIVACY = '/privacy';
   static const REVIEW = '/review';
   static const BOOKING = '/booking';

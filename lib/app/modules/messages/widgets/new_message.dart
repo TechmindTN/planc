@@ -53,7 +53,7 @@ class NewMessage extends GetWidget<MessagesController> {
               'content': value,
               'type': "file",
               'createdAt': Timestamp.now(),
-              'userId': _currentUsre.value.id
+              'userId': Get.find<AuthController>().currentUser.value.id
             });
             controller.file.value = File('');
           });

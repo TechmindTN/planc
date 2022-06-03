@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:get/get.dart';
+import 'package:home_services_provider/app/global_widgets/circular_loading_widget.dart';
 
 import '../../../../common/ui.dart';
 import '../../../global_widgets/block_button_widget.dart';
@@ -101,6 +102,7 @@ class LoginView extends GetView<AuthController> {
                 onSaved: (value) {
                   print('sss');
                 },
+                keyboardType: TextInputType.emailAddress,
                 control: emailcontrol,
                 labelText: "Email Address".tr,
                 hintText: "johndoe@gmail.com".tr,
@@ -137,8 +139,9 @@ class LoginView extends GetView<AuthController> {
                   ),
                 ],
               ).paddingSymmetric(horizontal: 20),
-              BlockButtonWidget(
+              (!controller.loading)?BlockButtonWidget(
                 onPressed: () async {
+                  controller.loading=true;
                   await controller.login(
                       emailcontrol.text, psdcontrol.text, context);
                   if (controller.currentUser.value.email != '' &&
@@ -152,7 +155,7 @@ class LoginView extends GetView<AuthController> {
                   style: Get.textTheme.headline6
                       .merge(TextStyle(color: Get.theme.primaryColor)),
                 ),
-              ).paddingSymmetric(vertical: 10, horizontal: 20),
+              ).paddingSymmetric(vertical: 10, horizontal: 20):CircularLoadingWidget(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

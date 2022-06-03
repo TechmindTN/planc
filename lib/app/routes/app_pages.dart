@@ -19,6 +19,7 @@ import '../modules/help_privacy/bindings/help_privacy_binding.dart';
 import '../modules/help_privacy/views/help_view.dart';
 import '../modules/help_privacy/views/privacy_view.dart';
 import '../modules/messages/views/chats_view.dart';
+import '../modules/network_error/network_error.dart';
 import '../modules/notifications/bindings/notifications_binding.dart';
 import '../modules/notifications/views/notifications_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
@@ -38,7 +39,7 @@ import '../modules/stats/views/Stats_view.dart';
 part 'app_routes.dart';
 
 class AppPages {
-  static const INITIAL = Routes.PRE;
+  static const INITIAL = Routes.LOGIN;
   static const root = Routes.ROOT;
 
   static final routes = [
@@ -106,6 +107,11 @@ class AppPages {
         name: Routes.PRIVACY,
         page: () => PrivacyView(),
         binding: HelpPrivacyBinding()),
+        GetPage(
+        name: Routes.NETWORKERROR,
+        page: () => NetworkError(),
+        // binding: BookEServiceBinding()
+        ),
     GetPage(
         name: Routes.HELP,
         page: () => HelpView(),

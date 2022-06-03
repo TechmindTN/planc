@@ -22,7 +22,10 @@ import 'package:path/path.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../routes/app_pages.dart';
+
 class AuthController extends GetxController {
+  bool loading=false;
   File file;
   File fileLL;
   SharedPreferences prefs;
@@ -135,6 +138,7 @@ class AuthController extends GetxController {
           //      currentUser.value=user;
           //      print(userServices.id);
           //      currentUser.value.id=userServices.id;
+          Get.offAllNamed(Routes.INTRO);
         } else {
           SnackBar snackBar = SnackBar(
             backgroundColor: Colors.red,
@@ -144,7 +148,9 @@ class AuthController extends GetxController {
         }
       }
       print('object');
+      loading=false;
     } catch (e) {
+      loading=false;
       // printError();
       SnackBar snackBar = SnackBar(
         content: Text('Something is wrong please try again'),
@@ -213,9 +219,11 @@ class AuthController extends GetxController {
         currentUser.value.printUser();
 
         update();
+        loading=false;
       }
     } catch (e) {
       print('User doesn\'t exist');
+      loading=false;
       SnackBar snackBar = SnackBar(
         content: Text('Email or password is wrong'),
         backgroundColor: Colors.red,
@@ -300,6 +308,16 @@ class AuthController extends GetxController {
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
       return false;
     }
+    else{
+      if(!email.isEmail){
+        snackBar = SnackBar(
+        backgroundColor: Colors.red,
+        content: Text('Please provide a valid email'),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      return false;
+      }
+    }
     if (password == null || password.isEmpty) {
       snackBar = SnackBar(
         backgroundColor: Colors.red,
@@ -326,6 +344,7 @@ class AuthController extends GetxController {
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
       return false;
     }
+    
     if (password != password2) {
       snackBar = SnackBar(
         backgroundColor: Colors.red,

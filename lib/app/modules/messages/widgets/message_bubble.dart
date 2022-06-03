@@ -51,7 +51,10 @@ class MessageBubble extends StatelessWidget {
                 border: Border.all(
                     width: 2, color: Color.fromARGB(255, 255, 255, 255)),
               ),
-              width: 200,
+              // width: 200,
+              constraints: BoxConstraints(minWidth: 200,
+              maxWidth: MediaQuery.of(context).size.width*0.7
+              ),
               child: Column(
                 crossAxisAlignment:
                     isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
@@ -69,31 +72,65 @@ class MessageBubble extends StatelessWidget {
                           style: const TextStyle(
                               fontSize: 16, color: Colors.white),
                         )
-                      : Container(
-                          height: 100,
-                          width: 200,
-                          child: Image.network(message),
-                        ),
+                      : InkWell(
+                        onTap: () {
+                            showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return Dialog(
+                                      insetPadding: EdgeInsets.all(0),
+                                      backgroundColor: Colors.transparent,
+                                      child: Container(
+                                        color:
+                                            Colors.transparent.withOpacity(0.3),
+                                        // width:
+                                        //     MediaQuery.of(context).size.width,
+                                        // height:
+                                        //     MediaQuery.of(context).size.height *
+                                        //         0.7,
+                                        child: Image.network(
+                                          message,
+                                          // scale: 20,
+
+                                          fit: BoxFit.fill,
+                                          // width: MediaQuery.of(context).size.width*0.9,
+                                          // height: MediaQuery.of(context).size.height*0.8,
+
+                                          // scale: 0.1,
+                                        ),
+                                      ));
+                                });
+                            //Get.toNamed(Routes.CATEGORY, arguments: _category);
+                          },
+                        child: Container(
+                           constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height*0.2,
+                            maxWidth: MediaQuery.of(context).size.width*0.7
+                            ),
+                            // height: 100,
+                            // width: 200,
+                            child: Center(child: Image.network(message)),
+                          ),
+                      ),
                 ],
               ),
             )
           ],
         ),
         isMe
-            ? Positioned(
+            ? (type=='text')?Positioned(
                 top: 0,
                 right: 180,
                 child: CircleAvatar(
                   backgroundImage: NetworkImage(imageUrl),
                 ),
-              )
-            : Positioned(
+              ):SizedBox()
+            : (type=='text')?Positioned(
                 top: 0,
                 left: 180,
                 child: CircleAvatar(
                   backgroundImage: NetworkImage(myimageUrl),
                 ),
-              ),
+              ):SizedBox(),
       ],
       clipBehavior: Clip.none,
     );

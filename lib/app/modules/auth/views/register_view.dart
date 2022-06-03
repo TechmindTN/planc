@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:home_services_provider/app/global_widgets/circular_loading_widget.dart';
 import 'package:home_services_provider/app/global_widgets/radio_widgets.dart';
 import 'package:home_services_provider/app/models/Role.dart';
 import 'package:home_services_provider/app/models/User.dart';
@@ -16,6 +17,10 @@ import '../controllers/auth_controller.dart';
 
 class RegisterView extends GetView<AuthController> {
   // final _currentUser = Get.find<AuthService>().user;
+  final formGlobalKey = GlobalKey<FormState>();
+  String _email = '';
+  String _pass = '';
+  bool confirm_pass = false;
 
   final Setting _settings = Get.find<SettingsService>().setting.value;
   String chosen = RoleEnum.Entreprise.name;
@@ -26,7 +31,7 @@ class RegisterView extends GetView<AuthController> {
   @override
   Widget build(BuildContext context) {
     Get.put(AuthController());
-    controller.getAllUsers();
+    // controller.getAllUsers();
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -77,6 +82,18 @@ class RegisterView extends GetView<AuthController> {
                         textAlign: TextAlign.center,
                       ),
                       // Text("Fill the following credentials to login your account", style: Get.textTheme.caption.merge(TextStyle(color: Get.theme.primaryColor))),
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
                     ],
                   ),
                 ),
@@ -98,15 +115,30 @@ class RegisterView extends GetView<AuthController> {
               ),
             ],
           ),
-          TextFieldWidget(
-            control: emailcontrol,
-            labelText: "Email Address".tr,
-            hintText: "johndoe@gmail.com".tr,
-            iconData: Icons.alternate_email,
-            isFirst: true,
-            isLast: false,
-          ),
-          RadioType(controller, chosen),
+          Form(
+            key: formGlobalKey,
+            child: Column(
+              children: [
+                TextFieldWidget(
+                   validator: (text) {
+                        if (text == null || text.isEmpty) {
+                          return 'field is empty'.tr;
+                        }
+                        else if(!text.isEmail)
+                        return 'Provide a valid email'.tr;
+                        _email = text;
+                        return null;
+                      },
+                  keyboardType: TextInputType.emailAddress,
+                  control: emailcontrol,
+                  labelText: "Email Address".tr,
+                  hintText: "johndoe@gmail.com".tr,
+                  iconData: Icons.alternate_email,
+                  isFirst: true,
+                  isLast: false,
+                ),
+              
+               RadioType(controller, chosen),
 
 //           Container(
 //             color: Colors.white,
@@ -125,6 +157,18 @@ class RegisterView extends GetView<AuthController> {
           // ),
           Obx(() {
             return TextFieldWidget(
+              
+              validator: (text) {
+                    if (text == null || text.isEmpty) {
+                      return 'field is empty'.tr;
+                    } else {
+                      if (text.length < 8) {
+                        return 'Password too short'.tr + ' !';
+                      }
+                    }
+                    _pass = text;
+                    return null;
+                  },
               control: psdcontrol,
               labelText: "Password".tr,
               hintText: "••••••••••••".tr,
@@ -147,6 +191,16 @@ class RegisterView extends GetView<AuthController> {
           }),
           Obx(() {
             return TextFieldWidget(
+              validator: (text) {
+                    if (text == null || text.isEmpty) {
+                      return 'field is empty'.tr;
+                    }
+                    if (text != _pass) {
+                      return 'Not matching !';
+                    }
+
+                    return null;
+                  },
               control: psd2control,
               labelText: "Confirm Password".tr,
               hintText: "••••••••••••".tr,
@@ -157,6 +211,19 @@ class RegisterView extends GetView<AuthController> {
               isFirst: false,
             );
           }),
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              ],
+            ),
+          ),
+         
         ],
       ),
       bottomNavigationBar: Row(
@@ -168,8 +235,10 @@ class RegisterView extends GetView<AuthController> {
             children: [
               SizedBox(
                 width: Get.width,
-                child: BlockButtonWidget(
+                child: (!controller.loading)?BlockButtonWidget(
                   onPressed: () {
+                    controller.loading=true;
+
                     controller.getRoles();
                     Future.delayed(Duration(seconds: 2), () {
                       print(controller.roles.length);
@@ -191,7 +260,7 @@ class RegisterView extends GetView<AuthController> {
                     user.printUser();
 
                     controller.RegisterUser(user, psd2control.text, context);
-                    Get.offAllNamed(Routes.INTRO);
+                    
 
                     // Get.offAllNamed(Routes.PHONE_VERIFICATION);
                   },
@@ -201,7 +270,7 @@ class RegisterView extends GetView<AuthController> {
                     style: Get.textTheme.headline6
                         .merge(TextStyle(color: Get.theme.primaryColor)),
                   ),
-                ).paddingOnly(top: 15, bottom: 5, right: 20, left: 20),
+                ).paddingOnly(top: 15, bottom: 5, right: 20, left: 20):CircularLoadingWidget(),
               ),
               TextButton(
                 onPressed: () {

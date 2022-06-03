@@ -30,9 +30,9 @@ class ChatsView extends GetView<MessagesController> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () { 
-        Get.offAndToNamed(Routes.MESSAGES);
-       },
+      // onWillPop: () { 
+      //   Get.offAndToNamed(Routes.MESSAGES);
+      //  },
       child: Container(
         color: Colors.white,
         // decoration: const BoxDecoration(

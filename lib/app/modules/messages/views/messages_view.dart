@@ -86,7 +86,7 @@ class MessagesView extends GetView<MessagesController> {
                             .serviceProvider
                             .value
                             .id))
-                    .orderBy('LastMsgAt', descending: true)
+                    // .orderBy('createdAt', descending: true)
                     .snapshots(),
                 builder: (ctx, chatSnapshot) {
                   print('chat docs length: '+chatSnapshot.toString());

@@ -21,6 +21,8 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  flutter_phoenix: ^1.0.0
+  connectivity_plus: ^2.3.0
   intro_slider: ^3.0.4
   firebase_storage: any
   path: ^1.8.0
@@ -58,6 +60,8 @@ dependencies:
   form_field_validator: ^1.1.0
   #IMAGE
   image_picker: ^0.8.4+11
+  image_cropper: ^2.0.3
+
 
   flutter:
     sdk: flutter

@@ -89,13 +89,26 @@ class BillNetwork {
     try {
       print('helllo 1');
       Map<String, dynamic> mapdata = bill.tofire();
+      // addMaterial();
       DocumentReference dr = await billsRef.add(mapdata).then((value) {
+        
+        // if(bill.materials!=null&&bill.materials.isNotEmpty)
+        // return materialServices.addMaterials(bill,value);
+        // else return null;
         bill.materials.forEach((element) {
           print(element);
           // Map<String, dynamic> matdata = element;
           billsRef.doc(value.id).collection('Material').add(element);
         });
         return value;
+        // {
+        //   bill.materials.forEach((element) {
+        //   print(element);
+        //   // Map<String, dynamic> matdata = element;
+        //   billsRef.doc(value.id).collection('Material').add(element);
+        // });
+        // return value;
+        // }
       });
       // print('helllo 2');
       // print(bill.materials.length);

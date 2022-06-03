@@ -1,12 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import '../models/Bill.dart';
 import '../models/MaterialMod.dart';
 
 class MaterialNetwork {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   CollectionReference materialRef =
       FirebaseFirestore.instance.collection('Material');
-
+  CollectionReference billsRef = FirebaseFirestore.instance.collection('Bill');
   Future<List<MaterialMod>> getMaterialList() async {
     List<MaterialMod> materials = [];
 
@@ -29,6 +30,18 @@ class MaterialNetwork {
     material.id = snapshot.id;
     return material;
   }
+
+
+
+  // addMaterials(Bill bill,value){
+    
+  //      bill.materials.forEach((element) {
+  //         print(element);
+  //         // Map<String, dynamic> matdata = element;
+  //         billsRef.doc(value.id).collection('Material').add(element);
+  //       });
+  //       return value;
+  // }
 
   Future<DocumentReference> addMaterial(data) async {
     try {
