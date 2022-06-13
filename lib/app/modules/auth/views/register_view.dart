@@ -229,56 +229,60 @@ class RegisterView extends GetView<AuthController> {
       bottomNavigationBar: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Wrap(
-            crossAxisAlignment: WrapCrossAlignment.center,
-            direction: Axis.vertical,
-            children: [
-              SizedBox(
-                width: Get.width,
-                child: (!controller.loading)?BlockButtonWidget(
-                  onPressed: () {
-                    controller.loading=true;
+          GetBuilder<AuthController>(
+            builder: (controller) {
+              return (!controller.loading)?Wrap(
+                crossAxisAlignment: WrapCrossAlignment.center,
+                direction: Axis.vertical,
+                children: [
+                  SizedBox(
+                    width: Get.width,
+                    child: (!controller.loading)?BlockButtonWidget(
+                      onPressed: () {
+                        controller.loading=true;
+                        controller.update();
+                        controller.getRoles();
+                        Future.delayed(Duration(seconds: 2), () {
+                          print(controller.roles.length);
+                        });
 
-                    controller.getRoles();
-                    Future.delayed(Duration(seconds: 2), () {
-                      print(controller.roles.length);
-                    });
+                        controller.update();
+                        Role role = Role(name: controller.selected.string);
+                        User user = User(
+                            email: emailcontrol.text.trim(),
+                            password: psdcontrol.text.trim(),
+                            creation_date: Timestamp.now(),
+                            last_login: Timestamp.now(),
+                            username: emailcontrol.text,
+                            role: role);
+                        controller.roles.forEach((element) {
+                          print('role is ' + element.name);
+                        });
 
-                    controller.update();
-                    Role role = Role(name: controller.selected.string);
-                    User user = User(
-                        email: emailcontrol.text.trim(),
-                        password: psdcontrol.text.trim(),
-                        creation_date: Timestamp.now(),
-                        last_login: Timestamp.now(),
-                        username: emailcontrol.text,
-                        role: role);
-                    controller.roles.forEach((element) {
-                      print('role is ' + element.name);
-                    });
+                        user.printUser();
 
-                    user.printUser();
+                        controller.RegisterUser(user, psd2control.text, context);
+                        
 
-                    controller.RegisterUser(user, psd2control.text, context);
-                    
-
-                    // Get.offAllNamed(Routes.PHONE_VERIFICATION);
-                  },
-                  color: Get.theme.accentColor,
-                  text: Text(
-                    "Register".tr,
-                    style: Get.textTheme.headline6
-                        .merge(TextStyle(color: Get.theme.primaryColor)),
+                        // Get.offAllNamed(Routes.PHONE_VERIFICATION);
+                      },
+                      color: Get.theme.accentColor,
+                      text: Text(
+                        "Register".tr,
+                        style: Get.textTheme.headline6
+                            .merge(TextStyle(color: Get.theme.primaryColor)),
+                      ),
+                    ).paddingOnly(top: 15, bottom: 5, right: 20, left: 20):CircularLoadingWidget(),
                   ),
-                ).paddingOnly(top: 15, bottom: 5, right: 20, left: 20):CircularLoadingWidget(),
-              ),
-              TextButton(
-                onPressed: () {
-                  Get.offAllNamed(Routes.LOGIN);
-                },
-                child: Text("You already have an account?".tr),
-              ).paddingOnly(bottom: 10),
-            ],
+                  TextButton(
+                    onPressed: () {
+                      Get.offAllNamed(Routes.LOGIN);
+                    },
+                    child: Text("You already have an account?".tr),
+                  ).paddingOnly(bottom: 10),
+                ],
+              ):CircularLoadingWidget();
+            }
           ),
         ],
       ),

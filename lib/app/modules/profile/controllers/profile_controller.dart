@@ -22,6 +22,7 @@ import '../../../services/auth_service.dart';
 import '../../e_services/controllers/e_services_controller.dart';
 
 class ProfileController extends GetxController {
+  bool loading=false;
   // var user = new User().obs;
   Set<Marker> markers = Set();
   Rx<User> user = User().obs;
@@ -221,17 +222,23 @@ class ProfileController extends GetxController {
           print("docref id " + dr.id);
           serviceProvider.value.id = dr.id;
         }));
-
+        loading=false;
+        update();
         Get.toNamed(
           Routes.ROOT,
         );
       } else {
+        
         Get.showSnackbar(Ui.ErrorSnackBar(
             message:
                 "There are errors in some fields please correct them!".tr));
+                loading=false;
+        update();
       }
     } catch (e) {
       print(e);
+      loading=false;
+        update();
       Get.showSnackbar(Ui.ErrorSnackBar(message: "Something was wrong".tr));
     }
   }
@@ -276,7 +283,11 @@ class ProfileController extends GetxController {
       user.refresh();
       Get.showSnackbar(
           Ui.SuccessSnackBar(message: "Profile saved successfully".tr));
+          loading=false;
+        update();
     } else {
+      loading=false;
+        update();
       Get.showSnackbar(Ui.ErrorSnackBar(
           message: "There are errors in some fields please correct them!".tr));
     }

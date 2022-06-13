@@ -40,6 +40,7 @@ class BookingsListWidget extends GetView<HomeController> {
             return FutureBuilder(
               future: futureBookings,
               builder: (context,snapshot) {
+                
                 if(snapshot.hasData){
 
                 bookings=snapshot.data as List<Intervention>;
@@ -82,6 +83,7 @@ class BookingsListWidget extends GetView<HomeController> {
                     }
                   }),
                 );}
+                
                 else{
                   return CircularLoadingWidget();
                 }

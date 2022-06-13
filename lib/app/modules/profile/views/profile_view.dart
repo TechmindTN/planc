@@ -59,6 +59,7 @@ class ProfileView extends GetView<ProfileController> {
     // controller.profileForm = new GlobalKey<FormState>();
   }
   bool ok = false;
+  final ScrollController scrollController=ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -137,78 +138,94 @@ class ProfileView extends GetView<ProfileController> {
                   offset: Offset(0, -5)),
             ],
           ),
-          child: Row(
-            children: [
-              Expanded(
-                child: MaterialButton(
-                  elevation: 0,
-                  onPressed: () {
-                    if (Get.find<ProfileController>()
-                                .serviceProvider
-                                .value
-                                .name ==
-                            '' ||
-                        Get.find<ProfileController>().serviceProvider == null) {
-                      ServiceProvider tempProvider = ServiceProvider(
-                        description: desccontrol.text,
-                        media: [],
-                        name: namecontrol.text,
-                        profile_photo: '',
-                        website: websitecontrol.text,
-                        categories: [],
+          child: GetBuilder<ProfileController>(
+            builder: (controller) {
+              return (!controller.loading)?Row(
+                children: [
+                  Expanded(
+                    child: MaterialButton(
+                      elevation: 0,
+                      onPressed: () {
+                        controller.loading=true;
+                        controller.update();
+                        if (Get.find<ProfileController>()
+                                    .serviceProvider
+                                    .value
+                                    .name ==
+                                '' ||
+                            Get.find<ProfileController>().serviceProvider == null) {
+                          ServiceProvider tempProvider = ServiceProvider(
+                            description: desccontrol.text,
+                            media: [],
+                            name: namecontrol.text,
+                            profile_photo: '',
+                            website: websitecontrol.text,
+                            categories: [],
 
-                        // user: authController.userServices.dr,
-                        // user: authController.userServices.getUserRef(authController.currentUser.value.id),
+                            // user: authController.userServices.dr,
+                            // user: authController.userServices.getUserRef(authController.currentUser.value.id),
 
-                        address: addresscontrol.text,
-                        // branch_name: '',
-                        city: citycontrol.text,
-                        country: countrycontrol.text,
-                        // is_main: true,
-                        phone: int.parse(phonecontrol.text),
-                        social_media: {
-                          "Facebook": fbcontrol.text,
-                          "LinkedIn": linkcontrol.text,
-                          "Instagram": instcontrol.text
-                        },
-                        state: statecontrol.text,
-                        open_days: {},
-                        zip_code: 0000,
-                      );
-                      print(authController.currentUser.value.id);
-                      controller.saveProviderForm(_profileForm, tempProvider);
-                    } else {
-                      controller.edit(context);
-                      controller.update();
-                    }
-                  },
-                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                  color: Get.theme.accentColor,
-                  child: Text("Save".tr,
-                      style: Get.textTheme.bodyText2
-                          .merge(TextStyle(color: Get.theme.primaryColor))),
-                ),
-              ),
-              SizedBox(width: 10),
-              MaterialButton(
-                elevation: 0,
-                onPressed: () {
-                  controller.resetProfileForm(_profileForm);
-                },
-                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
-                color: Get.theme.hintColor.withOpacity(0.1),
-                child: Text("Reset".tr, style: Get.textTheme.bodyText2),
-              ),
-            ],
-          ).paddingSymmetric(vertical: 10, horizontal: 20),
+                            address: addresscontrol.text,
+                            // branch_name: '',
+                            city: citycontrol.text,
+                            country: countrycontrol.text,
+                            // is_main: true,
+                            phone: int.parse(phonecontrol.text),
+                            social_media: {
+                              "Facebook": fbcontrol.text,
+                              "LinkedIn": linkcontrol.text,
+                              "Instagram": instcontrol.text
+                            },
+                            state: statecontrol.text,
+                            open_days: {},
+                            zip_code: 0000,
+                          );
+                          print(authController.currentUser.value.id);
+                          controller.saveProviderForm(_profileForm, tempProvider);
+                          // controller.loading=false;
+                          // controller.update();
+                        } else {
+                          controller.edit(context);
+                          controller.update();
+                          controller.loading=false;
+                          controller.update();
+                        }
+                      },
+                      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      color: Get.theme.accentColor,
+                      child: Text("Save".tr,
+                          style: Get.textTheme.bodyText2
+                              .merge(TextStyle(color: Get.theme.primaryColor))),
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  MaterialButton(
+                    elevation: 0,
+                    onPressed: () {
+                      controller.resetProfileForm(_profileForm);
+                    },
+                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    color: Get.theme.hintColor.withOpacity(0.1),
+                    child: Text("Reset".tr, style: Get.textTheme.bodyText2),
+                  ),
+                ],
+              ).paddingSymmetric(vertical: 10, horizontal: 20):Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CircularProgressIndicator(),
+                ],
+              );
+            }
+          ),
         ),
         body: Form(
           key: _profileForm,
           child: ListView(
+            
             shrinkWrap: true,
             primary: true,
             children: [
@@ -217,7 +234,7 @@ class ProfileView extends GetView<ProfileController> {
               Text("Change the following details and save them".tr,
                       style: Get.textTheme.caption)
                   .paddingSymmetric(horizontal: 22, vertical: 5),
-              getImageHeaderWidget(authController),
+              getImageHeaderWidget(authController,context),
               TextFieldWidget(
                 control: namecontrol,
                 onSaved: (input) =>
@@ -485,7 +502,7 @@ class ProfileView extends GetView<ProfileController> {
         ));
   }
 
-  Widget getImageHeaderWidget(AuthController control) {
+  Widget getImageHeaderWidget(AuthController control, context) {
     return GetBuilder<AuthController>(
         init: AuthController(), // intialize with the Controller
         builder: (value) => Container(
@@ -530,8 +547,52 @@ class ProfileView extends GetView<ProfileController> {
                 SizedBox(height: 20),
                 FloatingActionButton(
                     onPressed: () async {
-                      control.changeImage();
-                      control.update();
+                       showModalBottomSheet(
+                        constraints: BoxConstraints(
+                          maxHeight: MediaQuery.of(context).size.height*0.2
+                        ),
+                        context: context, builder: (context){
+                          return Column(
+                          children: [
+                            ListTile(
+                              onTap: (){
+                                control.changeImage();
+                      
+                      Future.delayed(Duration(seconds: 5),(){
+                      //   if(control.file!=null&&control.file.path!=''){
+                      //   print('got image');
+                      //   // scrollController.animateTo(scrollController.position.maxScrollExtent, duration: Duration(seconds: 1), curve: Curves.easeIn);
+                      // }
+                      });
+                      controller.update();
+                      Navigator.pop(context);
+                              },
+                              leading: Icon(Icons.photo),
+                              title: Text("From Gallery"),
+
+                            ),
+                            ListTile(
+                              onTap: (){
+                                control.changeCameraImage();
+                      
+                      Future.delayed(Duration(seconds: 5),(){
+                      //   if(control.file!=null&&control.file.path!=''){
+                      //   print('got image');
+                      //   // scrollController.animateTo(scrollController.position.maxScrollExtent, duration: Duration(seconds: 1), curve: Curves.easeIn);
+                      // }
+                      });
+                      controller.update();
+                      Navigator.pop(context);
+                              },
+                              leading: Icon(Icons.camera_alt),
+                              title: Text("From Camera"),
+
+                            ),
+                          ],
+                        );
+                        });
+                      // control.changeImage();
+                      // control.update();
                       // storeimage.printInfo();
                       //     final ImagePicker _picker = ImagePicker();
 

@@ -49,7 +49,8 @@ class ChatsView extends GetView<MessagesController> {
               client.first_name + ' ' + client.last_name,
               style: TextStyle(color: Colors.white),
             ),
-            backgroundColor: Ui.parseColor('#00B6BF'),
+            // backgroundColor: Ui.parseColor('#00B6BF'),
+            backgroundColor: Get.theme.primaryColor,
             // actions: [
             //   DropdownButton(
             //     icon: const Icon(

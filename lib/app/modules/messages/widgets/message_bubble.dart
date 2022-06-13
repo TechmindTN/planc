@@ -53,7 +53,7 @@ class MessageBubble extends StatelessWidget {
               ),
               // width: 200,
               constraints: BoxConstraints(minWidth: 200,
-              maxWidth: MediaQuery.of(context).size.width*0.7
+              maxWidth: (type=='text')?200:MediaQuery.of(context).size.width*0.7
               ),
               child: Column(
                 crossAxisAlignment:

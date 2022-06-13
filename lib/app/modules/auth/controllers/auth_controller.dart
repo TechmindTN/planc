@@ -17,6 +17,7 @@ import 'package:home_services_provider/app/modules/e_services/controllers/e_serv
 import 'package:home_services_provider/app/modules/home/controllers/home_controller.dart';
 import 'package:home_services_provider/app/modules/profile/controllers/profile_controller.dart';
 import 'package:home_services_provider/app/their_models/role_enum.dart';
+import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -132,6 +133,8 @@ class AuthController extends GetxController {
           DocumentReference val = await userServices.addUser(mapdata);
           currentUser.value = user;
           currentUser.value.id = val.id;
+          loading=false;
+          update();
           //  print(userServices.id);
           // role.id=roleref.id;
           //     user.id=userServices.id;
@@ -140,6 +143,8 @@ class AuthController extends GetxController {
           //      currentUser.value.id=userServices.id;
           Get.offAllNamed(Routes.INTRO);
         } else {
+          loading=false;
+          update();
           SnackBar snackBar = SnackBar(
             backgroundColor: Colors.red,
             content: Text('Email is required'),
@@ -149,8 +154,10 @@ class AuthController extends GetxController {
       }
       print('object');
       loading=false;
+      update();
     } catch (e) {
       loading=false;
+      update();
       // printError();
       SnackBar snackBar = SnackBar(
         content: Text('Something is wrong please try again'),
@@ -161,18 +168,43 @@ class AuthController extends GetxController {
     }
   }
 
-  changeImage() async {
+
+
+changeImage() async {
     final ImagePicker _picker = ImagePicker();
 
     final XFile pickedimage =
         await _picker.pickImage(source: ImageSource.gallery);
     file = File(pickedimage.path);
-    im = Image.file(file);
-
+    CroppedFile croppedFile = await ImageCropper().cropImage(
+      sourcePath: file.path,
+      aspectRatioPresets: [
+        CropAspectRatioPreset.square,
+        CropAspectRatioPreset.ratio3x2,
+        CropAspectRatioPreset.original,
+        CropAspectRatioPreset.ratio4x3,
+        CropAspectRatioPreset.ratio16x9
+      ],
+      uiSettings: [
+        AndroidUiSettings(
+            toolbarTitle: 'Cropper',
+            toolbarColor: Colors.deepOrange,
+            toolbarWidgetColor: Colors.white,
+            initAspectRatio: CropAspectRatioPreset.original,
+            lockAspectRatio: false),
+        IOSUiSettings(
+          title: 'Cropper',
+        ),
+      ],
+    );
+    File f=File(croppedFile.path);
+    file=f;
+    // file.path=croppedFile.path;
+    im = Image.file(f);
+    update();
     print("this");
     print(im);
 
-    update();
     //       storeimage=Container(
     //         height: 150,
     //         child: Image(
@@ -183,6 +215,78 @@ class AuthController extends GetxController {
     //       );
     //print(storeimage);
   }
+
+
+  // changeImage() async {
+  //   final ImagePicker _picker = ImagePicker();
+
+  //   final XFile pickedimage =
+  //       await _picker.pickImage(source: ImageSource.gallery);
+  //   file = File(pickedimage.path);
+  //   im = Image.file(file);
+
+  //   print("this");
+  //   print(im);
+
+  //   update();
+  //   //       storeimage=Container(
+  //   //         height: 150,
+  //   //         child: Image(
+  //   //   image: FileImage(im,
+
+  //   //   ),
+  //   // ),
+  //   //       );
+  //   //print(storeimage);
+  // }
+
+
+  changeCameraImage() async {
+    final ImagePicker _picker = ImagePicker();
+
+    final XFile pickedimage =
+        await _picker.pickImage(source: ImageSource.camera);
+    file = File(pickedimage.path);
+    CroppedFile croppedFile = await ImageCropper().cropImage(
+      sourcePath: file.path,
+      aspectRatioPresets: [
+        CropAspectRatioPreset.square,
+        CropAspectRatioPreset.ratio3x2,
+        CropAspectRatioPreset.original,
+        CropAspectRatioPreset.ratio4x3,
+        CropAspectRatioPreset.ratio16x9
+      ],
+      uiSettings: [
+        AndroidUiSettings(
+            toolbarTitle: 'Cropper',
+            toolbarColor: Colors.deepOrange,
+            toolbarWidgetColor: Colors.white,
+            initAspectRatio: CropAspectRatioPreset.original,
+            lockAspectRatio: false),
+        IOSUiSettings(
+          title: 'Cropper',
+        ),
+      ],
+    );
+    File f=File(croppedFile.path);
+    file=f;
+    // file.path=croppedFile.path;
+    im = Image.file(f);
+    update();
+    print("this");
+    print(im);
+
+    //       storeimage=Container(
+    //         height: 150,
+    //         child: Image(
+    //   image: FileImage(im,
+
+    //   ),
+    // ),
+    //       );
+    //print(storeimage);
+  }
+
 
   addImage() async {
     final ImagePicker _picker = ImagePicker();

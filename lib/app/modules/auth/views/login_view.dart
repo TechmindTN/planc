@@ -133,7 +133,7 @@ class LoginView extends GetView<AuthController> {
                 children: [
                   TextButton(
                     onPressed: () {
-                      Get.offAndToNamed(Routes.FORGOT_PASSWORD);
+                      Get.toNamed(Routes.FORGOT_PASSWORD);
                     },
                     child: Text("Forgot Password?".tr),
                   ),
